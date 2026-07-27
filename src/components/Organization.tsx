@@ -27,17 +27,58 @@ export const Organization: React.FC = () => {
           </p>
         </div>
 
-        {/* CEO / Executive Card */}
-        <div className="flex flex-col items-center justify-center mb-12">
-          <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white px-8 py-5 rounded-xl shadow-lg border border-slate-800 text-center w-full max-w-md relative overflow-hidden">
-            <div className="inline-block bg-blue-500/20 text-blue-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+        {/* Top CEO & R&D Center Hierarchy */}
+        <div className="flex flex-col items-center mb-10 relative">
+          {/* CEO Node */}
+          <div className="bg-slate-900 text-white px-7 py-3.5 rounded-xl shadow-sm border border-slate-800 text-center z-10 max-w-xs w-full">
+            <div className="text-[10px] font-bold tracking-widest text-emerald-400 uppercase mb-0.5">
               EXECUTIVE LEADERSHIP
             </div>
-            <h3 className="text-xl font-extrabold tracking-tight">대표이사 / CEO</h3>
-            <p className="text-sm font-semibold text-slate-300 mt-1">{COMPANY_INFO.ceo} 대표이사 / CEO</p>
+            <h3 className="text-base font-bold text-white">대표이사 / CEO</h3>
+            <p className="text-xs text-slate-300 font-medium mt-0.5">{COMPANY_INFO.ceo} 대표이사 / CEO</p>
           </div>
-          {/* Connector line */}
-          <div className="w-0.5 h-8 bg-blue-300 my-1"></div>
+
+          {/* Stem with Right Branch for R&D Center */}
+          <div className="relative w-full max-w-3xl flex flex-col items-center">
+            {/* Upper Stem Line */}
+            <div className="w-0.5 h-6 bg-slate-300"></div>
+
+            {/* Branch Junction Row */}
+            <div className="relative w-full flex items-center justify-center min-h-[72px]">
+              {/* Main Trunk Line */}
+              <div className="absolute w-0.5 h-full bg-slate-300 left-1/2 -translate-x-1/2"></div>
+
+              {/* Right Branch Container */}
+              <div className="absolute left-1/2 top-1/2 -translate-y-1/2 flex items-center z-10">
+                {/* Horizontal Branch Line */}
+                <div className="w-6 sm:w-10 md:w-14 h-0.5 bg-slate-300 relative flex-shrink-0">
+                  <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-slate-400"></div>
+                  <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-slate-400"></div>
+                </div>
+
+                {/* R&D Center Box */}
+                <div className="bg-slate-900 text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl shadow-sm border border-slate-800 text-left w-48 sm:w-60 md:w-72 flex-shrink-0">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    <span className="text-[10px] font-bold tracking-widest text-emerald-400 uppercase">R&amp;D CENTER</span>
+                  </div>
+                  <h4 className="text-xs sm:text-sm font-bold text-white">기업부설연구소</h4>
+                  <p className="text-[10px] sm:text-[11px] text-slate-300 font-normal mt-0.5 leading-snug">AI 에듀테크 · 미래 교육 콘텐츠 &amp; 미디어 기술 연구 개발</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Lower Stem Line */}
+            <div className="w-0.5 h-6 bg-slate-300"></div>
+
+            {/* Horizontal Distribution Bar */}
+            <div className="hidden md:block w-full max-w-3xl h-0.5 bg-slate-300 relative">
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-blue-500"></div>
+              <div className="absolute left-[33%] top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-teal-500"></div>
+              <div className="absolute left-[66%] top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-purple-500"></div>
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-amber-500"></div>
+            </div>
+          </div>
         </div>
 
         {/* Divisions Grid */}

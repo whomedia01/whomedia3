@@ -8,17 +8,17 @@ export const BusinessAreas: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Category Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-bold text-blue-600 tracking-wider uppercase bg-blue-50 px-3 py-1 rounded-full">
-            ONE-STOP MEDIA ECOSYSTEM & HUB
+          <span className="text-xs font-bold text-blue-600 tracking-wider bg-blue-50 px-3.5 py-1 rounded-full border border-blue-200/60 shadow-2xs">
+            콘텐츠 개발부터 언론 마케팅까지 통합 비즈니스
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3 mb-3">
             디지털 통합 미디어 비즈니스 허브
           </h2>
-          <p className="text-base font-bold text-red-600 mb-2">
-            ‘기업 컨설팅’ 가치를 극대화하는 가장 확실한 미디어 파트너
+          <p className="text-base sm:text-lg font-bold text-slate-900 mb-2 text-blue-950">
+            "기업 브랜드 가치를 극대화하는 가장 확실한 원스톱 미디어 솔루션"
           </p>
-          <p className="text-sm text-slate-600">
-            기업 가치 증진과 브랜드 아이덴티티 극대화를 위한 체계적인 미디어 솔루션을 제공합니다.
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            단순한 콘텐츠 개발을 넘어 교육 컨설팅, 브랜딩, 언론 홍보·마케팅까지 한 번에 실현하는 <strong className="text-slate-900 font-bold">(주)후미디어 고유의 3대 핵심 미디어 네트워크 시스템</strong>입니다.
           </p>
         </div>
 

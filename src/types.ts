@@ -1,14 +1,15 @@
-export type PortfolioCategory = 'all' | 'board' | 'eboard' | 'chroma' | 'intro' | 'promo';
+export type PortfolioCategory = 'all' | 'edu' | 'production' | 'hucampus' | 'press';
 
 export interface PortfolioItem {
-  id: string;          // YouTube Video ID
-  title: string;       // Video title
+  id: string;          // YouTube Video ID or unique ID
+  title: string;       // Item title
   cat: PortfolioCategory; // Category key
-  tag: string;         // Client / Publisher name
+  tag: string;         // Client / Institution name
   label: string;       // Category badge label
-  duration?: string;   // Video duration string
+  duration?: string;   // Video or reading duration
   year?: string;       // Production year
   description?: string;// Brief description
+  imageUrl?: string;   // Optional custom thumbnail image URL
 }
 
 export interface DivisionItem {
