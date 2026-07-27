@@ -37,6 +37,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
     { label: '스튜디오 임대', id: 'studio' },
     { label: '스튜디오 갤러리', id: 'gallery' },
     { label: '포트폴리오', id: 'portfolio' },
+    { label: '자주 묻는 질문', id: 'faq' },
     { label: '문의하기', id: 'contact' },
   ];
 
@@ -44,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
         ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200 py-3' 
-        : 'bg-white border-b border-slate-100 py-4'
+        : 'bg-slate-950/90 backdrop-blur-md border-b border-slate-800/60 py-4'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -55,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             className="flex items-center space-x-2 text-left group"
           >
             <span className="text-2xl sm:text-3xl font-black tracking-tight font-sans">
-              <span className="text-slate-900">HOO</span>
+              <span className={isScrolled ? 'text-slate-900' : 'text-white'}>HOO</span>
               <span className="text-red-600">MEDIA</span>
             </span>
           </button>
@@ -67,7 +68,9 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                 key={item.id}
                 id={`nav-${item.id}`}
                 onClick={() => scrollTo(item.id)}
-                className="text-sm font-semibold text-slate-700 hover:text-red-600 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-600 hover:after:w-full after:transition-all"
+                className={`text-sm font-semibold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-600 hover:after:w-full after:transition-all ${
+                  isScrolled ? 'text-slate-700 hover:text-red-600' : 'text-slate-200 hover:text-red-400'
+                }`}
               >
                 {item.label}
               </button>
@@ -78,9 +81,11 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           <div className="hidden md:flex items-center space-x-4">
             <a 
               href={`tel:${COMPANY_INFO.phone}`}
-              className="text-xs font-bold text-slate-600 hover:text-slate-900 flex items-center space-x-1 bg-slate-100 px-3 py-1.5 rounded-full"
+              className={`text-xs font-bold flex items-center space-x-1 px-3 py-1.5 rounded-full ${
+                isScrolled ? 'text-slate-600 hover:text-slate-900 bg-slate-100' : 'text-slate-300 hover:text-white bg-slate-900/80 border border-slate-800'
+              }`}
             >
-              <Phone className="w-3.5 h-3.5 text-emerald-600" />
+              <Phone className="w-3.5 h-3.5 text-emerald-500" />
               <span>{COMPANY_INFO.phone}</span>
             </a>
             <button
@@ -98,7 +103,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-700 hover:text-slate-900 focus:outline-none"
+              className={`p-2 focus:outline-none ${isScrolled ? 'text-slate-700 hover:text-slate-900' : 'text-slate-200 hover:text-white'}`}
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

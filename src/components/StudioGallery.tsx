@@ -26,10 +26,10 @@ export const StudioGallery: React.FC = () => {
   };
 
   return (
-    <section id="gallery" className="py-20 bg-slate-900 text-white border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="h-[100dvh] min-h-[100dvh] snap-start snap-always flex-shrink-0 flex flex-col justify-center items-center py-12 sm:py-16 bg-slate-900 text-white border-b border-slate-800 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-4">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 sm:mb-10 gap-4">
           <div>
             <span className="text-xs font-bold text-red-500 tracking-wider uppercase bg-red-950/60 border border-red-800/40 px-3 py-1 rounded-full">
               STUDIO / RENT GALLERY

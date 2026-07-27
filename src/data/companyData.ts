@@ -88,6 +88,9 @@ export const STUDIO_PACKAGES: StudioPackage[] = [
     title: '스튜디오 1 & 2',
     badge: '86인치 전자칠판 세트',
     image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80',
+    status: 'available',
+    statusText: '오늘 바로 대여 가능',
+    nextAvailableTime: '실시간 예약 접수 중',
     specs: [
       '86인치 4K UHD 전자칠판 및 최신 판서 소프트웨어',
       '4K 전문 방송용 카메라 1~2대 촬영 구성',
@@ -100,6 +103,9 @@ export const STUDIO_PACKAGES: StudioPackage[] = [
     title: '스튜디오 3 & 4',
     badge: '크로마키 / 대형 세트',
     image: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=800&q=80',
+    status: 'limited',
+    statusText: '오늘 잔여 2슬롯 (마감 임박)',
+    nextAvailableTime: '오후 15:00 이후 가능',
     specs: [
       '초대형 크로마키 벽면 및 전문 조명 셋업',
       '동일 공간 내 멀티 카메라 3대 연동',
@@ -112,6 +118,9 @@ export const STUDIO_PACKAGES: StudioPackage[] = [
     title: '스튜디오 5 & 6',
     badge: '칠판강의 / 모션 세트',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+    status: 'reserved',
+    statusText: '오늘 예약 마감 (내일 접수)',
+    nextAvailableTime: '내일 오전 09:00 대여 가능',
     specs: [
       '5.6m x 4.0m 대형 아크릴/칠판 전면 세트',
       '분사형 무반사 특수 고휘도 조명 탑재',
@@ -124,7 +133,7 @@ export const STUDIO_PACKAGES: StudioPackage[] = [
 export const STUDIO_GALLERY: StudioGalleryItem[] = [
   {
     id: 'gal-1',
-    title: '메인 입구',
+    title: '메인 출입구',
     tag: '공용 공간',
     url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
     description: 'DMC첨단산업센터 11층 HOOMEDIA 메인 출입구'
@@ -134,49 +143,49 @@ export const STUDIO_GALLERY: StudioGalleryItem[] = [
     title: '로비 & 인포메이션',
     tag: '공용 공간',
     url: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80',
-    description: '쾌적한 고객 대기실 및 커뮤니티 공간'
+    description: '쾌적한 고객 대기실 및 라운지 휴게 공간'
   },
   {
     id: 'gal-3',
-    title: '통로 갤러리',
+    title: '복도 갤러리',
     tag: '공용 공간',
     url: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80',
-    description: '160평 스튜디오 간 연결 모던 복도'
+    description: '160평 메인 스튜디오를 연결하는 모던 복도'
   },
   {
     id: 'gal-4',
     title: '편집실 & 모니터링룸',
     tag: '제작 시설',
-    url: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=800&q=80',
-    description: '실시간 4K 모니터링 및 컷 편집 부스'
+    url: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
+    description: '4K 스위칭 모니터링 및 실시간 종합 컷 편집 스위트'
   },
   {
     id: 'gal-5',
-    title: '스튜디오 1 (전자칠판)',
+    title: '스튜디오 1 (86인치 전자칠판)',
     tag: '스튜디오 1',
-    url: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80',
-    description: '86인치 전자칠판 강의 녹화 전문 세트'
+    url: 'https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80',
+    description: '86인치 4K 전자칠판 전용 강좌 녹화 및 촬영 세트'
   },
   {
     id: 'gal-6',
-    title: '스튜디오 2 (멀티미디어)',
+    title: '스튜디오 2 (멀티미디어 인강)',
     tag: '스튜디오 2',
     url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
-    description: '소규모 인강 및 모션 그래픽 촬영룸'
+    description: '다목적 멀티미디어 인터랙티브 강좌 스튜디오'
   },
   {
     id: 'gal-7',
-    title: '스튜디오 3 (크로마키)',
+    title: '스튜디오 3 (대형 크로마키)',
     tag: '스튜디오 3',
-    url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
-    description: '초대형 그린 스크린 크로마키 세트'
+    url: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80',
+    description: '가상 크로마키 방송 촬영 및 라이브 방송 세트'
   },
   {
     id: 'gal-8',
-    title: '스튜디오 4 (칠판강의)',
+    title: '스튜디오 4 (칠판강의 & 모션)',
     tag: '스튜디오 4',
-    url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
-    description: '전면 아크릴 칠판 및 무반사 조명 세트'
+    url: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80',
+    description: '무반사 특수 칠판 세트 및 방송용 프롬프터 인프라'
   }
 ];
 

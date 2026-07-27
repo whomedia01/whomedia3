@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Header } from './components/Header';
+import { Hero } from './components/Hero';
 import { Organization } from './components/Organization';
 import { BusinessAreas } from './components/BusinessAreas';
 import { StudioRental } from './components/StudioRental';
 import { StudioGallery } from './components/StudioGallery';
 import { Portfolio } from './components/Portfolio';
 import { Clients } from './components/Clients';
+import { Faq } from './components/Faq';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 
 export function App() {
   const [selectedStudio, setSelectedStudio] = useState<string>('');
+  const mainRef = useRef<HTMLDivElement>(null);
 
   const handleStudioSelect = (title: string) => {
     setSelectedStudio(title);
@@ -26,7 +30,10 @@ export function App() {
       <Header />
 
       {/* Main Content Layout matching video sequence */}
-      <main className="pt-16">
+      <main ref={mainRef} className="h-[100dvh] overflow-y-auto snap-y snap-mandatory scroll-smooth w-full">
+        {/* 0. Hero (히어로 메인) */}
+        <Hero />
+
         {/* 1. Organization (조직구성) */}
         <Organization />
 
@@ -45,9 +52,15 @@ export function App() {
         {/* 6. Clients & Partners (주요 파트너사) */}
         <Clients />
 
-        {/* 7. Contact & Estimate (제작 문의 및 견적) */}
+        {/* 7. FAQ (자주 묻는 질문 - AEO & GEO) */}
+        <Faq />
+
+        {/* 8. Contact & Estimate (제작 문의 및 견적) */}
         <Contact initialStudioSelect={selectedStudio} />
       </main>
+
+      {/* Floating Scroll to Top Button */}
+      <ScrollToTop scrollContainerRef={mainRef} />
 
       {/* Footer */}
       <Footer />

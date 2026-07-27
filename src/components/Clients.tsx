@@ -3,14 +3,16 @@ import { CLIENT_PARTNERS } from '../data/companyData';
 
 export const Clients: React.FC = () => {
   return (
-    <section id="clients" className="py-16 bg-slate-50 border-b border-slate-200 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-        <span className="text-xs font-bold text-slate-500 tracking-wider uppercase mb-1 block">
-          CLIENTS & PARTNERS
-        </span>
-        <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900">
-          후미디어와 함께하는 주요 파트너사
-        </h2>
+    <section id="clients" className="h-[100dvh] min-h-[100dvh] snap-start snap-always flex-shrink-0 flex flex-col justify-center items-center py-12 sm:py-16 bg-slate-50 border-b border-slate-200 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10 text-center w-full my-auto flex flex-col justify-center">
+        <div>
+          <span className="text-xs font-bold text-slate-500 tracking-wider uppercase mb-2 block">
+            CLIENTS & PARTNERS
+          </span>
+          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900">
+            후미디어와 함께하는 주요 파트너사
+          </h2>
+        </div>
       </div>
 
       {/* Marquee Row */}

@@ -30,9 +30,9 @@ export const Contact: React.FC<ContactProps> = ({ initialStudioSelect }) => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <section id="contact" className="h-[100dvh] min-h-[100dvh] snap-start snap-always flex-shrink-0 flex flex-col justify-center items-center py-12 sm:py-16 bg-white border-b border-slate-200 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           
           {/* Left Column - Company Contact Information */}
           <div className="lg:col-span-5 flex flex-col justify-between">
@@ -160,7 +160,7 @@ export const Contact: React.FC<ContactProps> = ({ initialStudioSelect }) => {
                         value={formData.clientName}
                         onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
                         placeholder="예: (주)미래엔"
-                        className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 transition-all duration-300 ease-in-out focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 focus:shadow-md"
                       />
                     </div>
 
@@ -174,7 +174,7 @@ export const Contact: React.FC<ContactProps> = ({ initialStudioSelect }) => {
                         value={formData.contactPerson}
                         onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
                         placeholder="홍길동 팀장"
-                        className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 transition-all duration-300 ease-in-out focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 focus:shadow-md"
                       />
                     </div>
                   </div>
@@ -190,7 +190,7 @@ export const Contact: React.FC<ContactProps> = ({ initialStudioSelect }) => {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="010-0000-0000"
-                        className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 transition-all duration-300 ease-in-out focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 focus:shadow-md"
                       />
                     </div>
 
@@ -204,7 +204,7 @@ export const Contact: React.FC<ContactProps> = ({ initialStudioSelect }) => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="example@company.com"
-                        className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 transition-all duration-300 ease-in-out focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 focus:shadow-md"
                       />
                     </div>
                   </div>
@@ -216,7 +216,7 @@ export const Contact: React.FC<ContactProps> = ({ initialStudioSelect }) => {
                     <select
                       value={formData.serviceType}
                       onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                      className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                      className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 transition-all duration-300 ease-in-out focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 focus:shadow-md"
                     >
                       <option value="미디어 프로덕션 & 4K 스튜디오 제작/대여">미디어 프로덕션 &amp; 4K 스튜디오 제작/대여</option>
                       <option value="교육 과정 기획 & 맞춤형 컨설팅">교육 과정 기획 &amp; 맞춤형 컨설팅</option>
@@ -237,7 +237,7 @@ export const Contact: React.FC<ContactProps> = ({ initialStudioSelect }) => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="희망 촬영 일정, 예상 녹화 분량 및 요구사항을 작성해 주세요."
-                      className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none"
+                      className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 transition-all duration-300 ease-in-out focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 focus:shadow-md resize-none"
                     />
                   </div>
 

@@ -14,10 +14,10 @@ export const Organization: React.FC = () => {
   };
 
   return (
-    <section id="organization" className="py-20 bg-slate-50 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="organization" className="h-[100dvh] min-h-[100dvh] snap-start snap-always flex-shrink-0 flex flex-col justify-center items-center py-12 sm:py-16 bg-slate-50 border-b border-slate-200 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
         {/* Intro */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <p className="text-xs font-bold text-red-600 tracking-wider uppercase mb-2">ORGANIZATION</p>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
             전문적이고 효율적인 유기적 조직 체계

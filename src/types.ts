@@ -35,6 +35,9 @@ export interface StudioPackage {
   badge: string;       // '86인치 전자칠판 세트'
   image: string;
   specs: string[];
+  status?: 'available' | 'limited' | 'reserved';
+  statusText?: string;
+  nextAvailableTime?: string;
 }
 
 export interface StudioGalleryItem {
