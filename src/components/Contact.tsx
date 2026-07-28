@@ -38,14 +38,13 @@ export const Contact: React.FC<ContactProps> = ({ initialStudioSelect }) => {
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               <span className="text-xs font-bold text-red-600 tracking-wider uppercase bg-red-50 px-3 py-1 rounded-full mb-3 inline-block">
-                CONTACT &amp; CONSULTING
+                빠른 상담 문의
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-                기업 가치를 극대화하는<br />
-                원스톱 미디어 솔루션 문의
+                영상 제작 &amp; 스튜디오 대여 문의
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-8">
-                교육 컨설팅부터 4K 미디어 프로덕션, 후캠퍼스 평생교육, 디지털 언론 홍보(한국AI교육신문)까지 최적의 통합 솔루션을 신속하고 친절하게 상담해 드립니다.
+                스튜디오 대여 일정, 강의·홍보 영상 제작, 교육 컨설팅 등 필요하신 내용을 남겨주시면 담당 PD가 신속히 안내해 드립니다.
               </p>
 
               {/* Direct Info Action Cards */}

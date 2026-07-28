@@ -57,13 +57,13 @@ export const Organization: React.FC = () => {
                 </div>
 
                 {/* R&D Center Box */}
-                <div className="bg-slate-900 text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl shadow-sm border border-slate-800 text-left w-48 sm:w-60 md:w-72 flex-shrink-0">
+                <div className="bg-white text-slate-900 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl shadow-sm border border-slate-200 text-left w-48 sm:w-60 md:w-72 flex-shrink-0">
                   <div className="flex items-center gap-1.5 mb-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                    <span className="text-[10px] font-bold tracking-widest text-emerald-400 uppercase">R&amp;D CENTER</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span className="text-[10px] font-bold tracking-widest text-emerald-600 uppercase">R&amp;D CENTER</span>
                   </div>
-                  <h4 className="text-xs sm:text-sm font-bold text-white">기업부설연구소</h4>
-                  <p className="text-[10px] sm:text-[11px] text-slate-300 font-normal mt-0.5 leading-snug">AI 에듀테크 · 미래 교육 콘텐츠 &amp; 미디어 기술 연구 개발</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900">기업부설연구소</h4>
+                  <p className="text-[10px] sm:text-[11px] text-slate-600 font-normal mt-0.5 leading-snug">AI 에듀테크 · 미래 교육 콘텐츠 &amp; 미디어 기술 연구 개발</p>
                 </div>
               </div>
             </div>
