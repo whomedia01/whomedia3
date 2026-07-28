@@ -14,32 +14,39 @@ export const COMPANY_INFO = {
 
 export const DIVISIONS_DATA: DivisionItem[] = [
   {
+    id: 'div-rd',
+    code: 'R&D CENTER',
+    name: '기업부설연구소',
+    description: 'AI 에듀테크 · 미래 교육 콘텐츠 & 미디어 기술 연구 개발',
+    subCategories: ['AI연구팀', '미디어기술팀']
+  },
+  {
     id: 'div-1',
     code: 'DIVISION 01',
     name: '교육사업부',
-    description: '고품질 교육 콘텐츠 및 4K 인강 기획·제작',
-    subCategories: ['기획', '인강/강의', '출판/교재']
+    description: '교육과정 맞춤 설계 및 사업 운영 총괄',
+    subCategories: ['기획팀', '운영팀']
   },
   {
     id: 'div-2',
     code: 'DIVISION 02',
-    name: '미디어사업부',
-    description: '4K 전문 촬영, CG/모션 그래픽, 음향 제작',
-    subCategories: ['촬영/조명', '편집/CG', '음향/더빙']
+    name: '에듀테크부',
+    description: 'AI 교육 콘텐츠 및 UI/UX 디자인 개발',
+    subCategories: ['AI개발팀', '디자인팀']
   },
   {
     id: 'div-3',
     code: 'DIVISION 03',
-    name: '에듀에이블사업부',
-    description: '고객 맞춤형 인프라 구축 및 AI 에듀테크',
-    subCategories: ['AI/디지털', '교육/플랫폼']
+    name: '영상미디어부',
+    description: '고품질 교육 영상 촬영, 편집 및 연출',
+    subCategories: ['촬영팀', '편집팀']
   },
   {
     id: 'div-4',
     code: 'DIVISION 04',
-    name: '영업관리부',
-    description: '스튜디오 대여, 계약 및 영업 종합 관리',
-    subCategories: ['경영지원', '마케팅/영업']
+    name: '경영지원부',
+    description: '언론 홍보, PR 및 경영 행정 관리',
+    subCategories: ['홍보팀', '경영지원팀']
   }
 ];
 

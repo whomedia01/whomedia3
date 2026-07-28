@@ -1,109 +1,102 @@
 import React from 'react';
 import { DIVISIONS_DATA, COMPANY_INFO } from '../data/companyData';
-import { UserCheck, ShieldCheck, Video, BookOpen, Cpu, Briefcase } from 'lucide-react';
+import { ShieldCheck, Video, BookOpen, Cpu, Briefcase, FlaskConical } from 'lucide-react';
 
 export const Organization: React.FC = () => {
   const getIcon = (code: string) => {
     switch (code) {
+      case 'R&D CENTER': return <FlaskConical className="w-5 h-5 text-emerald-600" />;
       case 'DIVISION 01': return <BookOpen className="w-5 h-5 text-blue-600" />;
-      case 'DIVISION 02': return <Video className="w-5 h-5 text-indigo-600" />;
-      case 'DIVISION 03': return <Cpu className="w-5 h-5 text-cyan-600" />;
+      case 'DIVISION 02': return <Cpu className="w-5 h-5 text-teal-600" />;
+      case 'DIVISION 03': return <Video className="w-5 h-5 text-purple-600" />;
       case 'DIVISION 04': return <Briefcase className="w-5 h-5 text-amber-600" />;
       default: return <ShieldCheck className="w-5 h-5 text-blue-600" />;
     }
   };
 
+  const getBadgeStyle = (code: string) => {
+    switch (code) {
+      case 'R&D CENTER': return 'bg-emerald-50 text-emerald-700 border-emerald-200/60';
+      case 'DIVISION 01': return 'bg-blue-50 text-blue-700 border-blue-200/60';
+      case 'DIVISION 02': return 'bg-teal-50 text-teal-700 border-teal-200/60';
+      case 'DIVISION 03': return 'bg-purple-50 text-purple-700 border-purple-200/60';
+      case 'DIVISION 04': return 'bg-amber-50 text-amber-700 border-amber-200/60';
+      default: return 'bg-slate-50 text-slate-700 border-slate-200';
+    }
+  };
+
   return (
-    <section id="organization" className="h-[100dvh] min-h-[100dvh] snap-start snap-always flex-shrink-0 flex flex-col justify-center items-center py-12 sm:py-16 bg-slate-50 border-b border-slate-200 overflow-hidden">
+    <section id="organization" className="h-[100dvh] min-h-[100dvh] snap-start snap-always flex-shrink-0 flex flex-col justify-center items-center py-10 sm:py-14 bg-slate-50 border-b border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
-        {/* Intro */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-          <p className="text-xs font-bold text-red-600 tracking-wider uppercase mb-2">ORGANIZATION</p>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
-            전문적이고 효율적인 유기적 조직 체계
+        {/* Intro Header */}
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
+          <p className="text-xs font-bold text-red-600 tracking-wider uppercase mb-1.5">ORGANIZATION</p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+            교육사업 전 분야의 전문 인력을 자체 보유한 원스톱 통합 조직
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            {COMPANY_INFO.name}는 유기적인 부서간 연결을 통해 최고 품질의 콘텐츠를 안정적이고 정기적으로 기획/제작할 수 있는 전문 조직 체계를 구축하고 있습니다.
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <strong className="text-slate-800">{COMPANY_INFO.name}</strong>는 기획·사업운영·AI에듀테크·영상제작·언론홍보 등 교육사업 전 과정을 유기적이고 안정적으로 수행하기 위한 분야별 전담 조직 체계를 구축하고 있습니다.
           </p>
         </div>
 
-        {/* Top CEO & R&D Center Hierarchy */}
-        <div className="flex flex-col items-center mb-10 relative">
+        {/* Top CEO Hierarchy Tree */}
+        <div className="flex flex-col items-center mb-6 sm:mb-8 relative">
           {/* CEO Node */}
-          <div className="bg-slate-900 text-white px-7 py-3.5 rounded-xl shadow-sm border border-slate-800 text-center z-10 max-w-xs w-full">
+          <div className="bg-slate-950 text-white px-8 py-3.5 rounded-2xl shadow-md border border-slate-800 text-center z-10 max-w-xs w-full">
             <div className="text-[10px] font-bold tracking-widest text-emerald-400 uppercase mb-0.5">
               EXECUTIVE LEADERSHIP
             </div>
             <h3 className="text-base font-bold text-white">대표이사 / CEO</h3>
-            <p className="text-xs text-slate-300 font-medium mt-0.5">{COMPANY_INFO.ceo} 대표이사 / CEO</p>
+            <p className="text-xs text-slate-300 font-medium mt-0.5">총괄 기획 및 전략 이사회</p>
           </div>
 
-          {/* Stem with Right Branch for R&D Center */}
-          <div className="relative w-full max-w-3xl flex flex-col items-center">
-            {/* Upper Stem Line */}
-            <div className="w-0.5 h-6 bg-slate-300"></div>
+          {/* Vertical Stem Line */}
+          <div className="w-0.5 h-6 sm:h-8 bg-slate-300"></div>
 
-            {/* Branch Junction Row */}
-            <div className="relative w-full flex items-center justify-center min-h-[72px]">
-              {/* Main Trunk Line */}
-              <div className="absolute w-0.5 h-full bg-slate-300 left-1/2 -translate-x-1/2"></div>
-
-              {/* Right Branch Container */}
-              <div className="absolute left-1/2 top-1/2 -translate-y-1/2 flex items-center z-10">
-                {/* Horizontal Branch Line */}
-                <div className="w-6 sm:w-10 md:w-14 h-0.5 bg-slate-300 relative flex-shrink-0">
-                  <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-slate-400"></div>
-                  <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-slate-400"></div>
-                </div>
-
-                {/* R&D Center Box */}
-                <div className="bg-white text-slate-900 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl shadow-sm border border-slate-200 text-left w-48 sm:w-60 md:w-72 flex-shrink-0">
-                  <div className="flex items-center gap-1.5 mb-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                    <span className="text-[10px] font-bold tracking-widest text-emerald-600 uppercase">R&amp;D CENTER</span>
-                  </div>
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900">기업부설연구소</h4>
-                  <p className="text-[10px] sm:text-[11px] text-slate-600 font-normal mt-0.5 leading-snug">AI 에듀테크 · 미래 교육 콘텐츠 &amp; 미디어 기술 연구 개발</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Lower Stem Line */}
-            <div className="w-0.5 h-6 bg-slate-300"></div>
-
-            {/* Horizontal Distribution Bar */}
-            <div className="hidden md:block w-full max-w-3xl h-0.5 bg-slate-300 relative">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-blue-500"></div>
-              <div className="absolute left-[33%] top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-teal-500"></div>
-              <div className="absolute left-[66%] top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-purple-500"></div>
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-amber-500"></div>
-            </div>
+          {/* Horizontal Distribution Bar for 5 Divisions */}
+          <div className="hidden lg:block w-full max-w-6xl h-0.5 bg-slate-300 relative">
+            <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white shadow-sm"></div>
+            <div className="absolute left-[30%] top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-blue-500 border-2 border-white shadow-sm"></div>
+            <div className="absolute left-[50%] top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-teal-500 border-2 border-white shadow-sm"></div>
+            <div className="absolute left-[70%] top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-purple-500 border-2 border-white shadow-sm"></div>
+            <div className="absolute left-[90%] top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-amber-500 border-2 border-white shadow-sm"></div>
           </div>
         </div>
 
-        {/* Divisions Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Divisions Grid - 5 Cards with Unified Concept */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-4">
           {DIVISIONS_DATA.map((div) => (
             <div 
               key={div.id} 
               id={div.id}
-              className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+              className="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/90 hover:shadow-md hover:border-slate-300 transition-all duration-200 flex flex-col justify-between group"
             >
               <div>
+                {/* Code Badge & Icon */}
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold text-blue-600 tracking-wider uppercase bg-blue-50 px-2.5 py-1 rounded-md">
+                  <span className={`text-[10px] sm:text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded-md border ${getBadgeStyle(div.code)}`}>
                     {div.code}
                   </span>
-                  {getIcon(div.code)}
+                  <div className="p-1.5 rounded-lg bg-slate-50 group-hover:scale-110 transition-transform">
+                    {getIcon(div.code)}
+                  </div>
                 </div>
-                <h4 className="text-lg font-bold text-slate-900 mb-2">{div.name}</h4>
-                <p className="text-xs text-slate-600 leading-relaxed mb-4">{div.description}</p>
+
+                {/* Division Title & Description */}
+                <h4 className="text-base sm:text-lg font-extrabold text-slate-900 mb-1.5 group-hover:text-blue-600 transition-colors">
+                  {div.name}
+                </h4>
+                <p className="text-xs text-slate-600 leading-relaxed mb-4 min-h-[36px]">
+                  {div.description}
+                </p>
               </div>
 
+              {/* Sub Teams Tag List */}
               <div className="pt-3 border-t border-slate-100 flex flex-wrap gap-1.5">
                 {div.subCategories.map((sub, i) => (
-                  <span key={i} className="text-[11px] font-medium text-slate-700 bg-slate-100 px-2 py-0.5 rounded">
-                    • {sub}
+                  <span key={i} className="text-[11px] font-medium text-slate-700 bg-slate-100 px-2 py-0.5 rounded-md inline-flex items-center gap-1">
+                    <span className="w-1 h-1 rounded-full bg-slate-400"></span>
+                    {sub}
                   </span>
                 ))}
               </div>
@@ -114,3 +107,4 @@ export const Organization: React.FC = () => {
     </section>
   );
 };
+

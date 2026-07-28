@@ -11,11 +11,22 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    const mainElem = document.querySelector('main');
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (mainElem) {
+        setIsScrolled(mainElem.scrollTop > 20);
+      } else {
+        setIsScrolled(window.scrollY > 20);
+      }
     };
+    if (mainElem) {
+      mainElem.addEventListener('scroll', handleScroll);
+    }
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      if (mainElem) mainElem.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const scrollTo = (id: string) => {

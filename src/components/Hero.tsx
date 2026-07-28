@@ -15,9 +15,19 @@ export const Hero: React.FC = () => {
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
 
+  const containerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const mainEl = document.querySelector('main');
+    if (mainEl) {
+      containerRef.current = mainEl;
+    }
+  }, []);
+
   // Parallax scroll hooks
   const { scrollYProgress } = useScroll({
     target: heroRef,
+    container: containerRef,
     offset: ['start start', 'end start'],
   });
 
@@ -50,7 +60,7 @@ export const Hero: React.FC = () => {
     <section 
       ref={heroRef}
       id="about" 
-      className="relative flex flex-col justify-between items-center w-full h-[100dvh] min-h-[100dvh] snap-start snap-always pt-16 sm:pt-20 pb-3 sm:pb-5 overflow-hidden bg-slate-950 text-white z-0 flex-shrink-0"
+      className="relative flex flex-col justify-center items-center w-full min-h-screen h-screen min-h-[100dvh] h-[100dvh] snap-start snap-always pt-16 sm:pt-20 pb-6 overflow-hidden bg-slate-950 text-white z-0 flex-shrink-0"
     >
       {/* Background Parallax Layer (Video + Image Slider) */}
       <motion.div 
@@ -98,7 +108,7 @@ export const Hero: React.FC = () => {
         style={{ y: textY, opacity: textOpacity }}
         className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 flex-1 flex flex-col justify-center items-center py-2 sm:py-4"
       >
-        <div className="text-center max-w-4xl mx-auto space-y-4 sm:space-y-6 md:space-y-7 w-full">
+        <div className="text-center max-w-4xl mx-auto space-y-4 sm:space-y-6 md:space-y-7 w-full my-auto">
           
           {/* Top Green Badge */}
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-emerald-950/80 border border-emerald-500/40 shadow-lg backdrop-blur-md text-xs sm:text-sm font-semibold text-emerald-300 transition-all hover:border-emerald-400">
@@ -125,7 +135,7 @@ export const Hero: React.FC = () => {
             </div>
 
             <p className="text-xs sm:text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto px-2">
-              교육 컨설팅부터 4K 미디어 프로덕션, 평생교육, 디지털 언론 홍보까지 최적의 통합 솔루션을 제공합니다.
+              기획부터 4K 영상 제작, 디지털 언론 마케팅까지 한 번에 실현하는 원스톱 통합 미디어 네트워크
             </p>
           </div>
 
@@ -204,7 +214,7 @@ export const Hero: React.FC = () => {
       </motion.div>
 
       {/* Bottom Scroll Indicator */}
-      <div className="pt-2 pb-3 sm:pb-5 z-10">
+      <div className="pt-2 pb-4 sm:pb-6 z-10">
         <a
           href="#organization"
           className="inline-flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-colors animate-bounce"
