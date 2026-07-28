@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
     <section 
       ref={heroRef}
       id="about" 
-      className="relative flex flex-col justify-center items-center w-full min-h-screen h-screen min-h-[100dvh] h-[100dvh] snap-start snap-always pt-16 sm:pt-20 pb-6 overflow-hidden bg-slate-950 text-white z-0 flex-shrink-0"
+      className="relative flex flex-col justify-center items-center w-full h-[100dvh] min-h-[100dvh] snap-start snap-always pt-16 sm:pt-20 pb-4 overflow-hidden bg-slate-950 text-white z-0 flex-shrink-0 box-border"
     >
       {/* Background Parallax Layer (Video + Image Slider) */}
       <motion.div 

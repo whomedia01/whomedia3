@@ -32,13 +32,14 @@ export function App() {
       {/* Main Content Layout matching video sequence */}
       <main ref={mainRef} className="h-[100dvh] overflow-y-auto snap-y snap-mandatory scroll-smooth w-full">
         {/* 0. Hero (히어로 메인) */}
+        {/* Hero (회사소개) */}
         <Hero />
 
-        {/* 1. Organization (조직구성) */}
-        <Organization />
-
-        {/* 2. Business Areas (사업영역) */}
+        {/* 1. Business Areas (사업영역 / 디지털 통합 미디어 비즈니스 허브) */}
         <BusinessAreas />
+
+        {/* 2. Organization (핵심역량 / CORE EXPERTISE & COMPETENCY) */}
+        <Organization />
 
         {/* 3. Studio Rental (스튜디오 임대) */}
         <StudioRental onSelectStudio={handleStudioSelect} />

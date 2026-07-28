@@ -43,13 +43,11 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
 
   const navItems = [
     { label: '회사소개', id: 'about' },
-    { label: '조직구성', id: 'organization' },
     { label: '사업영역', id: 'business' },
+    { label: '핵심역량', id: 'organization' },
     { label: '스튜디오 임대', id: 'studio' },
-    { label: '스튜디오 갤러리', id: 'gallery' },
     { label: '포트폴리오', id: 'portfolio' },
-    { label: '자주 묻는 질문', id: 'faq' },
-    { label: '문의하기', id: 'contact' },
+    { label: '문의하기', id: 'contact', isAction: true },
   ];
 
   return (
@@ -74,18 +72,30 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                id={`nav-${item.id}`}
-                onClick={() => scrollTo(item.id)}
-                className={`text-sm font-semibold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-600 hover:after:w-full after:transition-all ${
-                  isScrolled ? 'text-slate-700 hover:text-red-600' : 'text-slate-200 hover:text-red-400'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) => 
+              item.isAction ? (
+                <button
+                  key={item.id}
+                  id={`nav-${item.id}`}
+                  onClick={() => scrollTo(item.id)}
+                  className="text-sm font-bold text-blue-600 hover:text-blue-700 transition-colors py-1 flex items-center space-x-1"
+                >
+                  <span>{item.label}</span>
+                  <span className="text-blue-600 font-bold">&rarr;</span>
+                </button>
+              ) : (
+                <button
+                  key={item.id}
+                  id={`nav-${item.id}`}
+                  onClick={() => scrollTo(item.id)}
+                  className={`text-sm font-semibold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 hover:after:w-full after:transition-all ${
+                    isScrolled ? 'text-slate-700 hover:text-blue-600' : 'text-slate-200 hover:text-blue-400'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              )
+            )}
           </nav>
 
           {/* Contact Header CTA */}
