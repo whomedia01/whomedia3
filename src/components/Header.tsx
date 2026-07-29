@@ -57,17 +57,21 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, lang: externalLang =
 
   const navItems = lang === 'KO' ? [
     { label: '회사소개', id: 'about' },
-    { label: '사업영역', id: 'business' },
     { label: '핵심역량', id: 'organization' },
+    { label: '사업영역', id: 'business' },
     { label: '스튜디오 임대', id: 'studio' },
     { label: '포트폴리오', id: 'portfolio' },
+    { label: '클라이언트', id: 'clients' },
+    { label: 'FAQ', id: 'faq' },
     { label: '문의하기', id: 'contact', isAction: true },
   ] : [
     { label: 'About Us', id: 'about' },
-    { label: 'Business', id: 'business' },
     { label: 'Core Competency', id: 'organization' },
+    { label: 'Business', id: 'business' },
     { label: 'Studio Rental', id: 'studio' },
     { label: 'Portfolio', id: 'portfolio' },
+    { label: 'Clients', id: 'clients' },
+    { label: 'FAQ', id: 'faq' },
     { label: 'Contact Us', id: 'contact', isAction: true },
   ];
 
@@ -92,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, lang: externalLang =
           </button>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
             {navItems.map((item) => 
               item.isAction ? (
                 <button

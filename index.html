@@ -537,12 +537,68 @@ x-init="
     <!-- ================================================================= -->
     <section class="relative min-h-screen min-h-[100dvh] bg-brand-navy-dark pt-14 pb-10 sm:pt-20 sm:pb-12 lg:pt-24 lg:pb-14 overflow-hidden flex flex-col justify-center">
         
-        <!-- Elegant Dark High-Tech Background Ambient Glow & Grid Overlay -->
-        <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#0A0E1A] via-[#0D1424] to-[#0A0E1A]">
-            <div class="absolute inset-0 hero-mosaic-overlay pointer-events-none opacity-40"></div>
-            <!-- Ambient Light Spheres -->
-            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-mint/10 rounded-full filter blur-[100px] pointer-events-none"></div>
-            <div class="absolute bottom-1/3 -right-20 w-96 h-96 bg-blue-600/10 rounded-full filter blur-[120px] pointer-events-none"></div>
+        <!-- Elegant Dark High-Tech Background Ambient Glow & Ultra-HD Mosaic Card-Flip Overlay -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none"
+             x-data="{
+                 isFlipped: false,
+                 activeImg: (typeof bgImages !== 'undefined' &amp;&amp; bgImages.length &gt; 0) ? bgImages[currentBgIndex] : 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&amp;fit=crop&amp;w=1920&amp;q=85',
+                 tiles: Array.from({length: 40}, (_, i) => i),
+                 init() {
+                     setTimeout(() => {
+                         this.activeImg = bgImages[currentBgIndex] || bgImages[0];
+                         this.isFlipped = true;
+                         setTimeout(() => { this.isFlipped = false; }, 2200);
+                     }, 300);
+
+                     this.$watch('currentBgIndex', (newIdx) => {
+                         this.activeImg = bgImages[newIdx] || bgImages[0];
+                         this.isFlipped = true;
+                         setTimeout(() => {
+                             this.isFlipped = false;
+                         }, 2200);
+                     });
+                 }
+             }">
+
+            <!-- Reduced Motion Support CSS -->
+            <style>
+                @media (prefers-reduced-motion: reduce) {
+                    .mosaic-card-flip-inner {
+                        transform: none !important;
+                        transition: opacity 0.5s ease-in-out !important;
+                        opacity: 0.3 !important;
+                    }
+                    .mosaic-card-flip-inner.is-active {
+                        opacity: 1 !important;
+                    }
+                }
+            </style>
+
+            <!-- 1. Full-Bleed 40-Tile Mosaic Card-Flip Grid (8 columns x 5 rows = 40 tiles) -->
+            <div class="absolute inset-0 z-0 grid grid-cols-8 grid-rows-5 w-full h-full [perspective:1000px]">
+                <template x-for="(tile, i) in tiles" :key="i">
+                    <div class="relative w-full h-full overflow-hidden">
+                        <div class="mosaic-card-flip-inner w-full h-full relative [transform-style:preserve-3d] transition-transform duration-700 ease-in-out will-change-transform"
+                             :class="{ 'is-active': isFlipped }"
+                             :style="'transform: ' + (isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)') + '; transition-delay: ' + (((Math.floor(i / 8) + (i % 8)) * 40)) + 'ms;'">
+                            
+                            <!-- FRONT FACE: Dark Brand Navy Panel -->
+                            <div class="absolute inset-0 w-full h-full bg-[#0D1424] border border-white/[0.04] [backface-visibility:hidden]"></div>
+                            
+                            <!-- BACK FACE: Reconstructed Ultra-HD Image Slice -->
+                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-no-repeat bg-cover"
+                                 :style="'background-image: url(' + activeImg + '); background-size: 800% 500%; background-position: ' + ((i % 8) / 7 * 100) + '% ' + (Math.floor(i / 8) / 4 * 100) + '%;'"></div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <!-- 2. Dark Gradient Overlay ABOVE Mosaic Layer for High Contrast Text Readability -->
+            <div class="absolute inset-0 z-10 bg-gradient-to-b from-[#0A0E1A]/80 via-[#0D1424]/65 to-[#0A0E1A]/85 pointer-events-none"></div>
+
+            <!-- 3. Ambient Light Spheres (layered on top of mosaic for visual consistency) -->
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-mint/10 rounded-full filter blur-[100px] pointer-events-none z-20"></div>
+            <div class="absolute bottom-1/3 -right-20 w-96 h-96 bg-blue-600/10 rounded-full filter blur-[120px] pointer-events-none z-20"></div>
         </div>
 
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -555,9 +611,56 @@ x-init="
                 </div>
 
                 <!-- Main Slogan -->
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.2] tracking-tight mb-4 drop-shadow-md">
-                    기업 가치를 극대화하는<br />
-                    <span class="text-brand-mint">원스톱 미디어 솔루션</span>
+                <h1 id="hero-headline"
+                    class="relative text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.2] tracking-tight mb-4 drop-shadow-md"
+                    x-data="{
+                        headlineRevealed: false,
+                        headlineTiles: Array.from({length: 40}, (_, i) => i),
+                        init() {
+                            setTimeout(() => {
+                                this.headlineRevealed = true;
+                            }, 400);
+                        }
+                    }">
+                    <!-- Accessible Real Text for Crawlers & Screen Readers -->
+                    <span class="block">
+                        기업 가치를 극대화하는<br />
+                        <span class="text-brand-mint">원스톱 미디어 솔루션</span>
+                    </span>
+
+                    <!-- Reduced Motion Override -->
+                    <style>
+                        @media (prefers-reduced-motion: reduce) {
+                            .headline-mosaic-overlay {
+                                display: none !important;
+                            }
+                        }
+                    </style>
+
+                    <!-- Decorative 40-Tile Mosaic Card-Flip Overlay (10 cols x 4 rows) -->
+                    <div class="headline-mosaic-overlay absolute inset-0 z-20 pointer-events-none select-none overflow-hidden"
+                         aria-hidden="true">
+                        <template x-for="(tile, i) in headlineTiles" :key="i">
+                            <div class="absolute overflow-hidden [perspective:1000px]"
+                                 :style="'left: ' + ((i % 10) * 10) + '%; top: ' + (Math.floor(i / 10) * 25) + '%; width: 10%; height: 25%;'">
+                                <div class="w-full h-full relative [transform-style:preserve-3d] will-change-transform"
+                                     :style="'transform: ' + (headlineRevealed ? 'rotateY(180deg)' : 'rotateY(0deg)') + '; transition: transform 0.55s ease-in-out; transition-delay: ' + (((Math.floor(i / 10) + (i % 10)) * 40)) + 'ms;'">
+                                    
+                                    <!-- FRONT FACE: Solid Dark Navy Panel (Hides text before flip) -->
+                                    <div class="absolute inset-0 w-full h-full bg-[#0D1424] border border-white/[0.05] [backface-visibility:hidden] z-10"></div>
+                                    
+                                    <!-- BACK FACE: Sliced Text Window -->
+                                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-hidden z-20">
+                                        <div class="absolute w-[1000%] h-[400%] text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.2] tracking-tight drop-shadow-md text-left"
+                                             :style="'left: -' + ((i % 10) * 100) + '%; top: -' + (Math.floor(i / 10) * 100) + '%;'">
+                                            기업 가치를 극대화하는<br />
+                                            <span class="text-brand-mint">원스톱 미디어 솔루션</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
                 </h1>
 
                 <!-- Sub-headline -->
