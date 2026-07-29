@@ -6,15 +6,15 @@ export const BusinessAreas: React.FC = () => {
   return (
     <section id="business" className="h-[100dvh] min-h-[100dvh] snap-start snap-always flex-shrink-0 flex flex-col justify-center items-center py-12 sm:py-16 bg-white border-b border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
-        {/* Category Header */}
+        {/* Category Header: Business Areas */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-          <span className="text-xs font-bold text-blue-600 tracking-wider bg-blue-50 px-3.5 py-1 rounded-full border border-blue-200/60 shadow-2xs uppercase">
-            BUSINESS AREAS
+          <span className="text-xs font-bold text-blue-600 tracking-wider bg-blue-50 px-3.5 py-1 rounded-full border border-blue-200/60 shadow-2xs uppercase inline-block mb-2">
+            콘텐츠 개발부터 언론 마케팅까지 통합 비즈니스
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3 mb-3">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
             디지털 통합 미디어 비즈니스 허브
           </h2>
-          <p className="text-base sm:text-lg font-bold text-blue-950 mb-2">
+          <p className="text-xs sm:text-sm font-bold text-blue-900 mb-2">
             "기업 브랜드 가치를 극대화하는 가장 확실한 원스톱 미디어 솔루션"
           </p>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
