@@ -1,14 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail, ChevronRight } from 'lucide-react';
+import { Menu, X, Phone, Mail, ChevronRight, Globe } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 
 interface HeaderProps {
   onNavigate?: (sectionId: string) => void;
+  lang?: 'KO' | 'EN';
+  onLanguageChange?: (lang: 'KO' | 'EN') => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
+export const Header: React.FC<HeaderProps> = ({ onNavigate, lang: externalLang = 'KO', onLanguageChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [lang, setLang] = useState<'KO' | 'EN'>(externalLang);
+
+  useEffect(() => {
+    setLang(externalLang);
+  }, [externalLang]);
+
+  const handleLangChange = (newLang: 'KO' | 'EN') => {
+    setLang(newLang);
+    if (onLanguageChange) {
+      onLanguageChange(newLang);
+    }
+  };
 
   useEffect(() => {
     const mainElem = document.querySelector('main');
@@ -41,13 +55,20 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
     }
   };
 
-  const navItems = [
+  const navItems = lang === 'KO' ? [
     { label: '회사소개', id: 'about' },
     { label: '사업영역', id: 'business' },
     { label: '핵심역량', id: 'organization' },
     { label: '스튜디오 임대', id: 'studio' },
     { label: '포트폴리오', id: 'portfolio' },
     { label: '문의하기', id: 'contact', isAction: true },
+  ] : [
+    { label: 'About Us', id: 'about' },
+    { label: 'Business', id: 'business' },
+    { label: 'Core Competency', id: 'organization' },
+    { label: 'Studio Rental', id: 'studio' },
+    { label: 'Portfolio', id: 'portfolio' },
+    { label: 'Contact Us', id: 'contact', isAction: true },
   ];
 
   return (
@@ -98,8 +119,36 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             )}
           </nav>
 
-          {/* Contact Header CTA */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Contact Header CTA & Language Switcher */}
+          <div className="hidden md:flex items-center space-x-3">
+            {/* Language Switcher Pill */}
+            <div className={`flex items-center rounded-full p-0.5 border text-xs font-bold transition-colors ${
+              isScrolled ? 'border-slate-200 bg-slate-100' : 'border-slate-800 bg-slate-900/90'
+            }`}>
+              <button
+                id="lang-toggle-ko"
+                onClick={() => handleLangChange('KO')}
+                className={`px-2.5 py-1 rounded-full transition-all text-xs font-bold ${
+                  lang === 'KO' 
+                    ? 'bg-blue-600 text-white shadow-xs' 
+                    : isScrolled ? 'text-slate-600 hover:text-slate-900' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                KO
+              </button>
+              <button
+                id="lang-toggle-en"
+                onClick={() => handleLangChange('EN')}
+                className={`px-2.5 py-1 rounded-full transition-all text-xs font-bold ${
+                  lang === 'EN' 
+                    ? 'bg-blue-600 text-white shadow-xs' 
+                    : isScrolled ? 'text-slate-600 hover:text-slate-900' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                EN
+              </button>
+            </div>
+
             <a 
               href={`tel:${COMPANY_INFO.phone}`}
               className={`text-xs font-bold flex items-center space-x-1 px-3 py-1.5 rounded-full ${
@@ -114,13 +163,35 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
               onClick={() => scrollTo('contact')}
               className="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors flex items-center space-x-1 shadow-sm"
             >
-              <span>견적 및 대여 문의</span>
+              <span>{lang === 'KO' ? '견적 및 대여 문의' : 'Inquiry & Booking'}</span>
               <ChevronRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Controls (Language Switcher + Mobile Menu Toggle) */}
           <div className="flex lg:hidden items-center space-x-2">
+            {/* Mobile Language Switcher */}
+            <div className={`flex items-center rounded-full p-0.5 border text-xs font-bold ${
+              isScrolled ? 'border-slate-200 bg-slate-100' : 'border-slate-800 bg-slate-900'
+            }`}>
+              <button
+                onClick={() => handleLangChange('KO')}
+                className={`px-2 py-0.5 rounded-full text-xs font-bold transition-all ${
+                  lang === 'KO' ? 'bg-blue-600 text-white' : isScrolled ? 'text-slate-600' : 'text-slate-400'
+                }`}
+              >
+                KO
+              </button>
+              <button
+                onClick={() => handleLangChange('EN')}
+                className={`px-2 py-0.5 rounded-full text-xs font-bold transition-all ${
+                  lang === 'EN' ? 'bg-blue-600 text-white' : isScrolled ? 'text-slate-600' : 'text-slate-400'
+                }`}
+              >
+                EN
+              </button>
+            </div>
+
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -157,7 +228,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
               onClick={() => scrollTo('contact')}
               className="w-full bg-red-600 hover:bg-red-700 text-white py-2.5 rounded-md font-bold text-sm text-center"
             >
-              견적 및 대여 문의하기
+              {lang === 'KO' ? '견적 및 대여 문의하기' : 'Inquire & Book Studio'}
             </button>
           </div>
         </div>
@@ -165,3 +236,4 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
     </header>
   );
 };
+

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { KEYWORDS } from '../data/portfolioData';
 import { Play, ChevronDown, Video, Sparkles } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
+import { MosaicCardFlip } from './MosaicCardFlip';
+import { ParticleBackground } from './ParticleBackground';
 
 const BG_IMAGES = [
   'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1920&q=85',
@@ -13,9 +15,26 @@ const BG_IMAGES = [
 export const Hero: React.FC = () => {
   const [currentKeywordIndex, setCurrentKeywordIndex] = useState(0);
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState<number>(
+    typeof window !== 'undefined' ? window.innerWidth : 1200
+  );
   const heroRef = useRef<HTMLElement>(null);
 
   const containerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Dynamically calculate staggerDelay and grid density for optimal mobile performance & FPS
+  const isMobile = windowWidth < 640;
+  const isTablet = windowWidth >= 640 && windowWidth < 1024;
+
+  const staggerDelay = isMobile ? 24 : isTablet ? 18 : 12;
+  const gridRows = isMobile ? 5 : isTablet ? 6 : 8;
+  const gridCols = isMobile ? 6 : isTablet ? 8 : 10;
 
   useEffect(() => {
     const mainEl = document.querySelector('main');
@@ -62,38 +81,33 @@ export const Hero: React.FC = () => {
       id="about" 
       className="relative flex flex-col justify-center items-center w-full h-[100dvh] min-h-[100dvh] snap-start snap-always pt-16 sm:pt-20 pb-4 overflow-hidden bg-slate-950 text-white z-0 flex-shrink-0 box-border"
     >
-      {/* Background Parallax Layer (Video + Image Slider) */}
+      {/* Background Parallax Layer with Dynamic Mosaic Card Flip */}
       <motion.div 
         style={{ y: bgY, scale: bgScale }}
-        className="absolute inset-0 w-full h-full pointer-events-none z-0 origin-center"
+        className="absolute inset-0 w-full h-full pointer-events-none z-0 origin-center opacity-30"
       >
-        {/* Background Video Loop */}
+        <ParticleBackground />
+
+        <MosaicCardFlip
+          images={BG_IMAGES}
+          currentIndex={currentBgIndex}
+          staggerDelay={staggerDelay}
+          rows={gridRows}
+          cols={gridCols}
+        />
+
+        {/* Background Video Loop Overlay */}
         <video
           autoPlay
           loop
           muted
           playsInline
           poster="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1920&q=85"
-          className="absolute inset-0 w-full h-full object-cover opacity-35"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay"
         >
           <source src="https://assets.mixkit.co/videos/preview/mixkit-recording-studio-with-a-camera-and-microphones-42994-large.mp4" type="video/mp4" />
           <source src="https://cdn.coverr.co/videos/coverr-a-video-camera-in-a-studio-5847/1080p.mp4" type="video/mp4" />
         </video>
-
-        {/* Dynamic Background Image Slider Fallback / Overlay */}
-        {BG_IMAGES.map((imgUrl, index) => (
-          <div
-            key={imgUrl}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentBgIndex ? 'opacity-20 scale-100' : 'opacity-0 scale-105'
-            }`}
-            style={{
-              backgroundImage: `url('${imgUrl}')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
-        ))}
       </motion.div>
 
       {/* Radial Gradient & Grid Overlays */}
