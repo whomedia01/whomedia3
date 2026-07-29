@@ -392,15 +392,6 @@
     activeStudioTitle: '',
     keywords: ['교육 콘텐츠 개발', '종합 영상 미디어 솔루션', 'AI·디지털 교육 솔루션', '4K 스마트 스튜디오', '기업·공공 미디어 브랜딩'],
     currentKeywordIndex: 0,
-    
-    // [히어로 배경: B2B 콘텐츠 개발, 대학 교육, 통합 컨설팅 최신 2026 이미지 4종]
-    bgImages: [
-        'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1920&q=85',
-        'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=85',
-        'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1920&q=85',
-        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=85'
-    ],
-    currentBgIndex: 0,
 
     // [전체 포트폴리오 목록: 교육 콘텐츠, 4K 프로덕션, 후캠퍼스, 언론 PR]
     portfolioItems: [
@@ -454,7 +445,6 @@
 }" 
 x-init="
     setInterval(() => { currentKeywordIndex = (currentKeywordIndex + 1) % keywords.length }, 2800);
-    setInterval(() => { currentBgIndex = (currentBgIndex + 1) % bgImages.length }, 3800);
 "
 @scroll.window="scrolled = (window.pageYOffset > 20)"
 @keydown.escape.window="closeModal()">
@@ -537,66 +527,45 @@ x-init="
     <!-- ================================================================= -->
     <section class="relative min-h-screen min-h-[100dvh] bg-brand-navy-dark pt-14 pb-10 sm:pt-20 sm:pb-12 lg:pt-24 lg:pb-14 overflow-hidden flex flex-col justify-center">
         
-        <!-- Elegant Dark High-Tech Background Ambient Glow & Ultra-HD Mosaic Card-Flip Overlay -->
-        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none"
-             x-data="{
-                 isFlipped: false,
-                 activeImg: (typeof bgImages !== 'undefined' &amp;&amp; bgImages.length &gt; 0) ? bgImages[currentBgIndex] : 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&amp;fit=crop&amp;w=1920&amp;q=85',
-                 tiles: Array.from({length: 40}, (_, i) => i),
-                 init() {
-                     setTimeout(() => {
-                         this.activeImg = bgImages[currentBgIndex] || bgImages[0];
-                         this.isFlipped = true;
-                         setTimeout(() => { this.isFlipped = false; }, 2200);
-                     }, 300);
-
-                     this.$watch('currentBgIndex', (newIdx) => {
-                         this.activeImg = bgImages[newIdx] || bgImages[0];
-                         this.isFlipped = true;
-                         setTimeout(() => {
-                             this.isFlipped = false;
-                         }, 2200);
-                     });
-                 }
-             }">
-
-            <!-- Reduced Motion Support CSS -->
+        <!-- Hero Background: Looping Muted YouTube Video Layer -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
             <style>
+                .hero-video-iframe {
+                    display: block;
+                }
+                .hero-reduced-motion-bg {
+                    display: none;
+                }
                 @media (prefers-reduced-motion: reduce) {
-                    .mosaic-card-flip-inner {
-                        transform: none !important;
-                        transition: opacity 0.5s ease-in-out !important;
-                        opacity: 0.3 !important;
+                    .hero-video-iframe {
+                        display: none !important;
                     }
-                    .mosaic-card-flip-inner.is-active {
-                        opacity: 1 !important;
+                    .hero-reduced-motion-bg {
+                        display: block !important;
                     }
                 }
             </style>
 
-            <!-- 1. Full-Bleed 40-Tile Mosaic Card-Flip Grid (8 columns x 5 rows = 40 tiles) -->
-            <div class="absolute inset-0 z-0 grid grid-cols-8 grid-rows-5 w-full h-full [perspective:1000px]">
-                <template x-for="(tile, i) in tiles" :key="i">
-                    <div class="relative w-full h-full overflow-hidden">
-                        <div class="mosaic-card-flip-inner w-full h-full relative [transform-style:preserve-3d] transition-transform duration-700 ease-in-out will-change-transform"
-                             :class="{ 'is-active': isFlipped }"
-                             :style="'transform: ' + (isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)') + '; transition-delay: ' + (((Math.floor(i / 8) + (i % 8)) * 40)) + 'ms;'">
-                            
-                            <!-- FRONT FACE: Dark Brand Navy Panel -->
-                            <div class="absolute inset-0 w-full h-full bg-[#0D1424] border border-white/[0.04] [backface-visibility:hidden]"></div>
-                            
-                            <!-- BACK FACE: Reconstructed Ultra-HD Image Slice -->
-                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-no-repeat bg-cover"
-                                 :style="'background-image: url(' + activeImg + '); background-size: 800% 500%; background-position: ' + ((i % 8) / 7 * 100) + '% ' + (Math.floor(i / 8) / 4 * 100) + '%;'"></div>
-                        </div>
-                    </div>
-                </template>
+            <!-- Reduced Motion Static Thumbnail Placeholder -->
+            <div class="hero-reduced-motion-bg absolute inset-0 bg-cover bg-center"
+                 style="background-image: url('https://img.youtube.com/vi/4cnYAzIvagw/maxresdefault.jpg');">
             </div>
 
-            <!-- 2. Dark Gradient Overlay ABOVE Mosaic Layer for High Contrast Text Readability -->
+            <!-- Autoplay Looping Video Frame -->
+            <div class="hero-video-iframe absolute inset-0 overflow-hidden">
+                <iframe class="w-[100vw] h-[56.25vw] min-h-full min-w-[177.78vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none border-0"
+                        src="https://www.youtube-nocookie.com/embed/4cnYAzIvagw?autoplay=1&mute=1&loop=1&playlist=4cnYAzIvagw&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&cc_load_policy=0&cc_lang_pref=off&playsinline=1"
+                        title="Hero Background Video"
+                        allow="autoplay; encrypted-media"
+                        tabindex="-1"
+                        aria-hidden="true">
+                </iframe>
+            </div>
+
+            <!-- Dark Gradient Overlay for Contrast -->
             <div class="absolute inset-0 z-10 bg-gradient-to-b from-[#0A0E1A]/80 via-[#0D1424]/65 to-[#0A0E1A]/85 pointer-events-none"></div>
 
-            <!-- 3. Ambient Light Spheres (layered on top of mosaic for visual consistency) -->
+            <!-- Ambient Light Spheres -->
             <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-mint/10 rounded-full filter blur-[100px] pointer-events-none z-20"></div>
             <div class="absolute bottom-1/3 -right-20 w-96 h-96 bg-blue-600/10 rounded-full filter blur-[120px] pointer-events-none z-20"></div>
         </div>
