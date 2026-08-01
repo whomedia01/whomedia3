@@ -96,18 +96,19 @@ export const Hero: React.FC = () => {
           cols={gridCols}
         />
 
-        {/* Background Video Loop Overlay */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1920&q=85"
-          className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay"
-        >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-recording-studio-with-a-camera-and-microphones-42994-large.mp4" type="video/mp4" />
-          <source src="https://cdn.coverr.co/videos/coverr-a-video-camera-in-a-studio-5847/1080p.mp4" type="video/mp4" />
-        </video>
+        {/* Background Video Loop Overlay using whomedia_hero.mp4 */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <video
+            className="w-full h-full object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none border-0 opacity-40 mix-blend-screen"
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-hidden="true"
+          >
+            <source src="https://raw.githubusercontent.com/whomedia01/whomedia4/main/whomedia_hero.mp4" type="video/mp4" />
+          </video>
+        </div>
       </motion.div>
 
       {/* Radial Gradient & Grid Overlays */}
@@ -124,20 +125,20 @@ export const Hero: React.FC = () => {
       >
         <div className="text-center max-w-4xl mx-auto space-y-4 sm:space-y-6 md:space-y-7 w-full my-auto">
           
-          {/* Top Green Badge */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-emerald-950/80 border border-emerald-500/40 shadow-lg backdrop-blur-md text-xs sm:text-sm font-semibold text-emerald-300 transition-all hover:border-emerald-400">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>콘텐츠 개발부터 언론 마케팅까지</span>
-          </div>
-
           {/* Main Title & Dynamic Keyword Subheading */}
           <div className="space-y-2.5 sm:space-y-4">
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.2] sm:leading-tight">
-              기업 가치를 극대화하는 <br className="hidden sm:inline" />
-              <span className="inline-block relative text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 font-black mt-0.5 sm:mt-0">
-                원스톱 미디어 솔루션
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.25] sm:leading-tight break-keep">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 font-black mb-1">
+                이러닝 개발 · 영상 제작 · 홍보 마케팅
+              </span>
+              <span className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black block">
+                성공을 이끄는 통합 솔루션
               </span>
             </h1>
+
+            <p className="text-slate-200 text-xs sm:text-base md:text-lg font-medium leading-relaxed max-w-xl mx-auto px-2 break-keep">
+              기획부터 제작·마케팅까지 원스톱으로, 귀사의 프로젝트를 완벽하게 이끕니다.
+            </p>
 
             {/* Rolling Keyword Display */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-lg bg-slate-900/90 border border-slate-800 text-xs sm:text-sm text-slate-300 font-medium shadow-md">
@@ -147,10 +148,6 @@ export const Hero: React.FC = () => {
                 {KEYWORDS[currentKeywordIndex]}
               </span>
             </div>
-
-            <p className="text-xs sm:text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto px-2">
-              기획부터 4K 영상 제작, 디지털 언론 마케팅까지 한 번에 실현하는 원스톱 통합 미디어 네트워크
-            </p>
           </div>
 
           {/* Action CTA Buttons */}
@@ -174,49 +171,37 @@ export const Hero: React.FC = () => {
           {/* Key Metrics Dashboard Card with Parallax */}
           <motion.div style={{ y: metricsY }} className="pt-2 sm:pt-4">
             <div className="p-3.5 sm:p-5 md:p-6 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-md shadow-2xl max-w-4xl mx-auto">
-              <div className="grid grid-cols-4 gap-2 sm:gap-6 divide-x divide-slate-800/80">
+              <div className="grid grid-cols-3 gap-2 sm:gap-6 divide-x divide-slate-800/80">
                 
                 {/* Metric 1 */}
                 <div className="flex flex-col items-center justify-center p-1 text-center">
-                  <div className="text-base sm:text-2xl md:text-3xl lg:text-4xl font-black text-white font-sans flex items-baseline justify-center gap-0.5 sm:gap-1">
-                    <span>2010</span>
-                    <span className="text-[10px] sm:text-xs md:text-sm font-bold text-red-500">년</span>
+                  <div className="text-xl sm:text-3xl md:text-4xl font-black text-white font-sans flex items-baseline justify-center gap-0.5 sm:gap-1">
+                    <span>17</span>
+                    <span className="text-xs sm:text-base font-bold text-emerald-400">년</span>
                   </div>
-                  <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium mt-0.5 sm:mt-1">
-                    설립 연도
+                  <div className="text-[10px] sm:text-xs md:text-sm text-slate-300 font-bold mt-0.5 sm:mt-1">
+                    축적의 노하우
                   </div>
                 </div>
 
                 {/* Metric 2 */}
                 <div className="flex flex-col items-center justify-center p-1 text-center">
-                  <div className="text-base sm:text-2xl md:text-3xl lg:text-4xl font-black text-white font-sans flex items-baseline justify-center gap-0.5 sm:gap-1">
-                    <span>160</span>
-                    <span className="text-[10px] sm:text-xs md:text-sm font-bold text-red-500">평</span>
+                  <div className="text-xl sm:text-3xl md:text-4xl font-black text-white font-sans flex items-baseline justify-center gap-0.5 sm:gap-1">
+                    <span>1,500</span>
+                    <span className="text-xs sm:text-base font-bold text-emerald-400">+</span>
                   </div>
-                  <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium mt-0.5 sm:mt-1">
-                    4K 스튜디오
+                  <div className="text-[10px] sm:text-xs md:text-sm text-slate-300 font-bold mt-0.5 sm:mt-1">
+                    성공적 프로젝트
                   </div>
                 </div>
 
                 {/* Metric 3 */}
                 <div className="flex flex-col items-center justify-center p-1 text-center">
-                  <div className="text-base sm:text-2xl md:text-3xl lg:text-4xl font-black text-white font-sans flex items-baseline justify-center gap-0.5 sm:gap-1">
-                    <span>1,500</span>
-                    <span className="text-[10px] sm:text-xs md:text-sm font-bold text-red-500">+</span>
+                  <div className="text-base sm:text-2xl md:text-3xl font-black text-emerald-400 font-sans tracking-tight">
+                    ALL-IN-ONE
                   </div>
-                  <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium mt-0.5 sm:mt-1">
-                    제작 프로젝트
-                  </div>
-                </div>
-
-                {/* Metric 4 */}
-                <div className="flex flex-col items-center justify-center p-1 text-center">
-                  <div className="text-base sm:text-2xl md:text-3xl lg:text-4xl font-black text-white font-sans flex items-baseline justify-center gap-0.5 sm:gap-1">
-                    <span>300</span>
-                    <span className="text-[10px] sm:text-xs md:text-sm font-bold text-red-500">+</span>
-                  </div>
-                  <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium mt-0.5 sm:mt-1">
-                    클라이언트
+                  <div className="text-[10px] sm:text-xs md:text-sm text-slate-300 font-bold mt-0.5 sm:mt-1">
+                    원스톱 통합 시스템
                   </div>
                 </div>
 

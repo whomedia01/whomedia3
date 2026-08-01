@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>(주)후미디어 | 프리미엄 영상 제작, 교육 콘텐츠 컨설팅 & 4K 스튜디오 대여</title>
+    <title>후미디어 | 이러닝부터 마케팅까지, 통합 솔루션</title>
     
     <!-- SEO & Basic Meta Tags -->
-    <meta name="description" content="(주)후미디어 공식 웹사이트 - 교육 콘텐츠 개발, 4K 스튜디오 대여, 맞춤형 영상 제작, 후캠퍼스 평생교육원 및 디지털 언론 PR 통합 솔루션">
+    <meta name="description" content="이러닝 기획부터 영상 제작, 마케팅 확산까지. 성공적인 과업 수행을 위한 (주)후미디어의 원스톱 통합 솔루션">
     <meta name="keywords" content="후미디어, WHOMEDIA, 영상제작, 교육콘텐츠, 4K스튜디오, 스튜디오대여, 후캠퍼스, 평생교육원, 한국AI교육신문, 미디어솔루션, 이러닝제작, 크로마키스튜디오">
     <meta name="author" content="(주)후미디어">
     <link rel="canonical" href="https://whomedia.co.kr/">
@@ -30,8 +30,8 @@
     <!-- Open Graph (OG) Meta Tags for KakaoTalk, Facebook, Line, etc. -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://whomedia.co.kr/">
-    <meta property="og:title" content="(주)후미디어 | 프리미엄 영상 제작, 교육 콘텐츠 컨설팅 & 4K 스튜디오 대여">
-    <meta property="og:description" content="기업 가치를 극대화하는 원스톱 미디어 솔루션. 교육 컨설팅, 4K 미디어 프로덕션, 160평 규모 스튜디오 대여 및 언론 마케팅.">
+    <meta property="og:title" content="후미디어 | 이러닝부터 마케팅까지, 통합 솔루션">
+    <meta property="og:description" content="콘텐츠의 완성도가 비즈니스의 눈부신 성장이 되도록. 후미디어만의 단단한 기획력과 실행력으로 귀사의 프로젝트를 가장 빛나는 결과로 이끕니다.">
     <meta property="og:site_name" content="(주)후미디어">
     <meta property="og:image" content="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&h=630&q=85">
     <meta property="og:image:width" content="1200">
@@ -553,13 +553,10 @@ x-init="
 
             <!-- Autoplay Looping Video Frame -->
             <div class="hero-video-iframe absolute inset-0 overflow-hidden">
-                <iframe class="w-[100vw] h-[56.25vw] min-h-full min-w-[177.78vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none border-0"
-                        src="https://www.youtube-nocookie.com/embed/4cnYAzIvagw?autoplay=1&mute=1&loop=1&playlist=4cnYAzIvagw&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&cc_load_policy=0&cc_lang_pref=off&playsinline=1"
-                        title="Hero Background Video"
-                        allow="autoplay; encrypted-media"
-                        tabindex="-1"
-                        aria-hidden="true">
-                </iframe>
+                <video class="w-full h-full object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none border-0"
+                       autoplay loop muted playsinline aria-hidden="true">
+                    <source src="https://raw.githubusercontent.com/whomedia01/whomedia4/main/whomedia_hero.mp4" type="video/mp4" />
+                </video>
             </div>
 
             <!-- Dark Gradient Overlay for Contrast -->
@@ -573,263 +570,196 @@ x-init="
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div class="max-w-3xl text-left mb-8 pt-2 sm:pt-4">
                 
-                <!-- Category Eyebrow Badge -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-mint/10 border border-brand-mint/20 text-brand-mint text-xs sm:text-sm font-extrabold tracking-wide mb-4">
-                    <span class="w-2 h-2 rounded-full bg-brand-mint animate-pulse"></span>
-                    <span>콘텐츠 개발부터 언론 마케팅까지</span>
-                </div>
-
                 <!-- Main Slogan -->
-                <h1 id="hero-headline"
-                    class="relative text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.2] tracking-tight mb-4 drop-shadow-md"
-                    x-data="{
-                        headlineRevealed: false,
-                        headlineTiles: Array.from({length: 40}, (_, i) => i),
-                        init() {
-                            setTimeout(() => {
-                                this.headlineRevealed = true;
-                            }, 400);
-                        }
-                    }">
-                    <!-- Accessible Real Text for Crawlers & Screen Readers -->
-                    <span class="block">
-                        기업 가치를 극대화하는<br />
-                        <span class="text-brand-mint">원스톱 미디어 솔루션</span>
+                <h1 id="hero-headline" class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.25] tracking-tight mb-4 drop-shadow-md break-keep">
+                    <span class="block font-black">
+                        <span class="text-brand-mint font-black block text-xl sm:text-3xl lg:text-4xl mb-1.5">이러닝 개발 · 영상 제작 · 홍보 마케팅</span>
+                        <span class="text-white text-2xl sm:text-4xl lg:text-5xl font-black block">성공을 이끄는 통합 솔루션</span>
                     </span>
-
-                    <!-- Reduced Motion Override -->
-                    <style>
-                        @media (prefers-reduced-motion: reduce) {
-                            .headline-mosaic-overlay {
-                                display: none !important;
-                            }
-                        }
-                    </style>
-
-                    <!-- Decorative 40-Tile Mosaic Card-Flip Overlay (10 cols x 4 rows) -->
-                    <div class="headline-mosaic-overlay absolute inset-0 z-20 pointer-events-none select-none overflow-hidden"
-                         aria-hidden="true">
-                        <template x-for="(tile, i) in headlineTiles" :key="i">
-                            <div class="absolute overflow-hidden [perspective:1000px]"
-                                 :style="'left: ' + ((i % 10) * 10) + '%; top: ' + (Math.floor(i / 10) * 25) + '%; width: 10%; height: 25%;'">
-                                <div class="w-full h-full relative [transform-style:preserve-3d] will-change-transform"
-                                     :style="'transform: ' + (headlineRevealed ? 'rotateY(180deg)' : 'rotateY(0deg)') + '; transition: transform 0.55s ease-in-out; transition-delay: ' + (((Math.floor(i / 10) + (i % 10)) * 40)) + 'ms;'">
-                                    
-                                    <!-- FRONT FACE: Solid Dark Navy Panel (Hides text before flip) -->
-                                    <div class="absolute inset-0 w-full h-full bg-[#0D1424] border border-white/[0.05] [backface-visibility:hidden] z-10"></div>
-                                    
-                                    <!-- BACK FACE: Sliced Text Window -->
-                                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-hidden z-20">
-                                        <div class="absolute w-[1000%] h-[400%] text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.2] tracking-tight drop-shadow-md text-left"
-                                             :style="'left: -' + ((i % 10) * 100) + '%; top: -' + (Math.floor(i / 10) * 100) + '%;'">
-                                            기업 가치를 극대화하는<br />
-                                            <span class="text-brand-mint">원스톱 미디어 솔루션</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </template>
-                    </div>
                 </h1>
 
-                <!-- Sub-headline -->
-                <p class="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-4 max-w-xl font-normal">
-                    교육 컨설팅부터 4K 미디어 프로덕션, 평생교육, 디지털 언론 홍보까지 최적의 통합 솔루션을 제공합니다.
+                <!-- Sub-headline Body Text -->
+                <p class="text-slate-200 text-sm sm:text-base lg:text-lg font-medium leading-relaxed max-w-xl mb-5 break-keep drop-shadow-sm">
+                    기획부터 제작·마케팅까지 원스톱으로, 귀사의 프로젝트를 완벽하게 이끕니다.
                 </p>
             </div>
 
-            <!-- Stats Bar (Mobile 2x2 grid) -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-5 bg-black/60 backdrop-blur-md border border-white/15 rounded-2xl shadow-xl">
-                <div class="text-center sm:text-left border-r border-white/10 last:border-r-0 pr-2">
-                    <div class="text-xl sm:text-3xl font-extrabold text-white">2010<span class="text-brand-mint text-xs sm:text-sm ml-0.5">년</span></div>
-                    <div class="text-[11px] sm:text-xs text-gray-300 font-medium">설립 연도</div>
+            <!-- Stats Bar (Emphasizing 17년, 1,500+, ALL-IN-ONE) -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 p-4 sm:p-5 bg-black/60 backdrop-blur-md border border-white/15 rounded-2xl shadow-xl">
+                <div class="text-center sm:text-left border-b sm:border-b-0 sm:border-r border-white/10 pb-3 sm:pb-0 pr-2">
+                    <div class="text-2xl sm:text-4xl font-black text-white tracking-tight">17<span class="text-brand-mint text-lg sm:text-2xl ml-0.5">년</span></div>
+                    <div class="text-xs sm:text-sm text-gray-200 font-bold">축적의 노하우</div>
                 </div>
-                <div class="text-center sm:text-left border-r border-white/10 last:border-r-0 pr-2">
-                    <div class="text-xl sm:text-3xl font-extrabold text-white">160<span class="text-brand-mint text-xs sm:text-sm ml-0.5">평</span></div>
-                    <div class="text-[11px] sm:text-xs text-gray-300 font-medium">4K 스튜디오 인프라</div>
+                <div class="text-center sm:text-left border-b sm:border-b-0 sm:border-r border-white/10 pb-3 sm:pb-0 pr-2">
+                    <div class="text-2xl sm:text-4xl font-black text-white tracking-tight">1,500<span class="text-brand-mint text-lg sm:text-2xl ml-0.5">+</span></div>
+                    <div class="text-xs sm:text-sm text-gray-200 font-bold">성공적 프로젝트</div>
                 </div>
-                <div class="text-center sm:text-left border-r border-white/10 last:border-r-0 pr-2">
-                    <div class="text-xl sm:text-3xl font-extrabold text-white">1,500<span class="text-brand-mint text-xs sm:text-sm ml-0.5">+</span></div>
-                    <div class="text-[11px] sm:text-xs text-gray-300 font-medium">제작 프로젝트</div>
-                </div>
-                <div class="text-center sm:text-left">
-                    <div class="text-xl sm:text-3xl font-extrabold text-white">300<span class="text-brand-mint text-xs sm:text-sm ml-0.5">+</span></div>
-                    <div class="text-[11px] sm:text-xs text-gray-300 font-medium">클라이언트 레퍼런스</div>
+                <div class="text-center sm:text-left pt-1 sm:pt-0">
+                    <div class="text-xl sm:text-3xl font-black text-brand-mint tracking-tight">ALL-IN-ONE</div>
+                    <div class="text-xs sm:text-sm text-gray-200 font-bold">원스톱 통합 시스템</div>
                 </div>
             </div>
         </div>
     </section>
 
-
     <!-- ================================================================= -->
     <!-- 3. BUSINESS AREA: 디지털 통합 미디어 비즈니스 허브                 -->
     <!-- ================================================================= -->
-    <section id="services" class="py-20 lg:py-28 bg-slate-50 border-t border-b border-slate-200/80">
+    <section id="services" class="py-20 lg:py-28 bg-slate-900 border-t border-b border-slate-800 text-white">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="inline-block px-3.5 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold tracking-wider mb-3 shadow-2xs">
-                    콘텐츠 개발부터 언론 마케팅까지 통합 비즈니스
-                </span>
-                <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-text mb-3 leading-tight">
-                    디지털 통합 미디어 비즈니스 허브
+            <!-- 전체 섹션 타이틀 영역 -->
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 lg:mb-16">
+                <p class="text-xs sm:text-sm font-extrabold text-cyan-400 tracking-wider uppercase mb-3 break-keep">
+                    (주)후미디어 3대 핵심 미디어 네트워크
+                </p>
+                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight sm:leading-snug break-keep">
+                    브랜드 가치를 높이는 가장 확실한 원스톱 솔루션
                 </h2>
-                <p class="text-slate-900 font-bold text-base sm:text-lg mb-2 text-blue-950">
-                    "기업 브랜드 가치를 극대화하는 가장 확실한 원스톱 미디어 솔루션"
-                </p>
-                <p class="text-slate-600 text-xs sm:text-sm sm:leading-relaxed max-w-2xl mx-auto">
-                    단순한 콘텐츠 개발을 넘어 교육 컨설팅, 브랜딩, 언론 홍보·마케팅까지 한 번에 실현하는 <strong class="text-slate-900 font-bold">(주)후미디어 고유의 3대 핵심 미디어 네트워크 시스템</strong>입니다.
-                </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- 3단 하위 구조 영역 (PC 3 Columns, 모바일 1 Column) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                 
-                <!-- Card 1: Media Production & Creative Network -->
-                <div class="group relative bg-white rounded-3xl border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-between">
-                    <div class="relative h-48 overflow-hidden bg-slate-900">
-                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1000&auto=format&fit=crop" 
-                             alt="미디어 프로덕션" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" 
-                             referrerpolicy="no-referrer" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4">
-                            <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-wider text-white bg-blue-600 uppercase shadow-sm">
-                                PRODUCTION &amp; CREATIVE
-                            </span>
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4 text-white">
-                            <h3 class="text-xl font-bold leading-snug">
-                                미디어 프로덕션 &amp;<br />크리에이티브 네트워크
+                <!-- Card 1: STEP 01 - 교육 컨설팅 -->
+                <div class="relative group rounded-2xl overflow-hidden min-h-[360px] flex flex-col justify-between p-6 sm:p-7 border border-white/10 bg-slate-950/60 backdrop-blur-md shadow-xl hover:shadow-2xl hover:border-cyan-400/60 transition-all duration-500 text-white block break-keep">
+                    <!-- Background Looping Video -->
+                    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                        <video class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-40" autoPlay loop muted playsInline aria-hidden="true">
+                            <source src="https://raw.githubusercontent.com/whomedia01/whomedia4/main/whomedia_hero.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+
+                    <!-- Dark Dimming Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/85 to-slate-950/50 group-hover:from-slate-950/95 group-hover:via-slate-950/80 transition-colors duration-500 z-10 pointer-events-none"></div>
+
+                    <!-- Header Top Bar -->
+                    <div class="relative z-20 flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 bg-cyan-500 text-slate-950 text-xs font-black rounded-lg tracking-wider uppercase shadow-md flex items-center gap-1.5">
+                            <svg class="w-3.5 h-3.5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                            STEP 01
+                        </span>
+                        <span class="inline-flex items-center gap-1 text-xs font-extrabold text-cyan-300 bg-cyan-950/80 border border-cyan-500/30 px-3 py-1 rounded-full">
+                            ✔ 교육 컨설팅
+                        </span>
+                    </div>
+
+                    <!-- Content Area -->
+                    <div class="relative z-20 pt-10">
+                        <div class="mb-3">
+                            <h3 class="text-xl sm:text-2xl font-black text-white group-hover:text-cyan-300 transition-colors tracking-tight">
+                                체계적인 이러닝 설계
                             </h3>
                         </div>
-                    </div>
-                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium mb-6">
-                                자체 전문 스튜디오 &amp; 4K 고품질 미디어 종합 프로덕션. 기업 / 공공기관 맞춤형 영상 제작 및 최신 연출 기술을 제공합니다.
-                            </p>
-                            <ul class="space-y-2.5 text-xs text-slate-600 mb-6">
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0 mt-1.5"></span>
-                                    <span><strong>4K 멀티 스튜디오 &amp; 전자칠판/크로마키</strong>: 최첨단 촬영 기법 및 리얼타임 비디오 스위쳐</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0 mt-1.5"></span>
-                                    <span><strong>이러닝 &amp; AI 디지털 교과서</strong>: 초·중·고 및 대학, 기업 연수 맞춤형 연출</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0 mt-1.5"></span>
-                                    <span><strong>기업 홍보 &amp; 모션그래픽 CG</strong>: 유튜브 숏폼/롱폼, 브랜딩 영상 후반 마감</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="pt-4 border-t border-slate-100">
-                            <a href="#reference" class="inline-flex items-center gap-2 text-xs font-bold text-slate-900 hover:text-blue-600 transition-colors">
-                                <span>프로덕션 포트폴리오 보기</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                            </a>
-                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed mb-4">
+                            교육 목적과 타겟에 최적화된 맞춤형 교수설계 및 에듀테크 기반 커리큘럼을 구축합니다.
+                        </p>
+                        <ul class="space-y-2.5 border-t border-white/15 pt-4 text-xs font-medium text-slate-200">
+                            <li class="flex items-start gap-2">
+                                <span class="text-cyan-400 font-bold mt-0.5">✔</span>
+                                <span>맞춤형 이러닝 콘텐츠 교수설계 및 개발</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-cyan-400 font-bold mt-0.5">✔</span>
+                                <span>기업·공공 맞춤형 에듀테크 교육 과정 구축</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Card 2: Hucampus Lifelong Education Center -->
-                <div class="group relative bg-white rounded-3xl border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-between">
-                    <div class="relative h-48 overflow-hidden bg-slate-900">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1000&auto=format&fit=crop" 
-                             alt="후캠퍼스" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" 
-                             referrerpolicy="no-referrer" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4">
-                            <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-wider text-white bg-emerald-600 uppercase shadow-sm">
-                                WHO CAMPUS
-                            </span>
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4 text-white">
-                            <h3 class="text-xl font-bold leading-snug">
-                                후캠퍼스 온·오프라인<br />평생교육원
+                <!-- Card 2: STEP 02 - 브랜딩 -->
+                <div class="relative group rounded-2xl overflow-hidden min-h-[360px] flex flex-col justify-between p-6 sm:p-7 border border-white/10 bg-slate-950/60 backdrop-blur-md shadow-xl hover:shadow-2xl hover:border-emerald-400/60 transition-all duration-500 text-white block break-keep">
+                    <!-- Background Looping Video -->
+                    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                        <video class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-35" autoPlay loop muted playsInline aria-hidden="true">
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-student-working-on-a-laptop-in-a-library-42934-large.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+
+                    <!-- Dark Dimming Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/85 to-slate-950/50 group-hover:from-slate-950/95 group-hover:via-slate-950/80 transition-colors duration-500 z-10 pointer-events-none"></div>
+
+                    <!-- Header Top Bar -->
+                    <div class="relative z-20 flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 bg-emerald-500 text-slate-950 text-xs font-black rounded-lg tracking-wider uppercase shadow-md flex items-center gap-1.5">
+                            <svg class="w-3.5 h-3.5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            STEP 02
+                        </span>
+                        <span class="inline-flex items-center gap-1 text-xs font-extrabold text-emerald-300 bg-emerald-950/80 border border-emerald-500/30 px-3 py-1 rounded-full">
+                            ✔ 브랜딩
+                        </span>
+                    </div>
+
+                    <!-- Content Area -->
+                    <div class="relative z-20 pt-10">
+                        <div class="mb-3">
+                            <h3 class="text-xl sm:text-2xl font-black text-white group-hover:text-emerald-300 transition-colors tracking-tight">
+                                압도적인 콘텐츠 구현
                             </h3>
                         </div>
-                    </div>
-                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium mb-6">
-                                평생 교육 자산 형성을 모토로 기업 및 개인의 성장을 지원하는 인가받은 맞춤형 평생교육 플랫폼입니다.
-                            </p>
-                            <ul class="space-y-2.5 text-xs text-slate-600 mb-6">
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 bg-emerald-600 rounded-full shrink-0 mt-1.5"></span>
-                                    <span><strong>기업 / 공공기관 맞춤형 교육 컨설팅</strong>: 조직 진단 및 업무 성과 향상 커리큘럼 설계</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 bg-emerald-600 rounded-full shrink-0 mt-1.5"></span>
-                                    <span><strong>생애주기별 인재 양성 프로젝트</strong>: 대학생 취업 강화부터 직장인 전문 스펙 고도화</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 bg-emerald-600 rounded-full shrink-0 mt-1.5"></span>
-                                    <span><strong>하이브리드 에듀 인프라</strong>: 국비지원 연계 및 전문 강사진 온라인 스트리밍</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="pt-4 border-t border-slate-100">
-                            <a href="http://www.whocampus.co.kr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors">
-                                <span>WHO CAMPUS (후캠퍼스) 바로가기</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                            </a>
-                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed mb-4">
+                            160평 4K 종합 스튜디오 인프라와 몰입감 높은 연출력으로 고품질 비주얼을 완성합니다.
+                        </p>
+                        <ul class="space-y-2.5 border-t border-white/15 pt-4 text-xs font-medium text-slate-200">
+                            <li class="flex items-start gap-2">
+                                <span class="text-emerald-400 font-bold mt-0.5">✔</span>
+                                <span>4K 스튜디오 비주얼 촬영 및 3D 미디어 연출</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-emerald-400 font-bold mt-0.5">✔</span>
+                                <span>브랜드 특화 맞춤 릴스 &amp; 시네마틱 홍보 영상</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Card 3: Media & Journalism Network -->
-                <div class="group relative bg-white rounded-3xl border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-between">
-                    <div class="relative h-48 overflow-hidden bg-slate-900">
-                        <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=1000&auto=format&fit=crop" 
-                             alt="디지털 언론 미디어" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" 
-                             referrerpolicy="no-referrer" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4">
-                            <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-wider text-white bg-indigo-600 uppercase shadow-sm">
-                                MEDIA &amp; JOURNALISM
-                            </span>
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4 text-white">
-                            <h3 class="text-xl font-bold leading-snug">
-                                디지털 언론 미디어<br />한국AI교육신문
+                <!-- Card 3: STEP 03 - 언론 홍보 -->
+                <div class="relative group rounded-2xl overflow-hidden min-h-[360px] flex flex-col justify-between p-6 sm:p-7 border border-white/10 bg-slate-950/60 backdrop-blur-md shadow-xl hover:shadow-2xl hover:border-purple-400/60 transition-all duration-500 text-white block break-keep">
+                    <!-- Background Looping Video -->
+                    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                        <video class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-35" autoPlay loop muted playsInline aria-hidden="true">
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-financial-charts-and-graphs-on-a-screen-41221-large.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+
+                    <!-- Dark Dimming Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/85 to-slate-950/50 group-hover:from-slate-950/95 group-hover:via-slate-950/80 transition-colors duration-500 z-10 pointer-events-none"></div>
+
+                    <!-- Header Top Bar -->
+                    <div class="relative z-20 flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 bg-purple-500 text-slate-950 text-xs font-black rounded-lg tracking-wider uppercase shadow-md flex items-center gap-1.5">
+                            <svg class="w-3.5 h-3.5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                            STEP 03
+                        </span>
+                        <span class="inline-flex items-center gap-1 text-xs font-extrabold text-purple-300 bg-purple-950/80 border border-purple-500/30 px-3 py-1 rounded-full">
+                            ✔ 언론 홍보
+                        </span>
+                    </div>
+
+                    <!-- Content Area -->
+                    <div class="relative z-20 pt-10">
+                        <div class="mb-3">
+                            <h3 class="text-xl sm:text-2xl font-black text-white group-hover:text-purple-300 transition-colors tracking-tight">
+                                전략적인 마케팅 확산
                             </h3>
                         </div>
-                    </div>
-                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium mb-6">
-                                공신력 높은 디지털 언론 미디어 '한국AI교육신문' &amp; 전문 홍보 인프라로 기업의 대외 신뢰도 향상을 지원합니다.
-                            </p>
-                            <ul class="space-y-2.5 text-xs text-slate-600 mb-6">
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 bg-indigo-600 rounded-full shrink-0 mt-1.5"></span>
-                                    <span><strong>기업 기획 언론 홍보</strong>: 기업 브랜드 신뢰 확보를 위한 기사 작성 및 송출</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 bg-indigo-600 rounded-full shrink-0 mt-1.5"></span>
-                                    <span><strong>조달청 입찰 인프라</strong>: 공공 입찰 참여 시 공식 가산점 및 공신력 증대</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 bg-indigo-600 rounded-full shrink-0 mt-1.5"></span>
-                                    <span><strong>투명한 정보 제공 &amp; 취재력</strong>: 전문 취재진의 정밀 언론 미디어 인프라</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="pt-4 border-t border-slate-100">
-                            <a href="https://www.kaen-news.co.kr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-indigo-700 hover:text-indigo-800 transition-colors">
-                                <span>한국AI교육신문 바로가기</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                            </a>
-                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed mb-4">
+                            디지털 언론 PR 및 타겟 마케팅 네트워크를 결합하여 대외 브랜드 신뢰도를 높입니다.
+                        </p>
+                        <ul class="space-y-2.5 border-t border-white/15 pt-4 text-xs font-medium text-slate-200">
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-400 font-bold mt-0.5">✔</span>
+                                <span>디지털 언론 기사 송출 &amp; 대외 브랜드 PR</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-400 font-bold mt-0.5">✔</span>
+                                <span>SNS 및 타겟 바이럴 마케팅 원스톱 캠페인</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
             </div>
-
         </div>
     </section>
 
@@ -881,125 +811,167 @@ x-init="
                 </div>
 
                 <!-- 3 Core Brand Value Pillars (Modern Horizontal Grid) -->
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Pillar 1 -->
-                    <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-md hover:border-blue-400 transition-all duration-300">
-                        <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">진정성 있는 교육 진단 & 설계</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                            학습자의 니즈와 기관의 시급한 과제를 정밀 타격하여, 단순 지식 전달을 넘어 실질적 성과로 이어지는 맞춤 커리큘럼을 설계합니다.
-                        </p>
-                    </div>
-
-                    <!-- Pillar 2 -->
-                    <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-md hover:border-teal-400 transition-all duration-300">
-                        <div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center font-bold mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">선도적 AI·디지털 미디어 연출</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                            급변하는 에듀테크 트렌드를 능동적으로 반영하고 4K 자체 스튜디오 인프라를 활용해 몰입도 높은 시각 미디어를 구현합니다.
-                        </p>
-                    </div>
-
-                    <!-- Pillar 3 -->
-                    <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-md hover:border-indigo-400 transition-all duration-300">
-                        <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">검증된 대형 사업 수행 안정성</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                            공공기관 입찰 및 대기업 연수 사업을 수년 간 성공적으로 리드해온 철저한 공정 관리와 신뢰할 수 있는 프로젝트 책임력을 보장합니다.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Part 2: WHOMEDIA's Expertise (Redesigned Modern Interactive Cards) -->
+                            <!-- Part 2: WHOMEDIA's Expertise (Redesigned Modern Process Flow Pipeline - Option C Media Cards) -->
             <div id="expertise" class="pt-16 border-t border-slate-200 mb-20">
                 
                 <div class="text-center max-w-3xl mx-auto mb-14">
                     <span class="inline-block px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold mb-3">
-                        CORE EXPERTISE & COMPETENCY
+                        CORE EXPERTISE &amp; COMPETENCY
                     </span>
                     <h3 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
                         교육 기획부터 미디어 구현·운영까지<br class="hidden sm:inline" /> 3대 핵심 체계
                     </h3>
                     <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                        (주)후미디어만의 다각도 통합 전문 솔루션으로 완벽한 품질과 최상의 만족도를 선사합니다.
+                        기획부터 제작, 대외 PR 및 운영까지 원스톱 프로세스로 연결되는 3대 핵심 미디어 영역입니다.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- 3-Column Responsive Grid (1 column on mobile, 3 columns on desktop) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative">
                     
-                    <!-- Expertise 01 -->
-                    <div class="bg-white p-7 sm:p-8 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between">
-                        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <div>
-                            <div class="flex items-center justify-between mb-6">
-                                <span class="px-3 py-1 bg-slate-100 text-slate-800 text-xs font-extrabold rounded-md tracking-wider">01 . STRATEGY</span>
-                                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">맞춤형 기획</span>
-                            </div>
-                            <h4 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">
-                                전략적 커리큘럼 아키텍처
-                            </h4>
-                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                                조직 특성과 수강 대상의 환경을 정밀 분석하여, 교육 목표 달성에 최적화된 모듈별 학습 과정 및 미디어 시나리오를 구성합니다.
-                            </p>
+                    <!-- Card 1: 잘 만드는 영상 (Media Production) -->
+                    <a href="#portfolio" class="relative group rounded-2xl overflow-hidden min-h-[360px] flex flex-col justify-between p-7 sm:p-8 border border-white/10 shadow-lg hover:shadow-2xl hover:border-cyan-400/60 transition-all duration-500 cursor-pointer text-white block">
+                        <!-- Media Background Layer: Looping Video -->
+                        <div class="absolute inset-0 z-0 overflow-hidden">
+                            <video class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none"
+                                   autoplay loop muted playsinline aria-hidden="true">
+                                <source src="https://raw.githubusercontent.com/whomedia01/whomedia4/main/whomedia_hero.mp4" type="video/mp4" />
+                            </video>
                         </div>
-                        <ul class="space-y-2 border-t border-slate-100 pt-4 text-xs font-medium text-slate-700">
-                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 기관·기업 맞춤형 교육 컨설팅</li>
-                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 단기·장기 생애주기별 과정 설계</li>
-                        </ul>
-                    </div>
 
-                    <!-- Expertise 02 -->
-                    <div class="bg-white p-7 sm:p-8 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between">
-                        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <div>
-                            <div class="flex items-center justify-between mb-6">
-                                <span class="px-3 py-1 bg-slate-100 text-slate-800 text-xs font-extrabold rounded-md tracking-wider">02 . TECH & MEDIA</span>
-                                <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">스튜디오 연출</span>
-                            </div>
-                            <h4 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-700 transition-colors">
-                                차세대 AI·디지털 미디어 개발
-                            </h4>
-                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                                자체 보유 4K 스마트 스튜디오, 크로마키, 모션그래픽 기술과 최신 AI 툴을 융합하여 시각적 몰입감이 탁월한 고품질 콘텐츠를 제작합니다.
-                            </p>
-                        </div>
-                        <ul class="space-y-2 border-t border-slate-100 pt-4 text-xs font-medium text-slate-700">
-                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 4K 스튜디오 & 숏폼·롱폼 영상</li>
-                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 초·중·고 및 기업 AI 디지털 교과서</li>
-                        </ul>
-                    </div>
+                        <!-- Dark Dimming Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/40 group-hover:from-slate-950/90 group-hover:via-slate-950/60 transition-colors duration-500 z-10 pointer-events-none"></div>
 
-                    <!-- Expertise 03 -->
-                    <div class="bg-white p-7 sm:p-8 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between">
-                        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <div>
-                            <div class="flex items-center justify-between mb-6">
-                                <span class="px-3 py-1 bg-slate-100 text-slate-800 text-xs font-extrabold rounded-md tracking-wider">03 . TOTAL MANAGEMENT</span>
-                                <span class="text-xs font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded-full">원스톱 통합 관리</span>
-                            </div>
-                            <h4 class="text-lg sm:text-xl font-bold text-slate-900 mb-3 group-hover:text-purple-700 transition-colors whitespace-nowrap">
-                                통합 프로젝트 운영 &amp; PR 인프라
-                            </h4>
-                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                                전문 전담 PM 배치와 언론 미디어 채널(한국AI교육신문)을 활용하여 교육 과정의 유연한 진행과 대외 홍보 마케팅까지 원스톱 지원합니다.
-                            </p>
+                        <!-- Top Header Bar -->
+                        <div class="relative z-20 flex items-center justify-between">
+                            <span class="px-3.5 py-1.5 bg-cyan-500/90 text-slate-950 text-xs font-black rounded-lg tracking-wider uppercase shadow-md flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                STEP 01
+                            </span>
+                            <span class="text-xs font-bold text-cyan-300 bg-slate-900/80 backdrop-blur-md border border-cyan-400/30 px-3 py-1 rounded-full flex items-center gap-1 group-hover:bg-cyan-400 group-hover:text-slate-950 transition-all duration-300">
+                                포트폴리오 <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </span>
                         </div>
-                        <ul class="space-y-2 border-t border-slate-100 pt-4 text-xs font-medium text-slate-700">
-                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-purple-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 현장 밀착 실시간 운영 TF팀</li>
-                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-purple-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 언론 기사 송출 & 가산점 확보 지원</li>
-                        </ul>
-                    </div>
+
+                        <!-- Bottom Content Area -->
+                        <div class="relative z-20 pt-16">
+                            <div class="mb-3">
+                                <span class="text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-1">Media Production</span>
+                                <h4 class="text-2xl font-black text-white group-hover:text-cyan-300 transition-colors tracking-tight">
+                                    잘 만드는 영상
+                                </h4>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed mb-4">
+                                4K 고화질 시네마틱 영상과 브랜드 감성을 극대화하는 맞춤 릴스 및 홍보 영상 제작
+                            </p>
+                            <ul class="space-y-2 border-t border-white/15 pt-4 text-xs font-medium text-slate-200">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                                    <span>고퀄리티 홍보·스케치·브랜드 릴스 숏폼</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                                    <span>전문 시네마 4K 멀티 카메라 촬영 인프라</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
+
+                    <!-- Card 2: 앞서가는 이러닝 (E-Learning) -->
+                    <a href="#infrastructure" class="relative group rounded-2xl overflow-hidden min-h-[360px] flex flex-col justify-between p-7 sm:p-8 border border-white/10 shadow-lg hover:shadow-2xl hover:border-emerald-400/60 transition-all duration-500 cursor-pointer text-white block">
+                        <!-- Media Background Layer: Image -->
+                        <div class="absolute inset-0 z-0 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80"
+                                 alt="앞서가는 이러닝"
+                                 class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+                        </div>
+
+                        <!-- Dark Dimming Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/40 group-hover:from-slate-950/90 group-hover:via-slate-950/60 transition-colors duration-500 z-10 pointer-events-none"></div>
+
+                        <!-- Top Header Bar -->
+                        <div class="relative z-20 flex items-center justify-between">
+                            <span class="px-3.5 py-1.5 bg-emerald-500/90 text-slate-950 text-xs font-black rounded-lg tracking-wider uppercase shadow-md flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                STEP 02
+                            </span>
+                            <span class="text-xs font-bold text-emerald-300 bg-slate-900/80 backdrop-blur-md border border-emerald-400/30 px-3 py-1 rounded-full flex items-center gap-1 group-hover:bg-emerald-400 group-hover:text-slate-950 transition-all duration-300">
+                                이러닝 인프라 <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </span>
+                        </div>
+
+                        <!-- Bottom Content Area -->
+                        <div class="relative z-20 pt-16">
+                            <div class="mb-3">
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">E-Learning</span>
+                                <h4 class="text-2xl font-black text-white group-hover:text-emerald-300 transition-colors tracking-tight">
+                                    앞서가는 이러닝
+                                </h4>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed mb-4">
+                                160평 최첨단 전문 스튜디오 인프라 기반의 차세대 AI·디지털 학습 콘텐츠 개발
+                            </p>
+                            <ul class="space-y-2 border-t border-white/15 pt-4 text-xs font-medium text-slate-200">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                    <span>160평 전문 스튜디오 &amp; 멀티 세트 완비</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                    <span>기업·공공 맞춤형 에듀테크 인터랙티브 커리큘럼</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
+
+                    <!-- Card 3: 성과 내는 마케팅 (PR & Marketing) -->
+                    <a href="#news-pr" class="relative group rounded-2xl overflow-hidden min-h-[360px] flex flex-col justify-between p-7 sm:p-8 border border-white/10 shadow-lg hover:shadow-2xl hover:border-purple-400/60 transition-all duration-500 cursor-pointer text-white block">
+                        <!-- Media Background Layer: Image -->
+                        <div class="absolute inset-0 z-0 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
+                                 alt="성과 내는 마케팅"
+                                 class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+                        </div>
+
+                        <!-- Dark Dimming Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/40 group-hover:from-slate-950/90 group-hover:via-slate-950/60 transition-colors duration-500 z-10 pointer-events-none"></div>
+
+                        <!-- Top Header Bar -->
+                        <div class="relative z-20 flex items-center justify-between">
+                            <span class="px-3.5 py-1.5 bg-purple-500/90 text-slate-950 text-xs font-black rounded-lg tracking-wider uppercase shadow-md flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                                STEP 03
+                            </span>
+                            <span class="text-xs font-bold text-purple-300 bg-slate-900/80 backdrop-blur-md border border-purple-400/30 px-3 py-1 rounded-full flex items-center gap-1 group-hover:bg-purple-400 group-hover:text-slate-950 transition-all duration-300">
+                                마케팅 성과 <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </span>
+                        </div>
+
+                        <!-- Bottom Content Area -->
+                        <div class="relative z-20 pt-16">
+                            <div class="mb-3">
+                                <span class="text-xs font-bold text-purple-400 uppercase tracking-widest block mb-1">PR &amp; Marketing</span>
+                                <h4 class="text-2xl font-black text-white group-hover:text-purple-300 transition-colors tracking-tight">
+                                    성과 내는 마케팅
+                                </h4>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed mb-4">
+                                언론 PR 및 타겟 캠페인을 통한 유기적 대외 브랜딩 &amp; 바이럴 성과 창출
+                            </p>
+                            <ul class="space-y-2 border-t border-white/15 pt-4 text-xs font-medium text-slate-200">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                                    <span>언론 기사 송출 &amp; 대외 브랜드 가치 제고</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                                    <span>SNS 및 디지털 마케팅 원스톱 캠페인</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
 
                 </div>
-
             </div>
 
 
@@ -1010,11 +982,11 @@ x-init="
                     <span class="inline-block px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold mb-3">
                         조직 체계 &amp; 전문 인력
                     </span>
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
-                        교육사업 전 분야의 전문 인력을<br class="sm:hidden" /> 자체 보유한 원스톱 통합 조직
+                    <h3 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-3 tracking-tight">
+                        분야별 최상위 전문가 원스톱 통합 조직
                     </h3>
-                    <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                        <strong class="text-slate-900 font-bold">(주)후미디어</strong>는 기획·사업운영·AI에듀테크·영상제작·언론홍보 등 교육사업 전 과정을 유기적이고 안정적으로 수행하기 위한 분야별 전담 조직 체계를 구축하고 있습니다.
+                    <p class="text-blue-700 font-bold text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                        (교육사업 / 에듀테크 / 영상미디어 / 경영지원)
                     </p>
                 </div>
 
@@ -1196,14 +1168,21 @@ x-init="
             
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="inline-block px-3 py-1 rounded-md bg-brand-mint/20 text-brand-mint text-xs font-bold mb-3 border border-brand-mint/30">
-                    STUDIO RENTAL & INFRA
+                    STUDIO RENTAL &amp; INFRA
                 </span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">
                     160평 최첨단 전문 스튜디오
                 </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    목적과 촬영 규모에 맞춰 최적화된 6개의 스튜디오룸과 전문 부조정실, 메이크업룸 현장을 생생한 사진으로 확인하세요.
-                </p>
+                <ul class="text-gray-300 text-sm sm:text-base leading-relaxed space-y-1.5 font-medium inline-block text-left">
+                    <li class="flex items-center gap-2">
+                        <span class="text-brand-mint font-bold">•</span>
+                        <span>6개 맞춤형 룸 : 1인 방송부터 대형 세트까지</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="text-brand-mint font-bold">•</span>
+                        <span>최상급 인프라 : 전문 조명, 카메라, 방음 설비 완비</span>
+                    </li>
+                </ul>
             </div>
 
             <!-- 3 Main Studio Room Image Cards -->

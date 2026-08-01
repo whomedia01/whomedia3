@@ -4,235 +4,175 @@ export const PORTFOLIO_CATEGORIES: { id: PortfolioCategory; name: string; count?
   { id: 'all', name: '전체 (All)' },
   { id: 'production', name: '4K 미디어 프로덕션' },
   { id: 'edu', name: '교육 콘텐츠 & 컨설팅' },
-  { id: 'hucampus', name: '후캠퍼스 평생교육' },
   { id: 'press', name: '디지털 언론 & PR' },
+  { id: 'hucampus', name: '후캠퍼스 평생교육' },
 ];
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
-  // 1. 4K 미디어 프로덕션 (production)
   {
-    id: 'ScMzIvxBSi4',
-    title: '전자칠판 인강&프로덕션',
-    cat: 'production',
-    tag: '4K프로덕션',
-    label: '4K프로덕션',
-    duration: '05:20',
+    id: '0kHSItVXKOU',
+    title: '능률 고등 영어',
+    cat: 'edu',
+    tag: 'NE능률',
+    label: '교육콘텐츠',
+    duration: '04:30',
     year: '2024',
-    description: '86인치 최신 전자칠판 및 방송용 4K 멀티 스튜디오 연출 전과목 동영상 강의 프로덕션',
-    imageUrl: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'
+    description: 'NE능률 고등 영어 교재 연계 스마트 이러닝 강좌 프로덕션 및 고화질 마스터링',
+    imageUrl: 'https://img.youtube.com/vi/0kHSItVXKOU/hqdefault.jpg'
   },
   {
-    id: 'LXb3EKWsInQ',
-    title: '전자칠판/크로마키 그라비티',
-    cat: 'production',
-    tag: '4K프로덕션',
-    label: '4K프로덕션',
+    id: '6xb2GYInARg',
+    title: '능률 중등 영어',
+    cat: 'edu',
+    tag: 'NE능률',
+    label: '교육콘텐츠',
     duration: '03:45',
     year: '2024',
-    description: '초대형 가상 크로마키 세트 연출 및 멀티 스튜디오 라이브 스위칭 모션 그래픽',
-    imageUrl: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=800&q=80'
+    description: 'NE능률 중등 영어 교과 과정 맞춤형 인터랙티브 학습 영상 제작 및 교수설계',
+    imageUrl: 'https://img.youtube.com/vi/6xb2GYInARg/hqdefault.jpg'
   },
   {
-    id: 'M7lc1UVf-VE',
-    title: '아동학 선도대학 홍보영상',
+    id: 'rJ2U9T27WwU',
+    title: '태진옥 홍보영상',
     cat: 'production',
-    tag: '4K프로덕션',
-    label: '4K프로덕션',
+    tag: '태진옥',
+    label: '홍보영상',
+    duration: '02:50',
+    year: '2024',
+    description: '브랜드 가치 제고를 위한 시네마틱 4K 기업 및 스토어 시그니처 홍보 영상',
+    imageUrl: 'https://img.youtube.com/vi/rJ2U9T27WwU/hqdefault.jpg'
+  },
+  {
+    id: 'PTqpVR-yIKg',
+    title: '경희사이버대학 크로마키',
+    cat: 'production',
+    tag: '경희사이버대학교',
+    label: '크로마키',
+    duration: '05:15',
+    year: '2024',
+    description: '경희사이버대학교 전용 가상 크로마키 세트 활용 고품질 대학 강의 프로덕션',
+    imageUrl: 'https://img.youtube.com/vi/PTqpVR-yIKg/hqdefault.jpg'
+  },
+  {
+    id: 'AbeWeusmjws',
+    title: '전자칠판',
+    cat: 'production',
+    tag: 'HOOMEDIA 스튜디오',
+    label: '전자칠판',
     duration: '04:10',
     year: '2024',
-    description: '대학 및 교육기관 맞춤형 고화질 4K 브랜드 홍보 영상 촬영 및 종합 후반 마감',
-    imageUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80'
+    description: '86인치 4K UHD 전자칠판 및 최신 판서 시스템을 적용한 스마트 강좌 촬영',
+    imageUrl: 'https://img.youtube.com/vi/AbeWeusmjws/hqdefault.jpg'
   },
   {
-    id: 'L_LUpnjgPso',
-    title: '수능/내신 전과목인 스튜디오',
-    cat: 'production',
-    tag: '4K프로덕션',
-    label: '4K프로덕션',
-    duration: '06:15',
-    year: '2024',
-    description: '무반사 특수 칠판과 4K 무빙 카메라 구도를 활용한 최고 가독성의 강좌 스튜디오 연출',
-    imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'jNQXAC9IVRw',
-    title: 'CG 아트워크와 모션 그래픽 타이',
-    cat: 'production',
-    tag: '4K프로덕션',
-    label: '4K프로덕션',
-    duration: '02:30',
-    year: '2024',
-    description: '브랜드 가치 증진을 위한 고해상도 3D CG 인트로, 트랜지션, 타이틀 모션 그래픽',
-    imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'tgbNymZ7vqY',
-    title: '4K 전자칠판/스튜디오 촬영 현장',
-    cat: 'production',
-    tag: '4K프로덕션',
-    label: '4K프로덕션',
-    duration: '04:50',
-    year: '2024',
-    description: '160평 메인 스튜디오 86인치 전자칠판 촬영 시스템 및 전담 감독 모니터링 현장',
-    imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'k3_zwsbszis',
-    title: '태권도 인터넷 홍보영상',
-    cat: 'production',
-    tag: '4K프로덕션',
-    label: '4K프로덕션',
-    duration: '03:20',
-    year: '2024',
-    description: '스포츠 및 다채로운 테마의 멀티미디어 홍보 영상 스케치 및 브랜드 브랜딩',
-    imageUrl: 'https://images.unsplash.com/photo-1517649763962-0c6232662000?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: '_tV5LEBDs7w',
-    title: 'EBS 등용 학선 영상 인강홍보',
-    cat: 'production',
-    tag: '4K프로덕션',
-    label: '4K프로덕션',
-    duration: '05:00',
-    year: '2024',
-    description: 'EBS 등 대표 에듀테크 브랜드 메인 강좌 프로모션 및 4K 동영상 촬영연출',
-    imageUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'
-  },
-
-  // 2. 교육 콘텐츠 & 컨설팅 (edu)
-  {
-    id: 'dQw4w9WgXcQ',
-    title: '동아출판, 신뢰성을 높이는 AI 교과서',
+    id: 'PVVdU-CYowA',
+    title: '웅진_전자칠판',
     cat: 'edu',
-    tag: '교육콘텐츠',
-    label: '교육콘텐츠',
-    duration: '05:12',
+    tag: '웅진',
+    label: '전자칠판',
+    duration: '03:55',
     year: '2024',
-    description: '초·중·고 및 대학 맞춤형 AI/디지털 교과서 모듈 및 인터랙티브 학습 콘텐츠 설계·개발',
-    imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80'
+    description: '웅진 스마트학습 연계 86인치 전자칠판 활용 디지털 교재 동영상 강의 제작',
+    imageUrl: 'https://img.youtube.com/vi/PVVdU-CYowA/hqdefault.jpg'
   },
   {
-    id: '4gH1aWn383c',
-    title: 'NE능률, 스마트학습 AI/스마트 융합',
+    id: 'PxAZYrpdowU',
+    title: '웅진_블랙보드',
     cat: 'edu',
-    tag: '교육콘텐츠',
-    label: '교육콘텐츠',
-    duration: '04:18',
+    tag: '웅진',
+    label: '블랙보드',
+    duration: '04:05',
     year: '2024',
-    description: '오프라인 교재와 연동되는 디지털 시각화 및 멀티미디어 인터랙티브 스마트 학습 솔루션',
-    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80'
+    description: '웅진 에듀테크 특수 무반사 블랙보드 세트 기반 프리미엄 강좌 시각화 구현',
+    imageUrl: 'https://img.youtube.com/vi/PxAZYrpdowU/hqdefault.jpg'
   },
   {
-    id: '0z8asqx3tAA',
-    title: 'EBS 종합스마트에 디지털 아트',
+    id: 'x4Cb5At6Z_M',
+    title: 'CG 인터랙티브 강의',
     cat: 'production',
-    tag: '4K프로덕션',
-    label: '4K프로덕션',
-    duration: '03:45',
+    tag: '인터랙티브미디어',
+    label: 'CG/인터랙티브',
+    duration: '03:30',
     year: '2024',
-    description: '하루 10분 부모교육 시리즈 및 EBS 종합 스마트 디지털 아트 모션 프로덕션',
-    imageUrl: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80'
+    description: '실시간 CG 모션 그래픽 및 인터랙티브 효과를 결합한 차세대 학습 몰입형 강의',
+    imageUrl: 'https://img.youtube.com/vi/x4Cb5At6Z_M/hqdefault.jpg'
   },
   {
-    id: 'W_aX49mE1_0',
-    title: '하우투 동아리 오프닝 인트로',
-    cat: 'production',
-    tag: '4K프로덕션',
-    label: '4K프로덕션',
-    duration: '02:10',
-    year: '2024',
-    description: '감각적인 블랙 & 옐로우 3D 모션 타이틀과 클럽 오프닝 시그니처 연출',
-    imageUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'K6-5EreEshg',
-    title: '휴먼스쿨학원 AI 스마트홈 런칭',
+    id: 'JwCrB4dKgDU',
+    title: '테블릿 강의',
     cat: 'edu',
-    tag: '교육콘텐츠',
-    label: '교육콘텐츠',
-    duration: '03:20',
-    year: '2024',
-    description: '기업 및 교육기관 맞춤형 AI 활용 스마트홈 에듀테크 시스템 런칭 홍보',
-    imageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'C1920_pLZ_x',
-    title: '휴먼스쿨학원 서포터즈 발대식 현장스케치',
-    cat: 'edu',
-    tag: '교육콘텐츠',
-    label: '교육콘텐츠',
-    duration: '04:15',
-    year: '2024',
-    description: '학원 서포터즈 발대식 현장 생생한 스케치 및 인터뷰 멀티미디어 스페셜 영상',
-    imageUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'D9182_aQL_p',
-    title: '미래엔디지털 비전교재 홍보영상',
-    cat: 'edu',
-    tag: '교육콘텐츠',
-    label: '교육콘텐츠',
+    tag: '스마트에듀',
+    label: '태블릿강의',
     duration: '03:15',
     year: '2024',
-    description: '학교 현장 스마트 기기와 미래엔 교재 모듈을 결합한 에듀테크 비전 프로모션',
-    imageUrl: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80'
+    description: '고해상도 태블릿 판서 및 디지털 에듀테크 솔루션 결합 모바일 최적화 강의',
+    imageUrl: 'https://img.youtube.com/vi/JwCrB4dKgDU/hqdefault.jpg'
   },
   {
-    id: 'H2049_mXZ-0',
-    title: '세종사이버대학교 대형 스튜디오',
+    id: '54m2LENAo68',
+    title: '크로마키',
     cat: 'production',
-    tag: '4K프로덕션',
-    label: '4K프로덕션',
-    duration: '06:00',
+    tag: '크로마키스튜디오',
+    label: '크로마키',
+    duration: '04:20',
     year: '2024',
-    description: '대학 전용 대형 칠판 및 스튜디오 시스템 구축 및 전과목 모듈 촬영',
-    imageUrl: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80'
-  },
-
-  // 3. 디지털 언론 & PR (press) / 후캠퍼스 (hucampus)
-  {
-    id: 'xJ8fQnZ44vU',
-    title: '한국AI교육신문 4K 프로덕션',
-    cat: 'press',
-    tag: '언론PR',
-    label: '언론PR',
-    duration: '02:45',
-    year: '2024',
-    description: '공신력 있는 디지털 언론 인프라를 통한 기업 신기술 및 교육 성과 기획 기사 송출',
-    imageUrl: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80'
+    description: '대형 그린 스크린 세트 기반 가상 배경 및 3D 그래픽 합성 시네마 촬영',
+    imageUrl: 'https://img.youtube.com/vi/54m2LENAo68/hqdefault.jpg'
   },
   {
-    id: 'B1830_sMK_o',
-    title: '피플투데이 디지털언론PR 기사스케치',
-    cat: 'press',
-    tag: '언론PR',
-    label: '언론PR',
-    duration: '03:11',
-    year: '2024',
-    description: '공공 조달 가산점 확보 및 대외 신뢰도 향상을 위한 전문 취재진 브랜딩 PR 패키지',
-    imageUrl: 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'Rk8m2_g1-sk',
-    title: '후캠퍼스1 기업·지자체 임직원교육',
-    cat: 'hucampus',
-    tag: '후캠퍼스',
-    label: '후캠퍼스',
+    id: 'WaxhtAZLLV8',
+    title: '크로마키 촬영',
+    cat: 'production',
+    tag: '4K스튜디오',
+    label: '크로마키',
     duration: '03:50',
     year: '2024',
-    description: '조직 진단 기반 맞춤형 직무 역량 강화 커리큘럼 및 온·오프라인 하이브리드 교육',
-    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80'
+    description: '전문 라이팅 및 멀티 카메라 시스템을 활용한 4K 크로마키 맞춤 촬영 현장',
+    imageUrl: 'https://img.youtube.com/vi/WaxhtAZLLV8/hqdefault.jpg'
   },
   {
-    id: 'V1928_kQL_m',
-    title: 'EBS 미디어리더십 캠프 참가지원',
-    cat: 'hucampus',
-    tag: '후캠퍼스',
-    label: '후캠퍼스',
+    id: 'paYW3d0MRqk',
+    title: 'EBS 올쏘 인트로',
+    cat: 'production',
+    tag: 'EBS',
+    label: '모션/인트로',
+    duration: '01:15',
+    year: '2024',
+    description: 'EBS 올쏘 시그니처 강좌 전용 감각적인 3D 모션 그래픽 및 시각 디자인 인트로',
+    imageUrl: 'https://img.youtube.com/vi/paYW3d0MRqk/hqdefault.jpg'
+  },
+  {
+    id: 'komXGh3TGSo',
+    title: 'EBS 천일문 타이틀',
+    cat: 'production',
+    tag: 'EBS',
+    label: '타이틀/CG',
     duration: '01:30',
     year: '2024',
-    description: '청소년 및 대학생 대상 생애주기별 미디어 리더십 스펙 고도화 프로젝트',
-    imageUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80'
+    description: 'EBS 천일문 메인 시리즈 브랜딩을 강화하는 고품질 아트워크 타이틀 모션 그래픽',
+    imageUrl: 'https://img.youtube.com/vi/komXGh3TGSo/hqdefault.jpg'
+  },
+  {
+    id: 'cF7i6m9apsE',
+    title: 'EBS 포텐시리즈 인트로',
+    cat: 'production',
+    tag: 'EBS',
+    label: '모션/인트로',
+    duration: '01:20',
+    year: '2024',
+    description: 'EBS 포텐시리즈 시그니처 강좌의 역동적인 분위기를 전달하는 오프닝 타이틀',
+    imageUrl: 'https://img.youtube.com/vi/cF7i6m9apsE/hqdefault.jpg'
+  },
+  {
+    id: '-Is7q7qD9Rc',
+    title: '꽁강 유튜브 인트로',
+    cat: 'press',
+    tag: '유튜브/뉴미디어',
+    label: '유튜브PR',
+    duration: '00:45',
+    year: '2024',
+    description: '유튜브 뉴미디어 채널 브랜딩 강화를 위한 트렌디한 시그니처 오프닝 인트로',
+    imageUrl: 'https://img.youtube.com/vi/-Is7q7qD9Rc/hqdefault.jpg'
   }
 ];
 

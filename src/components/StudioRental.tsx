@@ -51,14 +51,21 @@ export const StudioRental: React.FC<StudioRentalProps> = ({ onSelectStudio }) =>
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <span className="text-xs font-bold text-emerald-700 bg-emerald-100/80 px-3 py-1 rounded-full uppercase tracking-wider">
-            STUDIO RENTAL & INFRA
+            STUDIO RENTAL &amp; INFRA
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3 mb-3">
             160평 최첨단 전문 스튜디오
           </h2>
-          <p className="text-sm sm:text-base text-slate-600">
-            쾌적한 촬영 환경과 완벽한 방음 시스템, 최신형 4K 카메라 및 멀티 세트 완비
-          </p>
+          <ul className="text-xs sm:text-sm text-slate-700 font-medium space-y-1 inline-block text-left">
+            <li className="flex items-center gap-1.5">
+              <span className="text-emerald-600 font-bold">•</span>
+              <span>6개 맞춤형 룸 : 1인 방송부터 대형 세트까지</span>
+            </li>
+            <li className="flex items-center gap-1.5">
+              <span className="text-emerald-600 font-bold">•</span>
+              <span>최상급 인프라 : 전문 조명, 카메라, 방음 설비 완비</span>
+            </li>
+          </ul>
         </div>
 
         {/* Studio Cards Grid */}

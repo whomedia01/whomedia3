@@ -33,14 +33,11 @@ export const Organization: React.FC = () => {
           <span className="text-xs font-bold text-blue-600 tracking-wider bg-blue-50 px-3.5 py-1 rounded-full border border-blue-200/60 shadow-2xs uppercase inline-block mb-2">
             CORE EXPERTISE &amp; COMPETENCY
           </span>
-          <p className="text-xs sm:text-sm font-semibold text-blue-800 tracking-wide mb-1">
-            교육 기획부터 미디어 구현·운영까지
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
-            3대 핵심 체계 &amp; 전문 조직
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
+            분야별 최상위 전문가 원스톱 통합 조직
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            <strong className="text-slate-800">{COMPANY_INFO.name}</strong>는 기획·사업운영·AI에듀테크·영상제작·언론홍보 등 교육사업 전 과정을 유기적이고 안정적으로 수행하기 위한 분야별 전문 조직 체계를 구축하고 있습니다.
+          <p className="text-sm sm:text-base font-bold text-blue-700 tracking-wide max-w-2xl mx-auto">
+            (교육사업 / 에듀테크 / 영상미디어 / 경영지원)
           </p>
         </div>
 
