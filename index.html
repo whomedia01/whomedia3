@@ -472,7 +472,7 @@ x-init="
                 <a href="#about" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">회사소개</a>
                 <a href="#expertise" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">핵심역량</a>
                 <a href="#services" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">사업영역</a>
-                <a href="#studio" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">스튜디오 임대</a>
+                <a href="#studio" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">스튜디오 인프라</a>
                 <a href="#reference" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">포트폴리오</a>
                 <a href="#contact" :class="scrolled ? 'text-blue-600 font-bold hover:text-blue-700' : 'text-white font-bold hover:text-blue-300 bg-blue-600/80 hover:bg-blue-600 px-3.5 py-1.5 rounded-lg transition-all'" class="font-bold text-[15px] transition-colors drop-shadow flex items-center gap-1">
                     <span>문의하기</span>
@@ -501,7 +501,7 @@ x-init="
             <a @click="mobileMenuOpen = false" href="#about" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">회사소개</a>
             <a @click="mobileMenuOpen = false" href="#expertise" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">핵심역량</a>
             <a @click="mobileMenuOpen = false" href="#services" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">사업영역</a>
-            <a @click="mobileMenuOpen = false" href="#studio" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">스튜디오 임대</a>
+            <a @click="mobileMenuOpen = false" href="#studio" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">스튜디오 인프라</a>
             <a @click="mobileMenuOpen = false" href="#reference" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">포트폴리오</a>
             <div class="border-t border-gray-800 pt-3 space-y-2">
                 <a href="tel:02-6443-4222" class="flex items-center gap-2 text-brand-mint font-bold py-1.5 hover:underline text-sm">
@@ -1022,267 +1022,241 @@ x-init="
 
 
 
+
+
+
+
+
+
     <!-- ================================================================= -->
-    <!-- 5. STUDIO INFRA SECTION (Image-driven Photographic Showcase)      -->
+    <!-- 5. STUDIO & INFRASTRUCTURE GALLERY                                -->
     <!-- ================================================================= -->
-    <section id="studio" class="py-20 lg:py-28 bg-slate-900 text-white relative">
-        <!-- Subtle Grid Overlay -->
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+    <section id="studio" class="py-16 sm:py-24 bg-slate-900 text-white relative overflow-hidden">
+        <!-- Subtle Background Glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,210,132,0.08),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.08),transparent_50%)] pointer-events-none"></div>
 
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="inline-block px-3 py-1 rounded-md bg-brand-mint/20 text-brand-mint text-xs font-bold mb-3 border border-brand-mint/30">
-                    STUDIO RENTAL &amp; INFRA
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-brand-mint/15 text-brand-mint text-xs font-extrabold tracking-wider uppercase mb-3 border border-brand-mint/30 shadow-xs">
+                    STUDIO &amp; INFRASTRUCTURE
                 </span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">
-                    160평 최첨단 전문 스튜디오
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+                    스튜디오 &amp; 미디어 인프라
                 </h2>
-                <ul class="text-gray-300 text-sm sm:text-base leading-relaxed space-y-1.5 font-medium inline-block text-left">
-                    <li class="flex items-center gap-2">
-                        <span class="text-brand-mint font-bold">•</span>
-                        <span>6개 맞춤형 룸 : 1인 방송부터 대형 세트까지</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="text-brand-mint font-bold">•</span>
-                        <span>최상급 인프라 : 전문 조명, 카메라, 방음 설비 완비</span>
-                    </li>
-                </ul>
+                <p class="text-gray-300 text-sm sm:text-base font-medium break-keep">
+                    160평 규모의 전자칠판, 크로마키, 4K 방송 카메라 및 부조정실 완비
+                </p>
             </div>
 
-            <!-- 3 Main Studio Room Image Cards -->
-            <div class="grid md:grid-cols-3 gap-8 mb-20">
+            <!-- 12-Tile Photo Grid Gallery -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
                 
-                <!-- Studio 1 & 2 Card -->
-                <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl overflow-hidden hover:border-brand-mint/60 transition-all duration-300 shadow-xl group flex flex-col">
-                    <div class="relative aspect-[16/10] overflow-hidden bg-black cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85', '스튜디오 1 & 2 (84~86인치 전자칠판 & 4K 세팅)')">
-                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" 
-                             alt="스튜디오 1 & 2" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
-                        <span class="absolute top-3 left-3 px-3 py-1 bg-brand-mint text-brand-navy-dark text-xs font-extrabold rounded-full shadow-md">
-                            84~86인치 전자칠판
-                        </span>
-                        <button class="absolute bottom-3 right-3 bg-black/70 hover:bg-brand-mint hover:text-brand-navy text-white text-xs px-2.5 py-1.5 rounded-lg border border-white/20 backdrop-blur-md transition-all flex items-center gap-1 font-semibold">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-                            <span>사진 크게보기</span>
-                        </button>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
+                <!-- Tile 1 -->
+                <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
+                     @click="openImageModal('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85', '후미디어 메인 입구 & 파사드')">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="메인 입구" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
-                            <h4 class="font-bold text-xl text-white mb-3">스튜디오 1 & 2</h4>
-                            <ul class="text-xs sm:text-sm text-gray-300 space-y-2 mb-4">
-                                <li class="flex items-start gap-1.5"><span class="text-brand-mint font-bold">•</span> 84~86인치 고화질 멀티 터치 전자칠판</li>
-                                <li class="flex items-start gap-1.5"><span class="text-brand-mint font-bold">•</span> 4K 전문 방송용 카메라 1~3대 멀티 앵글</li>
-                                <li class="flex items-start gap-1.5"><span class="text-brand-mint font-bold">•</span> 판서용 특수 칠판 / 빔프로젝터 / 실시간 모니터링</li>
-                            </ul>
+                            <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider block">FACADE</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-white">메인 입구 &amp; 파사드</h4>
                         </div>
-                        <div class="pt-4 border-t border-slate-700/80 flex items-center justify-between">
-                            <span class="text-xs text-gray-400 font-medium">장비: 무선마이크, 아크릴교탁, 프롬프터</span>
-                            <a href="#contact" class="text-xs font-bold text-brand-mint hover:underline flex items-center gap-1 shrink-0">
-                                임대 문의 ↗
-                            </a>
+                        <div class="w-7 h-7 rounded-full bg-white/10 group-hover:bg-brand-mint group-hover:text-brand-navy-dark text-white flex items-center justify-center backdrop-blur-xs transition-all shrink-0">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- Studio 3 & 4 Card -->
-                <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl overflow-hidden hover:border-brand-mint/60 transition-all duration-300 shadow-xl group flex flex-col">
-                    <div class="relative aspect-[16/10] overflow-hidden bg-black cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=85', '스튜디오 3 & 4 (70인치 / 화이트 & 아크릴 대담 세트)')">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" 
-                             alt="스튜디오 3 & 4" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
-                        <span class="absolute top-3 left-3 px-3 py-1 bg-blue-500 text-white text-xs font-extrabold rounded-full shadow-md">
-                            70인치 / 화이트 세트
-                        </span>
-                        <button class="absolute bottom-3 right-3 bg-black/70 hover:bg-brand-mint hover:text-brand-navy text-white text-xs px-2.5 py-1.5 rounded-lg border border-white/20 backdrop-blur-md transition-all flex items-center gap-1 font-semibold">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-                            <span>사진 크게보기</span>
-                        </button>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
+                <!-- Tile 2 -->
+                <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
+                     @click="openImageModal('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=85', '메인 응접 로비 & 라운지')">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=600&q=80" alt="메인 로비" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
-                            <h4 class="font-bold text-xl text-white mb-3">스튜디오 3 & 4</h4>
-                            <ul class="text-xs sm:text-sm text-gray-300 space-y-2 mb-4">
-                                <li class="flex items-start gap-1.5"><span class="text-blue-400 font-bold">•</span> 소규모 강의 및 2인 대담형 인터뷰 세트</li>
-                                <li class="flex items-start gap-1.5"><span class="text-blue-400 font-bold">•</span> 형광 분필 지우개 및 세련된 아크릴 배경</li>
-                                <li class="flex items-start gap-1.5"><span class="text-blue-400 font-bold">•</span> 맞춤형 LED 조명 & 하단 플럭스 패널 구축</li>
-                            </ul>
+                            <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider block">LOBBY</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-white">메인 로비 &amp; 라운지</h4>
                         </div>
-                        <div class="pt-4 border-t border-slate-700/80 flex items-center justify-between">
-                            <span class="text-xs text-gray-400 font-medium">장비: 촬영용 2인 테이블, 스탠드 조명</span>
-                            <a href="#contact" class="text-xs font-bold text-blue-400 hover:underline flex items-center gap-1 shrink-0">
-                                임대 문의 ↗
-                            </a>
+                        <div class="w-7 h-7 rounded-full bg-white/10 group-hover:bg-brand-mint group-hover:text-brand-navy-dark text-white flex items-center justify-center backdrop-blur-xs transition-all shrink-0">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- Studio 5 & 6 Card -->
-                <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl overflow-hidden hover:border-brand-mint/60 transition-all duration-300 shadow-xl group flex flex-col">
-                    <div class="relative aspect-[16/10] overflow-hidden bg-black cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=85', '스튜디오 5 & 6 (6.6m x 4.8m 대형 크로마키 세트)')">
-                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" 
-                             alt="스튜디오 5 & 6" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
-                        <span class="absolute top-3 left-3 px-3 py-1 bg-purple-600 text-white text-xs font-extrabold rounded-full shadow-md">
-                            크로마키 & 대형 세트
-                        </span>
-                        <button class="absolute bottom-3 right-3 bg-black/70 hover:bg-brand-mint hover:text-brand-navy text-white text-xs px-2.5 py-1.5 rounded-lg border border-white/20 backdrop-blur-md transition-all flex items-center gap-1 font-semibold">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-                            <span>사진 크게보기</span>
-                        </button>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
+                <!-- Tile 3 -->
+                <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
+                     @click="openImageModal('https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=1200&q=85', 'LED 천장 휴게 라운지')">
+                    <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=600&q=80" alt="휴게 라운지" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
-                            <h4 class="font-bold text-xl text-white mb-3">스튜디오 5 & 6</h4>
-                            <ul class="text-xs sm:text-sm text-gray-300 space-y-2 mb-4">
-                                <li class="flex items-start gap-1.5"><span class="text-purple-400 font-bold">•</span> 6.6m x 4.8m 대형 크로마키 전용 공간</li>
-                                <li class="flex items-start gap-1.5"><span class="text-purple-400 font-bold">•</span> DSLR 및 4K 멀티 카메라 스위칭 지원</li>
-                                <li class="flex items-start gap-1.5"><span class="text-purple-400 font-bold">•</span> 인/아웃트로 CG 및 실시간 합성 편집 가능</li>
-                            </ul>
+                            <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider block">LOUNGE</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-white">LED 휴게 라운지</h4>
                         </div>
-                        <div class="pt-4 border-t border-slate-700/80 flex items-center justify-between">
-                            <span class="text-xs text-gray-400 font-medium">장비: 프롬프터, 유무선 마이크, 촬영 스툴</span>
-                            <a href="#contact" class="text-xs font-bold text-purple-400 hover:underline flex items-center gap-1 shrink-0">
-                                임대 문의 ↗
-                            </a>
+                        <div class="w-7 h-7 rounded-full bg-white/10 group-hover:bg-brand-mint group-hover:text-brand-navy-dark text-white flex items-center justify-center backdrop-blur-xs transition-all shrink-0">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tile 4 -->
+                <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
+                     @click="openImageModal('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85', '통합 디지털 미디어 복도')">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=600&q=80" alt="미디어 복도" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider block">CORRIDOR</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-white">통합 미디어 복도</h4>
+                        </div>
+                        <div class="w-7 h-7 rounded-full bg-white/10 group-hover:bg-brand-mint group-hover:text-brand-navy-dark text-white flex items-center justify-center backdrop-blur-xs transition-all shrink-0">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tile 5 -->
+                <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
+                     @click="openImageModal('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=85', '파우더룸 & 메이크업 의상실')">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="분장실" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider block">DRESSING ROOM</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-white">분장 &amp; 의상실</h4>
+                        </div>
+                        <div class="w-7 h-7 rounded-full bg-white/10 group-hover:bg-brand-mint group-hover:text-brand-navy-dark text-white flex items-center justify-center backdrop-blur-xs transition-all shrink-0">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tile 6 -->
+                <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
+                     @click="openImageModal('https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=1200&q=85', '메인 부조정실 & 비디오 스위쳐 시스템')">
+                    <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=600&q=80" alt="부조정실" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider block">CONTROL ROOM</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-white">메인 부조정실</h4>
+                        </div>
+                        <div class="w-7 h-7 rounded-full bg-white/10 group-hover:bg-brand-mint group-hover:text-brand-navy-dark text-white flex items-center justify-center backdrop-blur-xs transition-all shrink-0">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tile 7 -->
+                <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
+                     @click="openImageModal('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85', '스튜디오 1 (84~86인치 전자칠판)')">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" alt="스튜디오 1" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider block">STUDIO 01</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-white">86인치 전자칠판 세트</h4>
+                        </div>
+                        <div class="w-7 h-7 rounded-full bg-white/10 group-hover:bg-brand-mint group-hover:text-brand-navy-dark text-white flex items-center justify-center backdrop-blur-xs transition-all shrink-0">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tile 8 -->
+                <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
+                     @click="openImageModal('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=85', '스튜디오 2 (특수 판서 칠판 세트)')">
+                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80" alt="스튜디오 2" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider block">STUDIO 02</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-white">특수 판서 칠판 세트</h4>
+                        </div>
+                        <div class="w-7 h-7 rounded-full bg-white/10 group-hover:bg-brand-mint group-hover:text-brand-navy-dark text-white flex items-center justify-center backdrop-blur-xs transition-all shrink-0">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tile 9 -->
+                <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
+                     @click="openImageModal('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=85', '스튜디오 3 (70인치 화이트 세트)')">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="스튜디오 3" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider block">STUDIO 03</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-white">70인치 화이트 세트</h4>
+                        </div>
+                        <div class="w-7 h-7 rounded-full bg-white/10 group-hover:bg-brand-mint group-hover:text-brand-navy-dark text-white flex items-center justify-center backdrop-blur-xs transition-all shrink-0">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tile 10 -->
+                <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
+                     @click="openImageModal('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85', '스튜디오 4 (모니터링 & 대담 룸)')">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="스튜디오 4" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider block">STUDIO 04</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-white">모니터링 &amp; 대담 스튜디오</h4>
+                        </div>
+                        <div class="w-7 h-7 rounded-full bg-white/10 group-hover:bg-brand-mint group-hover:text-brand-navy-dark text-white flex items-center justify-center backdrop-blur-xs transition-all shrink-0">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tile 11 -->
+                <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
+                     @click="openImageModal('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85', '스튜디오 5 (4K 서브 크로마키 세트)')">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="스튜디오 5" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider block">STUDIO 05</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-white">4K 서브 크로마키 세트</h4>
+                        </div>
+                        <div class="w-7 h-7 rounded-full bg-white/10 group-hover:bg-brand-mint group-hover:text-brand-navy-dark text-white flex items-center justify-center backdrop-blur-xs transition-all shrink-0">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tile 12 -->
+                <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
+                     @click="openImageModal('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=85', '스튜디오 6 (6.6m x 4.8m 대형 크로마키 세트)')">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="스튜디오 6" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider block">STUDIO 06</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-white">6.6m 대형 크로마키 세트</h4>
+                        </div>
+                        <div class="w-7 h-7 rounded-full bg-white/10 group-hover:bg-brand-mint group-hover:text-brand-navy-dark text-white flex items-center justify-center backdrop-blur-xs transition-all shrink-0">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                         </div>
                     </div>
                 </div>
 
             </div>
 
-            <!-- STUDIO / RENT 12-PHOTO INFRASTRUCTURE GALLERY -->
-            <div class="mt-16 bg-slate-950/80 p-6 sm:p-8 rounded-3xl border border-slate-800">
-                
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-800">
-                    <div>
-                        <div class="text-xs font-black tracking-wider text-brand-mint uppercase mb-1">STUDIO / RENT GALLERY</div>
-                        <h3 class="text-xl sm:text-2xl font-bold text-white">160평 최첨단 스튜디오 & 미디어 인프라 갤러리</h3>
-                    </div>
-                    <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all shadow-lg flex items-center gap-2 shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h32a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/></svg>
-                        <span>스튜디오 임대문의</span>
-                    </a>
-                </div>
-
-                <!-- 12-Tile Photo Grid Gallery -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-                    
-                    <!-- Tile 1 -->
-                    <div class="relative group aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85', 'WHOMEDIA 파사드 & 메인 입구')">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=80" alt="WHOMEDIA 파사드" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <span class="absolute bottom-2 left-2 text-[11px] font-bold text-white tracking-tight">메인 입구</span>
-                    </div>
-
-                    <!-- Tile 2 -->
-                    <div class="relative group aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=85', 'WHOMEDIA 메인 응접 로비 & 라운지')">
-                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=500&q=80" alt="메인 로비" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <span class="absolute bottom-2 left-2 text-[11px] font-bold text-white tracking-tight">메인 로비</span>
-                    </div>
-
-                    <!-- Tile 3 -->
-                    <div class="relative group aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=1200&q=85', '블루 LED 천장 릴렉스 라운지')">
-                        <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=500&q=80" alt="블루 LED 라운지" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <span class="absolute bottom-2 left-2 text-[11px] font-bold text-white tracking-tight">휴게 라운지</span>
-                    </div>
-
-                    <!-- Tile 4 -->
-                    <div class="relative group aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85', '통합 디지털 복도 & 오피스')">
-                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=500&q=80" alt="디지털 복도" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <span class="absolute bottom-2 left-2 text-[11px] font-bold text-white tracking-tight">미디어 복도</span>
-                    </div>
-
-                    <!-- Tile 5 -->
-                    <div class="relative group aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=85', '파우더룸 & 메이크업/의상실')">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80" alt="파우더룸" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <span class="absolute bottom-2 left-2 text-[11px] font-bold text-white tracking-tight">분장/의상실</span>
-                    </div>
-
-                    <!-- Tile 6 -->
-                    <div class="relative group aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=1200&q=85', '메인 부조정실 & 비디오 스위쳐 시스템')">
-                        <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=500&q=80" alt="부조정실" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <span class="absolute bottom-2 left-2 text-[11px] font-bold text-white tracking-tight">부조정실</span>
-                    </div>
-
-                    <!-- Tile 7 -->
-                    <div class="relative group aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85', '스튜디오 1 (84~86인치 전자칠판 전용)')">
-                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500&q=80" alt="스튜디오 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <span class="absolute bottom-2 left-2 text-[11px] font-bold text-white tracking-tight">스튜디오 1</span>
-                    </div>
-
-                    <!-- Tile 8 -->
-                    <div class="relative group aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=85', '스튜디오 2 (특수 판서 칠판 세트)')">
-                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=500&q=80" alt="스튜디오 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <span class="absolute bottom-2 left-2 text-[11px] font-bold text-white tracking-tight">스튜디오 2</span>
-                    </div>
-
-                    <!-- Tile 9 -->
-                    <div class="relative group aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=85', '스튜디오 3 (70인치 화이트 세트)')">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80" alt="스튜디오 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <span class="absolute bottom-2 left-2 text-[11px] font-bold text-white tracking-tight">스튜디오 3</span>
-                    </div>
-
-                    <!-- Tile 10 -->
-                    <div class="relative group aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85', '스튜디오 4 (모니터링 & 대담 룸)')">
-                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80" alt="스튜디오 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <span class="absolute bottom-2 left-2 text-[11px] font-bold text-white tracking-tight">스튜디오 4</span>
-                    </div>
-
-                    <!-- Tile 11 -->
-                    <div class="relative group aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85', '스튜디오 5 (4K 서브 크로마키 세트)')">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80" alt="스튜디오 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <span class="absolute bottom-2 left-2 text-[11px] font-bold text-white tracking-tight">스튜디오 5</span>
-                    </div>
-
-                    <!-- Tile 12 -->
-                    <div class="relative group aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer"
-                         @click="openImageModal('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=85', '스튜디오 6 (대형 크로마키 전용 공간)')">
-                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=500&q=80" alt="스튜디오 6" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <span class="absolute bottom-2 left-2 text-[11px] font-bold text-white tracking-tight">스튜디오 6</span>
-                    </div>
-
-                </div>
+            <!-- Bottom CTA Banner -->
+            <div class="mt-12 text-center">
+                <a href="#contact" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl">
+                    <span>스튜디오 이용 문의하기</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
             </div>
 
         </div>
     </section>
-
-
-
-
-
-    <!-- ================================================================= -->
-    <!-- 6. PORTFOLIO & CLIENTS                                            -->
-    <!-- ================================================================= -->
     <section id="reference" class="py-20 lg:py-28 bg-white">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             
