@@ -86,11 +86,13 @@ async function startServer() {
             method: "POST",
             headers: { 
               "Content-Type": "application/json",
-              "Accept": "application/json"
+              "Accept": "application/json",
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
             },
             body: JSON.stringify({
               _subject: `[WHOMEDIA 신규 프로젝트 문의] ${company} - ${name}님`,
               _template: "table",
+              _captcha: "false",
               "기관/회사명": company,
               "담당자": name,
               "연락처": phone,
@@ -102,6 +104,8 @@ async function startServer() {
           if (emailRes.ok) {
             emailSent = true;
             console.log(`[EMAIL DISPATCH SUCCESS] Inquiry email sent to ${email}`);
+          } else {
+            console.warn(`FormSubmit status for ${email}: ${emailRes.status}`);
           }
         } catch (emailErr) {
           console.error(`FormSubmit email dispatch error to ${email}:`, emailErr);

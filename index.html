@@ -504,13 +504,13 @@
             <div class="max-w-3xl text-left">
                 
                 <!-- Main Slogan -->
-                <h1 id="hero-headline" class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-[1.25] tracking-tight mb-3 sm:mb-4 drop-shadow-lg break-keep whitespace-normal md:whitespace-nowrap md:[text-shadow:_0_2px_12px_rgba(0,0,0,0.95)]">
-                    성공적인 비즈니스를 위한 단 하나의 미디어·교육 마스터플랜
+                <h1 id="hero-headline" class="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-[1.2] sm:leading-[1.25] tracking-tight mb-4 sm:mb-6 drop-shadow-xl break-keep md:[text-shadow:_0_4px_16px_rgba(0,0,0,0.95)]">
+                    교육과 미디어의 모든 것 —<br class="hidden sm:inline"> 성공 비즈니스의 기준
                 </h1>
 
                 <!-- Sub-headline Body Text -->
                 <p class="text-slate-200 text-xs sm:text-base lg:text-lg font-medium leading-relaxed max-w-2xl mb-2 sm:mb-4 break-keep md:[text-shadow:_0_2px_8px_rgba(0,0,0,0.9)]">
-                    160평 대형 스튜디오 프로덕션부터 맞춤형 이러닝 기획·개발, 데이터 기반 마케팅, 오프라인 아카데미까지 귀사의 비즈니스 성장에 필요한 모든 가치를 전달합니다.
+                    체계적인 이러닝 콘텐츠 개발, 전문적인 장르별 영상 제작, 실질적인 홍보 마케팅은 물론, 현장 중심의 독립된 오프라인 교육까지 각 분야별 최고 수준의 전문 역량으로 필요한 모든 서비스를 완벽하게 제공합니다.
                 </p>
 
             </div>
@@ -608,222 +608,205 @@
     <section id="services" class="py-6 sm:py-16 lg:py-24 bg-white text-slate-900 border-t border-b border-slate-200">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             
-            <!-- Section Header (Single-line Title on PC) -->
-            <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-14">
+            <!-- Section Header (3 Core Business Pillars) -->
+            <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
                 <span class="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 border border-blue-200/80 text-xs font-bold tracking-wider uppercase mb-2 sm:mb-3 shadow-xs">
-                    미디어·교육 통합 파트너
+                    미디어·교육 토탈 솔루션
                 </span>
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-2 sm:mb-4 break-keep whitespace-normal md:whitespace-nowrap">
-                    기획·제작·교육을 하나로 연결하는 통합 비즈니스
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-2 sm:mb-4 break-keep">
+                    이러닝 개발, 영상 제작·마케팅, 오프라인 교육까지 — 완벽한 토탈 솔루션
                 </h2>
-                <p class="text-slate-600 text-xs sm:text-base font-medium break-keep">
-                    160평 규모의 하이엔드 프로덕션부터 맞춤형 온라인 교육 구축, 실전형 오프라인 아카데미까지 비즈니스 성장에 필요한 모든 핵심 솔루션을 제공합니다.
+                <p class="text-slate-600 text-xs sm:text-base font-medium break-keep max-w-3xl mx-auto">
+                    체계적인 이러닝 콘텐츠 개발, 전문적인 장르별 영상 제작, 실질적인 홍보 마케팅은 물론, 현장 중심의 독립된 오프라인 교육까지 각 분야별 최고 수준의 전문 역량으로 필요한 모든 서비스를 완벽하게 제공합니다.
                 </p>
             </div>
 
-            <!-- Auto-Playing Interactive Business Category Navigation Pills & Controls -->
-            <div class="flex items-center justify-between gap-2 mb-4 sm:mb-6 overflow-x-auto no-scrollbar pb-1">
+            <!-- Auto-Playing Interactive 3-Section Category Navigation Pills & Controls -->
+            <div class="flex items-center justify-between gap-2 mb-4 sm:mb-6 overflow-x-auto no-scrollbar pb-1 max-w-4xl mx-auto">
                 <!-- Left Prev Arrow Button -->
                 <button @click="prevServiceCard(); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);" 
-                        class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all shrink-0 active:scale-95 cursor-pointer"
+                        class="p-2 sm:p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all shrink-0 active:scale-95 cursor-pointer shadow-xs"
                         title="이전 사업 영역">
                     <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
                 </button>
 
-                <!-- Category Pills Bar -->
-                <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-0.5 px-1 flex-1 justify-start sm:justify-center">
+                <!-- 3 Category Pills Bar -->
+                <div class="flex items-center gap-1.5 sm:gap-3 overflow-x-auto no-scrollbar py-0.5 px-1 flex-1 justify-start sm:justify-center">
                     <button @click="selectServiceCard(0); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);"
-                            :class="activeServiceIndex === 0 ? 'bg-cyan-600 text-white font-black shadow-md scale-102 border-cyan-600' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold border-slate-200'"
-                            class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm border transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full" :class="activeServiceIndex === 0 ? 'bg-white animate-pulse' : 'bg-cyan-500'"></span>
-                        <span>1. 영상 제작</span>
+                            :class="activeServiceIndex === 0 ? 'bg-teal-600 text-white font-black shadow-lg scale-102 border-teal-600 ring-2 ring-teal-500/30' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold border-slate-200'"
+                            class="px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm border transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full" :class="activeServiceIndex === 0 ? 'bg-white animate-pulse' : 'bg-teal-500'"></span>
+                        <span>1. 이러닝 콘텐츠 개발</span>
                     </button>
 
                     <button @click="selectServiceCard(1); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);"
-                            :class="activeServiceIndex === 1 ? 'bg-teal-600 text-white font-black shadow-md scale-102 border-teal-600' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold border-slate-200'"
-                            class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm border transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full" :class="activeServiceIndex === 1 ? 'bg-white animate-pulse' : 'bg-teal-500'"></span>
-                        <span>2. 이러닝 개발</span>
+                            :class="activeServiceIndex === 1 ? 'bg-cyan-600 text-white font-black shadow-lg scale-102 border-cyan-600 ring-2 ring-cyan-500/30' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold border-slate-200'"
+                            class="px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm border transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full" :class="activeServiceIndex === 1 ? 'bg-white animate-pulse' : 'bg-cyan-500'"></span>
+                        <span>2. 영상 제작 &amp; 홍보 마케팅</span>
                     </button>
 
                     <button @click="selectServiceCard(2); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);"
-                            :class="activeServiceIndex === 2 ? 'bg-purple-600 text-white font-black shadow-md scale-102 border-purple-600' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold border-slate-200'"
-                            class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm border transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full" :class="activeServiceIndex === 2 ? 'bg-white animate-pulse' : 'bg-purple-500'"></span>
-                        <span>3. PR &amp; 마케팅</span>
-                    </button>
-
-                    <button @click="selectServiceCard(3); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);"
-                            :class="activeServiceIndex === 3 ? 'bg-amber-500 text-slate-950 font-black shadow-md scale-102 border-amber-500' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold border-slate-200'"
-                            class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm border transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full" :class="activeServiceIndex === 3 ? 'bg-slate-950 animate-pulse' : 'bg-amber-500'"></span>
-                        <span>4. 오프라인 아카데미</span>
+                            :class="activeServiceIndex === 2 ? 'bg-amber-500 text-slate-950 font-black shadow-lg scale-102 border-amber-500 ring-2 ring-amber-400/40' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold border-slate-200'"
+                            class="px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm border transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full" :class="activeServiceIndex === 2 ? 'bg-slate-950 animate-pulse' : 'bg-amber-500'"></span>
+                        <span>3. 오프라인 아카데미 교육</span>
                     </button>
                 </div>
 
                 <!-- Right Next Arrow Button -->
                 <button @click="nextServiceCard(); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);" 
-                        class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all shrink-0 active:scale-95 cursor-pointer"
+                        class="p-2 sm:p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all shrink-0 active:scale-95 cursor-pointer shadow-xs"
                         title="다음 사업 영역">
                     <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>
 
-            <!-- 4 Core Business Cards (Auto-Scrolling Horizontal Carousel on Mobile / Desktop 4-Column Grid) -->
+            <!-- 3 Core Business Cards (Auto-Rolling Horizontal Carousel on Mobile / Desktop 3-Column Grid) -->
             <div id="services-cards-container"
                  @mouseenter="stopServiceAutoPlay()"
                  @mouseleave="startServiceAutoPlay()"
                  @touchstart="stopServiceAutoPlay()"
-                 class="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 pb-4 md:pb-0 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 no-scrollbar mb-8 sm:mb-10 -mx-4 px-4 sm:mx-0 sm:px-0">
+                 @touchend="startServiceAutoPlay()"
+                 class="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 pb-4 md:pb-0 grid-cols-1 md:grid-cols-3 no-scrollbar mb-6 sm:mb-8 -mx-4 px-4 sm:mx-0 sm:px-0">
                 
-                <!-- Card 1: 공공·교육 전문 영상 제작 (Media Production) -->
+                <!-- Card 1: 이러닝 콘텐츠 개발 (E-Learning Content Development) -->
                 <div id="service-card-0" 
-                     :class="activeServiceIndex === 0 ? 'border-cyan-500 ring-2 ring-cyan-500/50 shadow-xl' : 'border-slate-200/90 shadow-lg'"
-                     class="w-[85vw] sm:w-[310px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border transition-all duration-300 overflow-hidden flex flex-col justify-between group">
-                    <div>
-                        <!-- Top Thumbnail Image -->
-                        <div class="relative aspect-[16/9] overflow-hidden bg-slate-900">
-                            <img src="https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?auto=format&fit=crop&w=800&q=80" 
-                                 alt="공공·교육 전문 영상 제작 - 4K 전문 스튜디오 촬영 제작 현장" 
-                                 referrerpolicy="no-referrer"
-                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                            <span class="absolute top-3 left-3 px-2.5 py-1 bg-cyan-500 text-slate-950 text-[11px] font-black rounded-lg shadow-md">
-                                Media Production
-                            </span>
-                            <span class="absolute bottom-3 left-3 text-white font-extrabold text-base sm:text-lg drop-shadow">
-                                공공·교육 전문 영상 제작
-                            </span>
-                        </div>
-                        <div class="p-4 sm:p-5">
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4 break-keep">
-                                160평 규모의 대형 스튜디오 인프라를 바탕으로, 초·중·고, 대학 및 공공기관의 학습 특성에 맞춘 고품질 교육 영상 콘텐츠를 제작합니다.
-                            </p>
-                            <ul class="space-y-2 border-t border-slate-100 pt-3 text-xs font-medium text-slate-700">
-                                <li class="flex items-start gap-1.5">
-                                    <span class="text-cyan-600 font-bold">✔</span>
-                                    <span>초·중·고·대학 및 공공기관 맞춤형 교육 영상</span>
-                                </li>
-                                <li class="flex items-start gap-1.5">
-                                    <span class="text-cyan-600 font-bold">✔</span>
-                                    <span>160평 스튜디오 기반 전문 학습 영상 프로덕션</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2: 이러닝 콘텐츠 기획·개발 (E-Learning) -->
-                <div id="service-card-1"
-                     :class="activeServiceIndex === 1 ? 'border-teal-500 ring-2 ring-teal-500/50 shadow-xl' : 'border-slate-200/90 shadow-lg'"
-                     class="w-[85vw] sm:w-[310px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+                     @click="selectServiceCard(0)"
+                     :class="activeServiceIndex === 0 ? 'border-teal-500 ring-2 ring-teal-500/50 shadow-2xl scale-[1.02] bg-teal-50/20' : 'border-slate-200/90 shadow-md opacity-90 hover:opacity-100'"
+                     class="w-[88vw] sm:w-[340px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border transition-all duration-300 overflow-hidden flex flex-col justify-between group cursor-pointer">
                     <div>
                         <!-- Top Thumbnail Image -->
                         <div class="relative aspect-[16/9] overflow-hidden bg-slate-900">
                             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" 
-                                 alt="이러닝 콘텐츠 기획·개발 - 전문 강사진의 인터랙티브 이러닝 강좌" 
+                                 alt="이러닝 콘텐츠 개발 - 전문 강사진의 인터랙티브 이러닝 강좌" 
                                  referrerpolicy="no-referrer"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                             <span class="absolute top-3 left-3 px-2.5 py-1 bg-teal-500 text-slate-950 text-[11px] font-black rounded-lg shadow-md">
-                                E-Learning
+                                01. E-Learning
                             </span>
-                            <span class="absolute bottom-3 left-3 text-white font-extrabold text-base sm:text-lg drop-shadow">
-                                이러닝 콘텐츠 기획·개발
+                            <span class="absolute bottom-3 left-3 text-white font-extrabold text-base sm:text-xl drop-shadow">
+                                이러닝 콘텐츠 개발
                             </span>
                         </div>
-                        <div class="p-4 sm:p-5">
+                        <div class="p-5 sm:p-6">
                             <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4 break-keep">
-                                학습 효과를 극대화하는 체계적인 교수설계와 차별화된 기획력을 바탕으로, 공공기관 및 대규모 교육 프로젝트에 최적화된 고품질 이러닝 콘텐츠를 개발합니다.
+                                학습 효과를 극대화하는 체계적인 교수설계(ID)와 맞춤형 기획력을 바탕으로, 공공기관 및 기업 교육 프로젝트에 최적화된 고품질 이러닝 콘텐츠를 개발합니다.
                             </p>
-                            <ul class="space-y-2 border-t border-slate-100 pt-3 text-xs font-medium text-slate-700">
-                                <li class="flex items-start gap-1.5">
-                                    <span class="text-teal-600 font-bold">✔</span>
-                                    <span>교육공학 기반의 체계적인 교수설계(ID)</span>
+                            <ul class="space-y-2 border-t border-slate-100 pt-3.5 text-xs font-semibold text-slate-700">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-teal-600 font-bold shrink-0">✔</span>
+                                    <span>교육공학 기반 체계적 교수설계(ID) 및 맞춤형 개발</span>
                                 </li>
-                                <li class="flex items-start gap-1.5">
-                                    <span class="text-teal-600 font-bold">✔</span>
-                                    <span>공공·기관 이러닝 콘텐츠 입찰 및 제작 역량</span>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-teal-600 font-bold shrink-0">✔</span>
+                                    <span>공공·기관·기업 이러닝 콘텐츠 입찰 및 제작 수행</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-teal-600 font-bold shrink-0">✔</span>
+                                    <span>전자칠판, 크로마키, 모션그래픽 인터랙티브 강좌</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 3: 데이터 기반 PR & 마케팅 (PR & Marketing) -->
-                <div id="service-card-2"
-                     :class="activeServiceIndex === 2 ? 'border-purple-500 ring-2 ring-purple-500/50 shadow-xl' : 'border-slate-200/90 shadow-lg'"
-                     class="w-[85vw] sm:w-[310px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+                <!-- Card 2: 영상 제작 & 홍보 마케팅 (Video Production & PR Marketing) -->
+                <div id="service-card-1"
+                     @click="selectServiceCard(1)"
+                     :class="activeServiceIndex === 1 ? 'border-cyan-500 ring-2 ring-cyan-500/50 shadow-2xl scale-[1.02] bg-cyan-50/20' : 'border-slate-200/90 shadow-md opacity-90 hover:opacity-100'"
+                     class="w-[88vw] sm:w-[340px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border transition-all duration-300 overflow-hidden flex flex-col justify-between group cursor-pointer">
                     <div>
                         <!-- Top Thumbnail Image -->
                         <div class="relative aspect-[16/9] overflow-hidden bg-slate-900">
-                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" 
-                                 alt="데이터 기반 PR & 마케팅 - 디지털 프레스 및 바이럴 마케팅 전략" 
+                            <img src="https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?auto=format&fit=crop&w=800&q=80" 
+                                 alt="영상 제작 & 홍보 마케팅 - 4K 전문 스튜디오 촬영 제작 현장" 
                                  referrerpolicy="no-referrer"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                            <span class="absolute top-3 left-3 px-2.5 py-1 bg-purple-500 text-white text-[11px] font-black rounded-lg shadow-md">
-                                PR & Marketing
+                            <span class="absolute top-3 left-3 px-2.5 py-1 bg-cyan-500 text-slate-950 text-[11px] font-black rounded-lg shadow-md">
+                                02. Media &amp; Marketing
                             </span>
-                            <span class="absolute bottom-3 left-3 text-white font-extrabold text-base sm:text-lg drop-shadow">
-                                데이터 기반 PR & 마케팅
+                            <span class="absolute bottom-3 left-3 text-white font-extrabold text-base sm:text-xl drop-shadow">
+                                영상 제작 &amp; 홍보 마케팅
                             </span>
                         </div>
-                        <div class="p-4 sm:p-5">
+                        <div class="p-5 sm:p-6">
                             <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4 break-keep">
-                                정밀한 타겟팅과 언론 네트워크를 통해 브랜드의 가치를 높이고 가시적인 비즈니스 성과를 창출합니다.
+                                160평 규모의 대형 4K 스튜디오 인프라와 장르별 전문 연출팀, 디지털 프레스·바이럴 마케팅을 하나로 통합하여 브랜드 신뢰도와 가시적 비즈니스 성과를 창출합니다.
                             </p>
-                            <ul class="space-y-2 border-t border-slate-100 pt-3 text-xs font-medium text-slate-700">
-                                <li class="flex items-start gap-1.5">
-                                    <span class="text-purple-600 font-bold">✔</span>
-                                    <span>언론 기사 송출 및 브랜드 인지도 제고</span>
+                            <ul class="space-y-2 border-t border-slate-100 pt-3.5 text-xs font-semibold text-slate-700">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-cyan-600 font-bold shrink-0">✔</span>
+                                    <span>160평 대형 스튜디오 기반 고품질 4K 전문 영상 프로덕션</span>
                                 </li>
-                                <li class="flex items-start gap-1.5">
-                                    <span class="text-purple-600 font-bold">✔</span>
-                                    <span>전환율 중심의 퍼포먼스 마케팅</span>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-cyan-600 font-bold shrink-0">✔</span>
+                                    <span>공공·기업 홍보영상, 모션그래픽, 브랜드 다큐 제작</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-cyan-600 font-bold shrink-0">✔</span>
+                                    <span>언론 기사 송출, 바이럴 홍보 및 파워풀 마케팅</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 4: 프리미엄 오프라인 아카데미 (Academy) -->
-                <div id="service-card-3"
-                     :class="activeServiceIndex === 3 ? 'border-amber-500 ring-2 ring-amber-500/50 shadow-xl' : 'border-slate-200/90 shadow-lg'"
-                     class="w-[85vw] sm:w-[310px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+                <!-- Card 3: 오프라인 아카데미 교육 (Offline Academy Education) -->
+                <div id="service-card-2"
+                     @click="selectServiceCard(2)"
+                     :class="activeServiceIndex === 2 ? 'border-amber-500 ring-2 ring-amber-500/50 shadow-2xl scale-[1.02] bg-amber-50/20' : 'border-slate-200/90 shadow-md opacity-90 hover:opacity-100'"
+                     class="w-[88vw] sm:w-[340px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border transition-all duration-300 overflow-hidden flex flex-col justify-between group cursor-pointer">
                     <div>
                         <!-- Top Thumbnail Image -->
                         <div class="relative aspect-[16/9] overflow-hidden bg-slate-900">
                             <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" 
-                                 alt="프리미엄 오프라인 아카데미 - 후캠퍼스 전문 강사진 실무 교육 현장" 
+                                 alt="오프라인 아카데미 교육 - 후캠퍼스 전문 강사진 실무 교육 현장" 
                                  referrerpolicy="no-referrer"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                             <span class="absolute top-3 left-3 px-2.5 py-1 bg-amber-500 text-slate-950 text-[11px] font-black rounded-lg shadow-md">
-                                Academy
+                                03. Offline Academy
                             </span>
-                            <span class="absolute bottom-3 left-3 text-white font-extrabold text-base sm:text-lg drop-shadow">
-                                프리미엄 오프라인 아카데미
+                            <span class="absolute bottom-3 left-3 text-white font-extrabold text-base sm:text-xl drop-shadow">
+                                오프라인 아카데미 교육
                             </span>
                         </div>
-                        <div class="p-4 sm:p-5">
+                        <div class="p-5 sm:p-6">
                             <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4 break-keep">
-                                온라인에서 채울 수 없는 현장 밀착형 인사이트와 업계 최고 전문가 그룹의 직강으로 실무 역량을 극대화합니다.
+                                온라인에서 경험할 수 없는 현장 밀착형 인사이트와 업계 최상위 전문가 그룹의 직강을 바탕으로 실무 현장에 즉시 적용 가능한 최고 수준의 실전 교육을 제공합니다.
                             </p>
-                            <ul class="space-y-2 border-t border-slate-100 pt-3 text-xs font-medium text-slate-700">
-                                <li class="flex items-start gap-1.5">
-                                    <span class="text-amber-600 font-bold">✔</span>
-                                    <span>최상위 전문가 직강 및 실무 밀착 피드백</span>
+                            <ul class="space-y-2 border-t border-slate-100 pt-3.5 text-xs font-semibold text-slate-700">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-600 font-bold shrink-0">✔</span>
+                                    <span>업계 최상위 전문가 직강 및 1:1 맞춤 실무 피드백</span>
                                 </li>
-                                <li class="flex items-start gap-1.5">
-                                    <span class="text-amber-600 font-bold">✔</span>
-                                    <span>현장에 즉시 적용 가능한 실전 커리큘럼</span>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-600 font-bold shrink-0">✔</span>
+                                    <span>현장 중심 오프라인 특강, 원데이크래스, 전문 교육</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-600 font-bold shrink-0">✔</span>
+                                    <span>수강생 전용 4K 스튜디오 실습 및 미디어 커뮤니티</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
+            </div>
+
+            <!-- Auto-Rolling Slide Indicators (3 Dots) -->
+            <div class="flex items-center justify-center gap-2 pt-1">
+                <template x-for="(item, idx) in [0, 1, 2]" :key="idx">
+                    <button @click="selectServiceCard(idx); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);"
+                            :class="activeServiceIndex === idx ? 'w-8 bg-blue-600' : 'w-2.5 bg-slate-300 hover:bg-slate-400'"
+                            class="h-2.5 rounded-full transition-all duration-300 cursor-pointer"
+                            :title="(idx + 1) + '번 섹션으로 이동'">
+                    </button>
+                </template>
             </div>
 
 
@@ -832,115 +815,119 @@
     </section>
 
     <!-- ================================================================= -->
-    <!-- 4. COMPANY INTRO & CORE COMPETENCIES: 회사소개 및 핵심역량       -->
+    <!-- 4. BRAND STORY & PHILOSOPHY: 회사소개 (About Us)                 -->
     <!-- ================================================================= -->
-    <section id="about" class="py-8 sm:py-16 lg:py-24 bg-[#f8fafc] border-b border-slate-200">
-        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" class="py-12 sm:py-20 lg:py-28 bg-slate-900 text-white relative overflow-hidden border-b border-slate-800">
+        <!-- Background Glow & Mesh Grid -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(30,136,229,0.18),transparent_50%),radial-gradient(circle_at_bottom_left,rgba(0,210,132,0.12),transparent_50%)] pointer-events-none"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-14">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 border border-blue-200/80 text-xs font-bold tracking-wider uppercase mb-2 sm:mb-3 shadow-xs">
-                    COMPANY OVERVIEW &amp; CORE COMPETENCIES
+            <!-- Category Badge & Header -->
+            <div class="text-center max-w-4xl mx-auto mb-10 sm:mb-16">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold tracking-wider uppercase mb-3 shadow-xs">
+                    <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                    Brand Story &amp; Philosophy
                 </span>
-                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-3 break-keep">
-                    스마트한 교육과 미디어를 완성하는 통합 비즈니스 파트너
+                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-6 break-keep">
+                    스마트한 교육과 미디어를 완성하는 전문가 그룹, 후미디어
                 </h2>
-                <p class="text-slate-600 text-xs sm:text-base font-medium break-keep max-w-2xl mx-auto">
-                    17년간 축적된 교육 기획 노하우, 160평 대형 4K 스튜디오 인프라, 언론 네트워크를 바탕으로 성공적인 프로젝트 성과를 보장합니다.
-                </p>
-            </div>
 
-            <!-- Dark Navy Key Performance & Experience Stats Bar -->
-            <div class="bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-xl mb-8 sm:mb-12 border border-slate-800">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-800">
-                    <div class="text-center sm:text-left pt-1 sm:pt-0 sm:px-4">
-                        <div class="text-brand-mint font-black text-2xl sm:text-4xl tracking-tight mb-0.5 sm:mb-1">2010년~</div>
-                        <div class="text-xs sm:text-sm font-bold text-white">17년 축적 노하우</div>
-                        <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1">지자체·공공·기업 교육 미디어 전담 수행</div>
+                <!-- Elegant Quote Banner -->
+                <div class="relative bg-gradient-to-r from-slate-800/90 via-slate-800/70 to-slate-800/90 rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-slate-700/80 shadow-2xl backdrop-blur-md">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-serif text-2xl font-bold shadow-lg">
+                        “
                     </div>
-                    <div class="text-center sm:text-left pt-3 sm:pt-0 sm:px-6">
-                        <div class="text-brand-mint font-black text-2xl sm:text-4xl tracking-tight mb-0.5 sm:mb-1">1,500+</div>
-                        <div class="text-xs sm:text-sm font-bold text-white">성공 프로젝트 수행</div>
-                        <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1">맞춤형 영상 제작 및 서비스 총괄</div>
-                    </div>
-                    <div class="text-center sm:text-left pt-3 sm:pt-0 sm:px-6">
-                        <div class="text-brand-mint font-black text-2xl sm:text-4xl tracking-tight mb-0.5 sm:mb-1">ALL IN ONE</div>
-                        <div class="text-xs sm:text-sm font-bold text-white">원스톱 미디어 에코시스템</div>
-                        <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1">기획 + 4K 스튜디오 + 언론 마케팅 통합</div>
-                    </div>
+                    <blockquote class="text-base sm:text-xl md:text-2xl font-extrabold text-blue-100 leading-relaxed tracking-tight break-keep pt-2">
+                        "우리는 단순한 콘텐츠를 만들지 않습니다.<br class="hidden sm:block"> 교육과 미디어의 본질을 꿰뚫고, 세상에 울림을 주는 가치를 창조합니다."
+                    </blockquote>
                 </div>
             </div>
 
-            <!-- Unified Core Competencies Asset Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
+            <!-- Main Content Container: Philosophy & Values & Vision -->
+            <div class="space-y-10 sm:space-y-14">
                 
-                <!-- Competency 1: Studio Infrastructure -->
-                <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-md hover:shadow-xl hover:border-blue-400 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-black text-xl mb-4">
-                            📸
-                        </div>
-                        <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">160평 대형 스튜디오 인프라</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
-                            86인치 UHD 전자칠판, 6.6m 대형 크로마키 세트, 4K 전문 방송 카메라 및 특수 무반사 LED 조명 장비 완비
-                        </p>
+                <!-- Section 1: Brand Identity & Philosophy -->
+                <div class="bg-slate-800/50 rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-slate-700/60 shadow-xl backdrop-blur-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="w-3 h-3 rounded-full bg-brand-mint"></span>
+                        <h3 class="text-xs sm:text-sm font-extrabold text-brand-mint uppercase tracking-widest">Brand Identity &amp; Philosophy</h3>
                     </div>
-                    <ul class="space-y-2 border-t border-slate-100 pt-4 text-xs sm:text-sm font-medium text-slate-700">
-                        <li class="flex items-start gap-2">
-                            <span class="text-blue-600 font-bold">✔</span>
-                            <span>160평 4K 스튜디오 &amp; 방송 장비 완비</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-blue-600 font-bold">✔</span>
-                            <span>가상 크로마키, 멀티 모니터링 세트 연출</span>
-                        </li>
-                    </ul>
+                    <h4 class="text-xl sm:text-2xl md:text-3xl font-black text-white mb-4 leading-snug break-keep">
+                        교육과 미디어가 나아가야 할 가장 지혜로운 방향
+                    </h4>
+                    <p class="text-slate-300 text-sm sm:text-base md:text-lg font-normal leading-relaxed break-keep">
+                        후미디어가 걸어가는 길은 언제나 명확합니다. 우리는 급변하는 디지털 환경 속에서 교육과 미디어가 나아가야 할 가장 지혜로운 방향을 제시합니다. 
+                        보여주기식 형식을 넘어, 수많은 이들에게 실질적인 영감을 주고 성장을 이끌어내는 콘텐츠와 교육 시스템을 구축하는 것— 그것이 후미디어가 존재하는 이유이자 지향점입니다.
+                    </p>
                 </div>
 
-                <!-- Competency 2: Educational Design -->
-                <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-md hover:shadow-xl hover:border-teal-400 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center font-black text-xl mb-4">
-                            💡
-                        </div>
-                        <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">교육공학 기반 교수설계</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
-                            전문 교수설계진(ID)과 AI 에듀테크 기술을 결합하여 학습 몰입도와 효과가 검증된 차세대 이러닝 커리큘럼 개발
-                        </p>
+                <!-- Section 2: Our Core Values (우리가 일하는 방식) -->
+                <div>
+                    <div class="text-center mb-8 sm:mb-10">
+                        <span class="text-xs sm:text-sm font-extrabold text-blue-400 uppercase tracking-widest block mb-1">Our Core Values</span>
+                        <h3 class="text-xl sm:text-3xl font-black text-white tracking-tight">우리가 일하는 방식</h3>
                     </div>
-                    <ul class="space-y-2 border-t border-slate-100 pt-4 text-xs sm:text-sm font-medium text-slate-700">
-                        <li class="flex items-start gap-2">
-                            <span class="text-teal-600 font-bold">✔</span>
-                            <span>교육공학 교수설계(ID) 및 에듀테크 연수 과정</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-teal-600 font-bold">✔</span>
-                            <span>공공·기업·대학 맞춤형 이러닝 콘텐츠 개발</span>
-                        </li>
-                    </ul>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                        
+                        <!-- Value 1 -->
+                        <div class="bg-slate-800/80 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-700/80 shadow-lg hover:border-blue-500/50 transition-all duration-300 group hover:-translate-y-1">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 border border-blue-500/20 flex items-center justify-center font-black text-xl mb-5 group-hover:scale-110 transition-transform">
+                                01
+                            </div>
+                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">타협 없는 전문성</h4>
+                            <span class="inline-block text-xs font-semibold text-blue-400 mb-3">Uncompromised Expertise</span>
+                            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed break-keep">
+                                각 분야의 최고 전문가들이 모여 타협 없는 기준과 디테일로 결과물을 완성합니다. 기획부터 실행까지 모든 과정에서 압도적인 전문성을 증명합니다.
+                            </p>
+                        </div>
+
+                        <!-- Value 2 -->
+                        <div class="bg-slate-800/80 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-700/80 shadow-lg hover:border-teal-500/50 transition-all duration-300 group hover:-translate-y-1">
+                            <div class="w-12 h-12 rounded-2xl bg-teal-500/10 text-brand-mint border border-teal-500/20 flex items-center justify-center font-black text-xl mb-5 group-hover:scale-110 transition-transform">
+                                02
+                            </div>
+                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">진정성 있는 교육과 미디어</h4>
+                            <span class="inline-block text-xs font-semibold text-brand-mint mb-3">Authentic Media &amp; Education</span>
+                            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed break-keep">
+                                화려한 기술에만 치우치지 않고, 그 안에 담긴 메시지와 교육적 본질을 깊이 있게 다룹니다. 대중과 학습자의 마음을 움직이는 진정성 있는 콘텐츠를 만듭니다.
+                            </p>
+                        </div>
+
+                        <!-- Value 3 -->
+                        <div class="bg-slate-800/80 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-700/80 shadow-lg hover:border-purple-500/50 transition-all duration-300 group hover:-translate-y-1">
+                            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center font-black text-xl mb-5 group-hover:scale-110 transition-transform">
+                                03
+                            </div>
+                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">지속 가능한 혁신</h4>
+                            <span class="inline-block text-xs font-semibold text-purple-400 mb-3">Sustainable Innovation</span>
+                            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed break-keep">
+                                정체되지 않고 끊임없이 새로운 패러다임을 연구하며, 급변하는 미디어 및 교육 시장을 선도하는 혁신의 파트너가 됩니다.
+                            </p>
+                        </div>
+
+                    </div>
                 </div>
 
-                <!-- Competency 3: Digital PR & Marketing -->
-                <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-md hover:shadow-xl hover:border-purple-400 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-11 h-11 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-black text-xl mb-4">
-                            📰
+                <!-- Section 3: Vision for the Future -->
+                <div class="relative bg-gradient-to-br from-blue-950/80 via-slate-800/90 to-slate-900/90 rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-blue-500/30 shadow-2xl overflow-hidden">
+                    <div class="absolute right-0 bottom-0 opacity-10 translate-x-8 translate-y-8 pointer-events-none">
+                        <svg class="w-64 h-64 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 rounded-md bg-blue-500/20 text-blue-300 text-xs font-extrabold uppercase tracking-widest border border-blue-500/30">Vision for the Future</span>
                         </div>
-                        <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">디지털 언론 PR &amp; 마케팅</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
-                            한국AI교육신문 언론 네트워크를 통한 기사 송출과 정밀 타겟팅 마케팅으로 대외 브랜드 신뢰도 향상
+                        <h4 class="text-xl sm:text-2xl md:text-3xl font-black text-white mb-4 leading-snug break-keep">
+                            대한민국의 스마트한 미래를 완성하는 든든한 기준
+                        </h4>
+                        <p class="text-slate-200 text-sm sm:text-base md:text-lg font-normal leading-relaxed break-keep">
+                            후미디어는 교육과 미디어의 경계를 넘어, 사람과 비즈니스를 가장 가치 있게 연결하는 통합 전문가 그룹으로 도약하고 있습니다. 
+                            우리가 만들어가는 모든 콘텐츠와 교육 프로그램은 대한민국의 스마트한 미래를 완성하는 든든한 기준이 될 것입니다.
                         </p>
                     </div>
-                    <ul class="space-y-2 border-t border-slate-100 pt-4 text-xs sm:text-sm font-medium text-slate-700">
-                        <li class="flex items-start gap-2">
-                            <span class="text-purple-600 font-bold">✔</span>
-                            <span>디지털 언론 기사 송출 &amp; 브랜드 신뢰도 제고</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-purple-600 font-bold">✔</span>
-                            <span>전환율 중심 퍼포먼스 &amp; 바이럴 마케팅</span>
-                        </li>
-                    </ul>
                 </div>
 
             </div>
@@ -1652,12 +1639,10 @@
                             <input type="checkbox" id="consent" x-model="inquiryForm.consent" required class="rounded border-gray-600 bg-white/10 text-brand-mint focus:ring-brand-mint">
                             <label for="consent" class="text-xs text-gray-300 cursor-pointer">개인정보 수집 및 이용에 동의합니다. *</label>
                         </div>
-                        <button type="submit" :disabled="inquirySubmitting" class="w-full bg-brand-mint hover:bg-brand-mint-hover text-brand-navy-dark font-black py-3 sm:py-3.5 rounded-xl transition-all text-xs sm:text-sm shadow-lg mt-2 flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer">
-                            <span x-show="!inquirySubmitting">프로젝트 문의 제출하기</span>
-                            <span x-show="inquirySubmitting" class="flex items-center gap-2">
-                                <svg class="animate-spin h-4 w-4 text-brand-navy-dark" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                                <span>실시간 전송 중...</span>
-                            </span>
+                        <button type="submit" :disabled="inquirySubmitting" class="w-full bg-brand-mint hover:bg-brand-mint-hover text-slate-950 font-black py-3.5 sm:py-4 rounded-xl transition-all text-sm sm:text-base shadow-xl mt-3 flex items-center justify-center gap-2.5 disabled:opacity-60 cursor-pointer active:scale-98">
+                            <span x-text="inquirySubmitting ? '실시간 문의 전송 중...' : '프로젝트 문의 제출하기'">프로젝트 문의 제출하기</span>
+                            <svg x-show="!inquirySubmitting" class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            <svg x-show="inquirySubmitting" class="animate-spin h-5 w-5 text-slate-950 shrink-0" fill="none" viewBox="0 0 24 24" x-cloak><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                         </button>
                     </form>
                 </div>

@@ -243,6 +243,7 @@ document.addEventListener('alpine:init', () => {
                         body: JSON.stringify({
                             _subject: '[WHOMEDIA 신규 프로젝트 문의] ' + this.inquiryForm.company + ' - ' + this.inquiryForm.name + '님',
                             _template: 'table',
+                            _captcha: 'false',
                             '기관/회사명': this.inquiryForm.company,
                             '담당자': this.inquiryForm.name,
                             '연락처': this.inquiryForm.phone,
@@ -281,7 +282,8 @@ document.addEventListener('alpine:init', () => {
                 localStorage.setItem('whomedia_inquiries_v1', JSON.stringify(this.adminInquiries));
             } catch(e) {}
 
-            this.inquirySuccessMessage = '작성해주신 프로젝트/임대 문의가 담당 직원 이메일(' + targetEmail + ') 및 어드민 시스템에 즉시 정상 접수되었습니다.';
+            const recipientStr = targetEmails.join(', ');
+            this.inquirySuccessMessage = '작성해주신 프로젝트/임대 문의가 담당 직원 이메일(' + recipientStr + ') 및 어드민 시스템에 즉시 정상 접수되었습니다.';
             this.inquirySuccessModal = true;
             this.inquiryForm = { company: '', name: '', phone: '', category: '', message: '', consent: false };
             this.inquirySubmitting = false;
@@ -377,7 +379,7 @@ document.addEventListener('alpine:init', () => {
             if (this.serviceAutoTimer) clearInterval(this.serviceAutoTimer);
             this.serviceAutoTimer = setInterval(() => {
                 this.nextServiceCard();
-            }, 3600);
+            }, 3500);
         },
         stopServiceAutoPlay() {
             if (this.serviceAutoTimer) {
@@ -386,11 +388,11 @@ document.addEventListener('alpine:init', () => {
             }
         },
         nextServiceCard() {
-            this.activeServiceIndex = (this.activeServiceIndex + 1) % 4;
+            this.activeServiceIndex = (this.activeServiceIndex + 1) % 3;
             this.scrollToServiceCard();
         },
         prevServiceCard() {
-            this.activeServiceIndex = (this.activeServiceIndex + 3) % 4;
+            this.activeServiceIndex = (this.activeServiceIndex + 2) % 3;
             this.scrollToServiceCard();
         },
         selectServiceCard(index) {
