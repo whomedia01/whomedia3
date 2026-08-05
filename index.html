@@ -619,114 +619,124 @@ x-init="
 
 
     <!-- ================================================================= -->
-    <!-- 2. HERO SECTION (Ultra-HD Video & Mobile Optimized)                -->
+    <!-- 2. HERO SECTION (Desktop Overlay / Mobile Stacking Layout)         -->
     <!-- ================================================================= -->
-    <section class="relative min-h-screen min-h-[100dvh] bg-brand-navy-dark pt-16 pb-28 sm:pt-20 sm:pb-32 lg:pt-24 lg:pb-36 overflow-hidden flex flex-col justify-center">
+    <section class="relative bg-brand-navy-dark text-white overflow-hidden flex flex-col justify-center min-h-0 md:min-h-screen md:min-h-[100dvh] pt-16 md:pt-20 md:pb-36">
         
-        <!-- Hero Background: Looping Muted YouTube Video Layer -->
-        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        <!-- ============================================================= -->
+        <!-- [MOBILE VIEW]: 1. TOP TEXT CONTENT BLOCK (Solid Dark BG)      -->
+        <!-- [DESKTOP VIEW]: OVERLAYS VIDEO (Transparent BG, Centered)      -->
+        <!-- ============================================================= -->
+        <div class="w-full bg-[#0A0E1A] md:bg-transparent px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-10 sm:pb-12 md:py-0 relative z-30 max-w-[1200px] mx-auto my-0 md:my-auto">
+            <div class="max-w-3xl text-left">
+                
+                <!-- Category Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-400 text-xs sm:text-sm font-extrabold mb-3.5 sm:mb-4 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-mint animate-pulse"></span>
+                    <span>(주)후미디어 종합 미디어·교육 마스터플랜</span>
+                </div>
+
+                <!-- Main Slogan -->
+                <h1 id="hero-headline" class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-[1.25] tracking-tight mb-3 sm:mb-4 drop-shadow-lg break-keep whitespace-normal md:whitespace-nowrap md:[text-shadow:_0_2px_12px_rgba(0,0,0,0.95)]">
+                    성공적인 비즈니스를 위한 단 하나의 미디어·교육 마스터플랜
+                </h1>
+
+                <!-- Sub-headline Body Text -->
+                <p class="text-slate-200 text-xs sm:text-base lg:text-lg font-medium leading-relaxed max-w-2xl mb-5 sm:mb-6 break-keep md:[text-shadow:_0_2px_8px_rgba(0,0,0,0.9)]">
+                    160평 대형 스튜디오 프로덕션부터 맞춤형 이러닝 기획·개발, 데이터 기반 마케팅, 오프라인 아카데미까지 귀사의 비즈니스 성장에 필요한 모든 가치를 전달합니다.
+                </p>
+
+                <!-- Hero CTA Buttons -->
+                <div class="flex flex-wrap items-center gap-2.5 sm:gap-4 pt-1">
+                    <a href="#contact" 
+                       class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-brand-mint hover:bg-brand-mint-hover text-slate-950 font-black text-xs sm:text-sm transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 flex items-center gap-2 active:scale-95 cursor-pointer">
+                        <span>무료 견적 &amp; 프로젝트 문의</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                    <a href="#services" 
+                       class="px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-white border border-slate-700 hover:border-slate-500 font-bold text-xs sm:text-sm transition-all duration-300 flex items-center gap-1.5 active:scale-95 cursor-pointer">
+                        <span>4대 핵심 사업영역</span>
+                        <svg class="w-4 h-4 text-brand-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ============================================================= -->
+        <!-- [DESKTOP VIEW]: Fullscreen Background Video (Absolute inset-0)-->
+        <!-- [MOBILE VIEW]: Standalone Video Container Below Text          -->
+        <!-- ============================================================= -->
+        <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-auto md:absolute md:inset-0 z-0 md:z-0 overflow-hidden bg-slate-950 border-y border-slate-800/80 md:border-none shadow-2xl select-none">
             <style>
-                .hero-video-iframe {
-                    display: block;
-                    background-color: #0A0E1A;
-                }
-                .hero-reduced-motion-bg {
-                    display: none;
+                @media (min-width: 769px) {
+                    .hero-video-wrapper {
+                        position: absolute;
+                        inset: 0;
+                    }
                 }
                 @media (max-width: 768px) {
-                    .hero-video-iframe {
-                        background-color: #0A0E1A;
-                    }
-                    .hero-video-iframe video {
-                        object-fit: contain !important;
-                        top: 50% !important;
-                        left: 50% !important;
-                        transform: translate(-50%, -50%) scale(1.22) !important;
-                        transform-origin: center center !important;
-                    }
-                }
-                @media (prefers-reduced-motion: reduce) {
-                    .hero-video-iframe {
-                        display: none !important;
-                    }
-                    .hero-reduced-motion-bg {
-                        display: block !important;
+                    .hero-video-wrapper {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
                     }
                 }
             </style>
 
-            <!-- Reduced Motion Static Thumbnail Placeholder -->
-            <div class="hero-reduced-motion-bg absolute inset-0 bg-cover bg-center"
-                 style="background-image: url('https://img.youtube.com/vi/4cnYAzIvagw/maxresdefault.jpg');">
-            </div>
-
             <!-- Autoplay Looping Video Frame -->
-            <div class="hero-video-iframe absolute inset-0 overflow-hidden">
-                <video class="w-full h-full object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[48%] scale-105 pointer-events-none border-0"
+            <div class="hero-video-wrapper w-full h-full overflow-hidden bg-slate-950">
+                <video class="w-full h-full object-cover pointer-events-none border-0"
                        autoplay loop muted playsinline aria-hidden="true">
                     <source src="https://raw.githubusercontent.com/whomedia01/whomedia4/main/whomedia_hero.mp4" type="video/mp4" />
                 </video>
             </div>
 
-            <!-- Dark Gradient Overlay for Desktop Contrast (Lower opacity ~0.35 equivalent for vivid background details) -->
+            <!-- Dark Gradient Overlay for Desktop Contrast -->
             <div class="absolute inset-0 z-10 bg-gradient-to-b from-[#0A0E1A]/60 via-[#0D1424]/35 to-[#0A0E1A]/75 pointer-events-none hidden md:block"></div>
 
-            <!-- Cinematic Vignette & Watermark Masking Overlay for Mobile (Blends letterboxing & preserves color vibrancy) -->
-            <div class="absolute inset-0 z-10 pointer-events-none block md:hidden"
-                 style="background: linear-gradient(to bottom, rgba(10,14,26,0.7) 0%, rgba(10,14,26,0.25) 25%, rgba(10,14,26,0.05) 45%, rgba(10,14,26,0.75) 70%, #0A0E1A 85%, #111111 100%);"></div>
-
-            <!-- Ambient Light Spheres -->
-            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-mint/10 rounded-full filter blur-[100px] pointer-events-none z-20"></div>
-            <div class="absolute bottom-1/3 -right-20 w-96 h-96 bg-blue-600/10 rounded-full filter blur-[120px] pointer-events-none z-20"></div>
+            <!-- Ambient Light Spheres for Desktop -->
+            <div class="hidden md:block absolute top-1/4 -left-20 w-96 h-96 bg-brand-mint/10 rounded-full filter blur-[100px] pointer-events-none z-20"></div>
+            <div class="hidden md:block absolute bottom-1/3 -right-20 w-96 h-96 bg-blue-600/10 rounded-full filter blur-[120px] pointer-events-none z-20"></div>
         </div>
 
-        <!-- Hero Content Container (Raised z-index to pop above gradient overlays) -->
-        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-30 w-full my-auto pb-8 sm:pb-20">
-            <div class="max-w-3xl text-left pt-2 sm:pt-4">
-                
-                <!-- Main Slogan (Single Line Fixed on PC, Top-Level Vision Title) -->
-                <h1 id="hero-headline" class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-[1.25] tracking-tight mb-3 sm:mb-4 drop-shadow-lg break-keep whitespace-normal md:whitespace-nowrap [text-shadow:_0_2px_12px_rgba(0,0,0,0.95)]">
-                    성공적인 비즈니스를 위한 단 하나의 미디어·교육 마스터플랜
-                </h1>
 
-                <!-- Sub-headline Body Text (160평 프로덕션, 이러닝, 마케팅, 아카데미) -->
-                <p class="text-slate-100 text-sm sm:text-base lg:text-lg font-medium leading-relaxed max-w-2xl mb-4 sm:mb-5 break-keep [text-shadow:_0_2px_8px_rgba(0,0,0,0.9)]">
-                    160평 대형 스튜디오 프로덕션부터 맞춤형 이러닝 기획·개발, 데이터 기반 마케팅, 오프라인 아카데미까지 귀사의 비즈니스 성장에 필요한 모든 가치를 전달합니다.
-                </p>
-            </div>
-        </div>
-
-        <!-- Full-Width Stats Banner / Trust Bar (Absolute bottom of hero section, covers video watermark completely) -->
-        <div class="absolute bottom-0 left-0 right-0 w-full z-50 bg-[#111111] border-t border-white/10 shadow-2xl py-4 sm:py-8 min-h-[100px] sm:min-h-[120px] flex items-center">
+        <!-- ============================================================= -->
+        <!-- Full-Width Stats Banner / Trust Bar                           -->
+        <!-- Mobile: Below Video; Desktop: Absolute Bottom                 -->
+        <!-- ============================================================= -->
+        <div class="relative md:absolute md:bottom-0 md:left-0 md:right-0 w-full z-40 md:z-50 bg-[#111111] border-t border-white/10 shadow-2xl py-5 sm:py-8 min-h-[100px] sm:min-h-[120px] flex items-center">
             <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 text-center divide-x-0 sm:divide-x sm:divide-white/10">
                     <div class="flex flex-col items-center justify-center p-1.5 sm:p-2">
                         <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-none mb-1">
                             17<span class="text-brand-mint font-extrabold ml-0.5">년</span>
                         </div>
-                        <div class="text-xs sm:text-sm font-normal text-white">축적의 노하우</div>
+                        <div class="text-xs sm:text-sm font-normal text-slate-300">축적의 노하우</div>
                     </div>
                     <div class="flex flex-col items-center justify-center p-1.5 sm:p-2">
                         <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-none mb-1">
                             100<span class="text-brand-mint font-extrabold ml-0.5">+</span>
                         </div>
-                        <div class="text-xs sm:text-sm font-normal text-white">주요 협력기관</div>
+                        <div class="text-xs sm:text-sm font-normal text-slate-300">주요 협력기관</div>
                     </div>
                     <div class="flex flex-col items-center justify-center p-1.5 sm:p-2">
                         <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-none mb-1">
                             1,500<span class="text-brand-mint font-extrabold ml-0.5">+</span>
                         </div>
-                        <div class="text-xs sm:text-sm font-normal text-white">누적 프로젝트</div>
+                        <div class="text-xs sm:text-sm font-normal text-slate-300">누적 프로젝트</div>
                     </div>
                     <div class="flex flex-col items-center justify-center p-1.5 sm:p-2">
                         <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-none mb-1">
                             10,000<span class="text-brand-mint font-extrabold ml-0.5">+</span>
                         </div>
-                        <div class="text-xs sm:text-sm font-normal text-white">연간 제작 콘텐츠</div>
+                        <div class="text-xs sm:text-sm font-normal text-slate-300">연간 제작 콘텐츠</div>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 
     <!-- ================================================================= -->
@@ -810,8 +820,9 @@ x-init="
                     <div>
                         <!-- Top Thumbnail Image -->
                         <div class="relative aspect-[16/9] overflow-hidden bg-slate-900">
-                            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" 
-                                 alt="공공·교육 전문 영상 제작" 
+                            <img src="https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?auto=format&fit=crop&w=800&q=80" 
+                                 alt="공공·교육 전문 영상 제작 - 4K 전문 스튜디오 촬영 제작 현장" 
+                                 referrerpolicy="no-referrer"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                             <span class="absolute top-3 left-3 px-2.5 py-1 bg-cyan-500 text-slate-950 text-[11px] font-black rounded-lg shadow-md">
@@ -846,8 +857,9 @@ x-init="
                     <div>
                         <!-- Top Thumbnail Image -->
                         <div class="relative aspect-[16/9] overflow-hidden bg-slate-900">
-                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" 
-                                 alt="이러닝 콘텐츠 기획·개발" 
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" 
+                                 alt="이러닝 콘텐츠 기획·개발 - 전문 강사진의 인터랙티브 이러닝 강좌" 
+                                 referrerpolicy="no-referrer"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                             <span class="absolute top-3 left-3 px-2.5 py-1 bg-teal-500 text-slate-950 text-[11px] font-black rounded-lg shadow-md">
@@ -882,8 +894,9 @@ x-init="
                     <div>
                         <!-- Top Thumbnail Image -->
                         <div class="relative aspect-[16/9] overflow-hidden bg-slate-900">
-                            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" 
-                                 alt="데이터 기반 PR & 마케팅" 
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" 
+                                 alt="데이터 기반 PR & 마케팅 - 디지털 프레스 및 바이럴 마케팅 전략" 
+                                 referrerpolicy="no-referrer"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                             <span class="absolute top-3 left-3 px-2.5 py-1 bg-purple-500 text-white text-[11px] font-black rounded-lg shadow-md">
@@ -918,8 +931,9 @@ x-init="
                     <div>
                         <!-- Top Thumbnail Image -->
                         <div class="relative aspect-[16/9] overflow-hidden bg-slate-900">
-                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" 
-                                 alt="프리미엄 오프라인 아카데미" 
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" 
+                                 alt="프리미엄 오프라인 아카데미 - 후캠퍼스 전문 강사진 실무 교육 현장" 
+                                 referrerpolicy="no-referrer"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                             <span class="absolute top-3 left-3 px-2.5 py-1 bg-amber-500 text-slate-950 text-[11px] font-black rounded-lg shadow-md">
@@ -1326,7 +1340,7 @@ x-init="
                 <!-- Tile 1 -->
                 <div class="w-[72vw] sm:w-[260px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
                      @click="openImageModal('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85', '후미디어 메인 입구 & 파사드')">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="메인 입구" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="후미디어 메인 입구 및 사옥 파사드 전경" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
@@ -1342,7 +1356,7 @@ x-init="
                 <!-- Tile 2 -->
                 <div class="w-[72vw] sm:w-[260px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
                      @click="openImageModal('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=85', '메인 응접 로비 & 라운지')">
-                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=600&q=80" alt="메인 로비" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=600&q=80" alt="후미디어 메인 응접 로비 및 스마트 미팅 라운지" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
@@ -1358,7 +1372,7 @@ x-init="
                 <!-- Tile 3 -->
                 <div class="w-[72vw] sm:w-[260px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
                      @click="openImageModal('https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=1200&q=85', 'LED 천장 휴게 라운지')">
-                    <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=600&q=80" alt="휴게 라운지" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=600&q=80" alt="스튜디오 연출진 및 출연진 휴게 라운지" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
@@ -1374,7 +1388,7 @@ x-init="
                 <!-- Tile 4 -->
                 <div class="w-[72vw] sm:w-[260px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
                      @click="openImageModal('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85', '통합 디지털 미디어 복도')">
-                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=600&q=80" alt="미디어 복도" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=600&q=80" alt="160평 스튜디오 복도 및 디지털 미디어 존" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
@@ -1390,7 +1404,7 @@ x-init="
                 <!-- Tile 5 -->
                 <div class="w-[72vw] sm:w-[260px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
                      @click="openImageModal('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=85', '파우더룸 & 메이크업 의상실')">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="분장실" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="방송 강사 및 출연진 분장실 및 파우더룸" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
@@ -1406,7 +1420,7 @@ x-init="
                 <!-- Tile 6 -->
                 <div class="w-[72vw] sm:w-[260px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
                      @click="openImageModal('https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=1200&q=85', '메인 부조정실 & 비디오 스위쳐 시스템')">
-                    <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=600&q=80" alt="부조정실" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=600&q=80" alt="4K 비디오 스위쳐 및 모니터링 메인 부조정실 시스템" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
@@ -1421,8 +1435,8 @@ x-init="
 
                 <!-- Tile 7 -->
                 <div class="w-[72vw] sm:w-[260px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
-                     @click="openImageModal('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85', '스튜디오 1 (84~86인치 전자칠판)')">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" alt="스튜디오 1" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                     @click="openImageModal('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=85', '스튜디오 1 (84~86인치 전자칠판)')">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="86인치 UHD 스마트 전자칠판 실시간 강의 스튜디오" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
@@ -1438,7 +1452,7 @@ x-init="
                 <!-- Tile 8 -->
                 <div class="w-[72vw] sm:w-[260px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
                      @click="openImageModal('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=85', '스튜디오 2 (특수 판서 칠판 세트)')">
-                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80" alt="스튜디오 2" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80" alt="무반사 조명 특수 판서 칠판 강의 스튜디오" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
@@ -1453,8 +1467,8 @@ x-init="
 
                 <!-- Tile 9 -->
                 <div class="w-[72vw] sm:w-[260px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
-                     @click="openImageModal('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=85', '스튜디오 3 (70인치 화이트 세트)')">
-                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="스튜디오 3" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                     @click="openImageModal('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85', '스튜디오 3 (70인치 화이트 세트)')">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="밝고 깔끔한 화이트 콘셉트 미디어 스튜디오 세트" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
@@ -1469,8 +1483,8 @@ x-init="
 
                 <!-- Tile 10 -->
                 <div class="w-[72vw] sm:w-[260px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
-                     @click="openImageModal('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85', '스튜디오 4 (모니터링 & 대담 룸)')">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="스튜디오 4" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                     @click="openImageModal('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=85', '스튜디오 4 (모니터링 & 대담 룸)')">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="전문 인터뷰 및 좌담회 방송 모니터링 스튜디오" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
@@ -1485,8 +1499,8 @@ x-init="
 
                 <!-- Tile 11 -->
                 <div class="w-[72vw] sm:w-[260px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
-                     @click="openImageModal('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85', '스튜디오 5 (4K 서브 크로마키 세트)')">
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="스튜디오 5" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                     @click="openImageModal('https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?auto=format&fit=crop&w=1200&q=85', '스튜디오 5 (4K 서브 크로마키 세트)')">
+                    <img src="https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?auto=format&fit=crop&w=600&q=80" alt="4K 해상도 서브 크로마키 합성 스튜디오" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
@@ -1501,8 +1515,8 @@ x-init="
 
                 <!-- Tile 12 -->
                 <div class="w-[72vw] sm:w-[260px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/80 cursor-pointer hover:border-brand-mint/70 transition-all duration-300 shadow-lg"
-                     @click="openImageModal('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=85', '스튜디오 6 (6.6m x 4.8m 대형 크로마키 세트)')">
-                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="스튜디오 6" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                     @click="openImageModal('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=85', '스튜디오 6 (6.6m x 4.8m 대형 크로마키 세트)')">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="6.6m 대형 그린 스크린 가상 스튜디오 세트" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                         <div>
