@@ -1000,9 +1000,36 @@ x-init="
             </div>
 
             <!-- Organization Chart Box -->
-            <div class="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl">
-                <!-- CEO & R&D Center Hierarchy -->
-                <div class="flex flex-col items-center relative mb-2">
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl p-5 sm:p-10 border border-slate-200 shadow-xl overflow-hidden">
+                
+                <!-- MOBILE VIEW (< 768px / md:hidden): Clean Stacked Vertical Tree Hierarchy -->
+                <div class="flex flex-col items-center md:hidden mb-2">
+                    <!-- CEO Node -->
+                    <div class="bg-slate-900 text-white px-6 py-3 rounded-2xl shadow-md border border-slate-800 text-center w-56 max-w-[85vw] z-10">
+                        <div class="text-[10px] font-bold tracking-widest text-brand-mint uppercase mb-0.5">EXECUTIVE</div>
+                        <div class="text-sm font-black text-white">대표이사</div>
+                        <div class="text-[11px] font-bold text-slate-300 mt-0.5">CEO</div>
+                    </div>
+
+                    <!-- Vertical Connecting Stem -->
+                    <div class="w-0.5 h-5 bg-slate-300"></div>
+
+                    <!-- R&D Center Node (Centered Inline on Mobile) -->
+                    <div class="r-d-center-node bg-slate-900 text-white px-4 py-2.5 rounded-xl shadow-md border border-slate-800 text-center w-56 max-w-[85vw] z-10">
+                        <div class="flex items-center justify-center gap-1.5 mb-0.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-mint"></span>
+                            <span class="text-[10px] font-bold tracking-widest text-brand-mint uppercase">R&D CENTER</span>
+                        </div>
+                        <div class="text-xs sm:text-sm font-bold text-white">기업부설연구소</div>
+                        <div class="text-[10px] sm:text-[11px] text-slate-300 font-normal mt-0.5 leading-snug">AI 에듀테크 · 미래 교육 미디어 연구 개발</div>
+                    </div>
+
+                    <!-- Vertical Connecting Stem -->
+                    <div class="w-0.5 h-5 bg-slate-300"></div>
+                </div>
+
+                <!-- DESKTOP VIEW (≥ 768px / hidden md:flex): Side-branching Tree Hierarchy -->
+                <div class="hidden md:flex flex-col items-center relative mb-2">
                     <!-- CEO Node -->
                     <div class="bg-slate-900 text-white px-8 py-3.5 rounded-2xl shadow-md border border-slate-800 text-center w-64 z-10">
                         <div class="text-[10px] font-bold tracking-widest text-brand-mint uppercase mb-0.5">EXECUTIVE</div>
@@ -1023,12 +1050,12 @@ x-init="
                             <!-- Right Branch Container -->
                             <div class="absolute left-1/2 top-1/2 -translate-y-1/2 flex items-center z-10">
                                 <!-- Horizontal Branch Line -->
-                                <div class="w-5 sm:w-10 md:w-14 h-0.5 bg-slate-300 relative flex-shrink-0">
+                                <div class="w-8 lg:w-14 h-0.5 bg-slate-300 relative flex-shrink-0">
                                     <div class="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-slate-400"></div>
                                 </div>
 
                                 <!-- R&D Center Box -->
-                                <div class="bg-slate-900 text-white px-3.5 sm:px-5 py-2.5 rounded-xl shadow-md border border-slate-800 text-left w-44 sm:w-60 md:w-64 flex-shrink-0">
+                                <div class="r-d-center-node bg-slate-900 text-white px-5 py-2.5 rounded-xl shadow-md border border-slate-800 text-left w-60 lg:w-64 flex-shrink-0">
                                     <div class="flex items-center gap-1.5 mb-0.5">
                                         <span class="w-1.5 h-1.5 rounded-full bg-brand-mint"></span>
                                         <span class="text-[10px] font-bold tracking-widest text-brand-mint uppercase">R&D CENTER</span>
