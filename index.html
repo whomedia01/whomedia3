@@ -472,7 +472,7 @@ x-init="
                 <a href="#about" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">회사소개</a>
                 <a href="#expertise" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">핵심역량</a>
                 <a href="#services" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">사업영역</a>
-                <a href="#studio" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">스튜디오 인프라</a>
+                <a href="#studio" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">스튜디오</a>
                 <a href="#reference" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">포트폴리오</a>
                 <a href="#contact" :class="scrolled ? 'text-blue-600 font-bold hover:text-blue-700' : 'text-white font-bold hover:text-blue-300 bg-blue-600/80 hover:bg-blue-600 px-3.5 py-1.5 rounded-lg transition-all'" class="font-bold text-[15px] transition-colors drop-shadow flex items-center gap-1">
                     <span>문의하기</span>
@@ -501,7 +501,7 @@ x-init="
             <a @click="mobileMenuOpen = false" href="#about" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">회사소개</a>
             <a @click="mobileMenuOpen = false" href="#expertise" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">핵심역량</a>
             <a @click="mobileMenuOpen = false" href="#services" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">사업영역</a>
-            <a @click="mobileMenuOpen = false" href="#studio" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">스튜디오 인프라</a>
+            <a @click="mobileMenuOpen = false" href="#studio" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">스튜디오</a>
             <a @click="mobileMenuOpen = false" href="#reference" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">포트폴리오</a>
             <div class="border-t border-gray-800 pt-3 space-y-2">
                 <a href="tel:02-6443-4222" class="flex items-center gap-2 text-brand-mint font-bold py-1.5 hover:underline text-sm">
@@ -523,7 +523,7 @@ x-init="
     <!-- ================================================================= -->
     <!-- 2. HERO SECTION (Ultra-HD Video & Mobile Optimized)                -->
     <!-- ================================================================= -->
-    <section class="relative min-h-screen min-h-[100dvh] bg-brand-navy-dark pt-14 pb-10 sm:pt-20 sm:pb-12 lg:pt-24 lg:pb-14 overflow-hidden flex flex-col justify-center">
+    <section class="relative min-h-screen min-h-[100dvh] bg-brand-navy-dark pt-16 pb-28 sm:pt-20 sm:pb-32 lg:pt-24 lg:pb-36 overflow-hidden flex flex-col justify-center">
         
         <!-- Hero Background: Looping Muted YouTube Video Layer -->
         <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
@@ -551,7 +551,7 @@ x-init="
 
             <!-- Autoplay Looping Video Frame -->
             <div class="hero-video-iframe absolute inset-0 overflow-hidden">
-                <video class="w-full h-full object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none border-0"
+                <video class="w-full h-full object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[48%] scale-105 pointer-events-none border-0"
                        autoplay loop muted playsinline aria-hidden="true">
                     <source src="https://raw.githubusercontent.com/whomedia01/whomedia4/main/whomedia_hero.mp4" type="video/mp4" />
                 </video>
@@ -565,40 +565,53 @@ x-init="
             <div class="absolute bottom-1/3 -right-20 w-96 h-96 bg-blue-600/10 rounded-full filter blur-[120px] pointer-events-none z-20"></div>
         </div>
 
-        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div class="max-w-3xl text-left mb-8 pt-2 sm:pt-4">
+        <!-- Hero Content Container -->
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto pb-16 sm:pb-20">
+            <div class="max-w-3xl text-left pt-2 sm:pt-4">
                 
                 <!-- Main Slogan -->
                 <h1 id="hero-headline" class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.25] tracking-tight mb-4 drop-shadow-md break-keep">
                     <span class="block font-black">
-                        <span class="text-brand-mint font-black block text-xl sm:text-3xl lg:text-4xl mb-1.5">이러닝 개발 · 영상 제작 · 홍보 마케팅</span>
-                        <span class="text-white text-2xl sm:text-4xl lg:text-5xl font-black block">성공을 이끄는 통합 솔루션</span>
+                        <span class="text-brand-mint font-black block text-xl sm:text-3xl lg:text-4xl mb-2 break-keep">이러닝 개발 · 영상 제작 및 마케팅 · 오프라인 아카데미</span>
+                        <span class="text-white text-2xl sm:text-4xl lg:text-5xl font-black block break-keep">온·오프라인을 아우르는 O2O 통합 솔루션</span>
                     </span>
                 </h1>
 
                 <!-- Sub-headline Body Text -->
                 <p class="text-slate-200 text-sm sm:text-base lg:text-lg font-medium leading-relaxed max-w-xl mb-5 break-keep drop-shadow-sm">
-                    기획부터 제작·마케팅까지 원스톱으로, 귀사의 프로젝트를 완벽하게 이끕니다.
+                    콘텐츠 제작부터 프리미엄 오프라인 교육까지, 귀사의 비즈니스를 가장 빛나는 결과로 이끕니다.
                 </p>
             </div>
+        </div>
 
-            <!-- Stats Bar (4 Metrics: 17년, 100+, 1,500+, 100%) -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-5 bg-black/60 backdrop-blur-md border border-white/15 rounded-2xl shadow-xl">
-                <div class="text-center sm:text-left border-r border-b sm:border-b-0 border-white/10 pb-3 sm:pb-0 pr-2">
-                    <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">17<span class="text-brand-mint text-base sm:text-xl lg:text-2xl ml-0.5">년</span></div>
-                    <div class="text-xs sm:text-sm text-gray-200 font-bold mt-0.5">축적의 노하우</div>
-                </div>
-                <div class="text-center sm:text-left sm:border-r border-b sm:border-b-0 border-white/10 pb-3 sm:pb-0 pr-2">
-                    <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">100<span class="text-brand-mint text-base sm:text-xl lg:text-2xl ml-0.5">+</span></div>
-                    <div class="text-xs sm:text-sm text-gray-200 font-bold mt-0.5">주요 협력기관</div>
-                </div>
-                <div class="text-center sm:text-left border-r border-white/10 pr-2 pt-1 sm:pt-0">
-                    <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">1,500<span class="text-brand-mint text-base sm:text-xl lg:text-2xl ml-0.5">+</span></div>
-                    <div class="text-xs sm:text-sm text-gray-200 font-bold mt-0.5">누적 프로젝트</div>
-                </div>
-                <div class="text-center sm:text-left pt-1 sm:pt-0">
-                    <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">100<span class="text-brand-mint text-base sm:text-xl lg:text-2xl ml-0.5">%</span></div>
-                    <div class="text-xs sm:text-sm text-gray-200 font-bold mt-0.5">고객 만족도</div>
+        <!-- Full-Width Stats Banner / Trust Bar (Absolute bottom of hero section, covers video watermark completely) -->
+        <div class="absolute bottom-0 left-0 right-0 w-full z-50 bg-[#111111] border-t border-white/10 shadow-2xl py-6 sm:py-8 min-h-[120px] flex items-center">
+            <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center divide-x-0 sm:divide-x sm:divide-white/10">
+                    <div class="flex flex-col items-center justify-center p-2">
+                        <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-none mb-1">
+                            17<span class="text-brand-mint font-extrabold ml-0.5">년</span>
+                        </div>
+                        <div class="text-xs sm:text-sm font-normal text-white">축적의 노하우</div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-2">
+                        <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-none mb-1">
+                            100<span class="text-brand-mint font-extrabold ml-0.5">+</span>
+                        </div>
+                        <div class="text-xs sm:text-sm font-normal text-white">주요 협력기관</div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-2">
+                        <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-none mb-1">
+                            1,500<span class="text-brand-mint font-extrabold ml-0.5">+</span>
+                        </div>
+                        <div class="text-xs sm:text-sm font-normal text-white">누적 프로젝트</div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-2">
+                        <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-none mb-1">
+                            10,000<span class="text-brand-mint font-extrabold ml-0.5">+</span>
+                        </div>
+                        <div class="text-xs sm:text-sm font-normal text-white">연간 제작 콘텐츠</div>
+                    </div>
                 </div>
             </div>
         </div>
