@@ -493,12 +493,49 @@
             this.inquirySubmitting = false;
         }
     },
+    activeServiceIndex: 0,
+    serviceAutoTimer: null,
+    startServiceAutoPlay() {
+        if (this.serviceAutoTimer) clearInterval(this.serviceAutoTimer);
+        this.serviceAutoTimer = setInterval(() => {
+            this.nextServiceCard();
+        }, 3600);
+    },
+    stopServiceAutoPlay() {
+        if (this.serviceAutoTimer) {
+            clearInterval(this.serviceAutoTimer);
+            this.serviceAutoTimer = null;
+        }
+    },
+    nextServiceCard() {
+        this.activeServiceIndex = (this.activeServiceIndex + 1) % 4;
+        this.scrollToServiceCard();
+    },
+    prevServiceCard() {
+        this.activeServiceIndex = (this.activeServiceIndex + 3) % 4;
+        this.scrollToServiceCard();
+    },
+    selectServiceCard(index) {
+        this.activeServiceIndex = index;
+        this.scrollToServiceCard();
+    },
+    scrollToServiceCard() {
+        const container = document.getElementById('services-cards-container');
+        const targetCard = document.getElementById('service-card-' + this.activeServiceIndex);
+        if (container && targetCard) {
+            container.scrollTo({
+                left: targetCard.offsetLeft - container.offsetLeft - 16,
+                behavior: 'smooth'
+            });
+        }
+    },
     loadMore() {
         this.portfolioLimit += 8;
     }
 }" 
 x-init="
     setInterval(() => { currentKeywordIndex = (currentKeywordIndex + 1) % keywords.length }, 2800);
+    startServiceAutoPlay();
 "
 @scroll.window="scrolled = (window.pageYOffset > 20)"
 @keydown.escape.window="closeModal()">
@@ -711,18 +748,65 @@ x-init="
                 </p>
             </div>
 
-            <!-- Mobile Touch Swipe Carousel Indicator Cue -->
-            <div class="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 mb-3 md:hidden">
-                <span class="animate-pulse text-blue-600">←</span>
-                <span>손가락으로 좌우 스와이프하여 4대 사업 영역을 확인하세요</span>
-                <span class="animate-pulse text-blue-600">→</span>
+            <!-- Auto-Playing Interactive Business Category Navigation Pills & Controls -->
+            <div class="flex items-center justify-between gap-2 mb-4 sm:mb-6 overflow-x-auto no-scrollbar pb-1">
+                <!-- Left Prev Arrow Button -->
+                <button @click="prevServiceCard(); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);" 
+                        class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all shrink-0 active:scale-95 cursor-pointer"
+                        title="이전 사업 영역">
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+
+                <!-- Category Pills Bar -->
+                <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-0.5 px-1 flex-1 justify-start sm:justify-center">
+                    <button @click="selectServiceCard(0); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);"
+                            :class="activeServiceIndex === 0 ? 'bg-cyan-600 text-white font-black shadow-md scale-102 border-cyan-600' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold border-slate-200'"
+                            class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm border transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full" :class="activeServiceIndex === 0 ? 'bg-white animate-pulse' : 'bg-cyan-500'"></span>
+                        <span>1. 영상 제작</span>
+                    </button>
+
+                    <button @click="selectServiceCard(1); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);"
+                            :class="activeServiceIndex === 1 ? 'bg-teal-600 text-white font-black shadow-md scale-102 border-teal-600' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold border-slate-200'"
+                            class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm border transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full" :class="activeServiceIndex === 1 ? 'bg-white animate-pulse' : 'bg-teal-500'"></span>
+                        <span>2. 이러닝 개발</span>
+                    </button>
+
+                    <button @click="selectServiceCard(2); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);"
+                            :class="activeServiceIndex === 2 ? 'bg-purple-600 text-white font-black shadow-md scale-102 border-purple-600' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold border-slate-200'"
+                            class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm border transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full" :class="activeServiceIndex === 2 ? 'bg-white animate-pulse' : 'bg-purple-500'"></span>
+                        <span>3. PR &amp; 마케팅</span>
+                    </button>
+
+                    <button @click="selectServiceCard(3); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);"
+                            :class="activeServiceIndex === 3 ? 'bg-amber-500 text-slate-950 font-black shadow-md scale-102 border-amber-500' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold border-slate-200'"
+                            class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm border transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full" :class="activeServiceIndex === 3 ? 'bg-slate-950 animate-pulse' : 'bg-amber-500'"></span>
+                        <span>4. 오프라인 아카데미</span>
+                    </button>
+                </div>
+
+                <!-- Right Next Arrow Button -->
+                <button @click="nextServiceCard(); stopServiceAutoPlay(); setTimeout(() => startServiceAutoPlay(), 8000);" 
+                        class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all shrink-0 active:scale-95 cursor-pointer"
+                        title="다음 사업 영역">
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                </button>
             </div>
 
-            <!-- 4 Core Business Cards (Mobile Horizontal Swipe Carousel / Desktop 4-Column Grid) -->
-            <div class="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 pb-4 md:pb-0 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 no-scrollbar mb-8 sm:mb-10 -mx-4 px-4 sm:mx-0 sm:px-0">
+            <!-- 4 Core Business Cards (Auto-Scrolling Horizontal Carousel on Mobile / Desktop 4-Column Grid) -->
+            <div id="services-cards-container"
+                 @mouseenter="stopServiceAutoPlay()"
+                 @mouseleave="startServiceAutoPlay()"
+                 @touchstart="stopServiceAutoPlay()"
+                 class="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 pb-4 md:pb-0 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 no-scrollbar mb-8 sm:mb-10 -mx-4 px-4 sm:mx-0 sm:px-0">
                 
                 <!-- Card 1: 공공·교육 전문 영상 제작 (Media Production) -->
-                <div class="w-[82vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border border-slate-200/90 shadow-lg hover:shadow-xl hover:border-cyan-500 transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+                <div id="service-card-0" 
+                     :class="activeServiceIndex === 0 ? 'border-cyan-500 ring-2 ring-cyan-500/50 shadow-xl' : 'border-slate-200/90 shadow-lg'"
+                     class="w-[85vw] sm:w-[310px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border transition-all duration-300 overflow-hidden flex flex-col justify-between group">
                     <div>
                         <!-- Top Thumbnail Image -->
                         <div class="relative aspect-[16/9] overflow-hidden bg-slate-900">
@@ -756,7 +840,9 @@ x-init="
                 </div>
 
                 <!-- Card 2: 이러닝 콘텐츠 기획·개발 (E-Learning) -->
-                <div class="w-[82vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border border-slate-200/90 shadow-lg hover:shadow-xl hover:border-teal-500 transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+                <div id="service-card-1"
+                     :class="activeServiceIndex === 1 ? 'border-teal-500 ring-2 ring-teal-500/50 shadow-xl' : 'border-slate-200/90 shadow-lg'"
+                     class="w-[85vw] sm:w-[310px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border transition-all duration-300 overflow-hidden flex flex-col justify-between group">
                     <div>
                         <!-- Top Thumbnail Image -->
                         <div class="relative aspect-[16/9] overflow-hidden bg-slate-900">
@@ -790,7 +876,9 @@ x-init="
                 </div>
 
                 <!-- Card 3: 데이터 기반 PR & 마케팅 (PR & Marketing) -->
-                <div class="w-[82vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border border-slate-200/90 shadow-lg hover:shadow-xl hover:border-purple-500 transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+                <div id="service-card-2"
+                     :class="activeServiceIndex === 2 ? 'border-purple-500 ring-2 ring-purple-500/50 shadow-xl' : 'border-slate-200/90 shadow-lg'"
+                     class="w-[85vw] sm:w-[310px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border transition-all duration-300 overflow-hidden flex flex-col justify-between group">
                     <div>
                         <!-- Top Thumbnail Image -->
                         <div class="relative aspect-[16/9] overflow-hidden bg-slate-900">
@@ -824,7 +912,9 @@ x-init="
                 </div>
 
                 <!-- Card 4: 프리미엄 오프라인 아카데미 (Academy) -->
-                <div class="w-[82vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border border-slate-200/90 shadow-lg hover:shadow-xl hover:border-amber-500 transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+                <div id="service-card-3"
+                     :class="activeServiceIndex === 3 ? 'border-amber-500 ring-2 ring-amber-500/50 shadow-xl' : 'border-slate-200/90 shadow-lg'"
+                     class="w-[85vw] sm:w-[310px] md:w-auto flex-shrink-0 snap-center md:flex-shrink-1 bg-white rounded-2xl border transition-all duration-300 overflow-hidden flex flex-col justify-between group">
                     <div>
                         <!-- Top Thumbnail Image -->
                         <div class="relative aspect-[16/9] overflow-hidden bg-slate-900">
@@ -1230,13 +1320,6 @@ x-init="
                 </p>
             </div>
 
-            <!-- Mobile Touch Swipe Carousel Indicator Cue -->
-            <div class="flex items-center justify-center gap-2 text-xs font-bold text-gray-400 mb-3 md:hidden">
-                <span class="animate-pulse text-brand-mint">←</span>
-                <span>손가락으로 좌우 스와이프하여 스튜디오 시설을 확인하세요</span>
-                <span class="animate-pulse text-brand-mint">→</span>
-            </div>
-
             <!-- 12-Tile Photo Gallery (Mobile Horizontal Carousel / Desktop Grid) -->
             <div class="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-3 sm:gap-5 pb-4 md:pb-0 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 mb-6 sm:mb-10">
                 
@@ -1453,13 +1536,6 @@ x-init="
                 </span>
                 <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-text mb-2">콘텐츠 개발 &amp; 통합 미디어 포트폴리오</h2>
                 <p class="text-gray-500 text-xs sm:text-sm">교육 컨설팅부터 4K 미디어 프로덕션, 후캠퍼스 평생교육, 디지털 언론 PR까지 분야별 주요 수행 사례입니다.</p>
-            </div>
-
-            <!-- Mobile Touch Swipe Carousel Indicator Cue -->
-            <div class="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 mb-3 md:hidden">
-                <span class="animate-pulse text-brand-mint-hover">←</span>
-                <span>손가락으로 좌우 스와이프하여 포트폴리오를 확인하세요</span>
-                <span class="animate-pulse text-brand-mint-hover">→</span>
             </div>
 
             <!-- Category Filter Tabs (Hidden as requested) -->
