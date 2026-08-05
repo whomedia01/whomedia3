@@ -291,7 +291,8 @@
         }
     </script>
 
-    <!-- Alpine.js CDN for Interactivity -->
+    <!-- Alpine.js & Application State Module -->
+    <script src="/src/appData.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
@@ -392,153 +393,9 @@
         }
     </style>
 </head>
-<body x-data="{ 
-    scrolled: false, 
-    mobileMenuOpen: false, 
-    refTab: 'all',
-    portfolioLimit: 12,
-    videoModalOpen: false,
-    activeVideoId: '',
-    activeVideoTitle: '',
-    imageModalOpen: false,
-    activeStudioImg: '',
-    activeStudioTitle: '',
-    keywords: ['교육 콘텐츠 개발', '종합 영상 미디어 솔루션', 'AI·디지털 교육 솔루션', '4K 스마트 스튜디오', '기업·공공 미디어 브랜딩'],
-    currentKeywordIndex: 0,
-
-    // [전체 포트폴리오 목록: 교육 콘텐츠, 4K 프로덕션, 후캠퍼스, 언론 PR]
-    portfolioItems: [
-        { id: '0kHSItVXKOU', title: '능률 고등 영어', cat: 'edu', tag: 'NE능률', label: '교육 콘텐츠' },
-        { id: '6xb2GYInARg', title: '능률 중등 영어', cat: 'edu', tag: 'NE능률', label: '교육 콘텐츠' },
-        { id: 'rJ2U9T27WwU', title: '태진옥 홍보영상', cat: 'press', tag: '태진옥', label: '홍보영상' },
-        { id: 'PTqpVR-yIKg', title: '경희사이버대학 크로마키', cat: 'production', tag: '경희사이버대', label: '크로마키' },
-        { id: 'AbeWeusmjws', title: '전자칠판', cat: 'production', tag: '전자칠판', label: '4K 프로덕션' },
-        { id: 'PVVdU-CYowA', title: '웅진_전자칠판', cat: 'edu', tag: '웅진씽크빅', label: '전자칠판' },
-        { id: 'PxAZYrpdowU', title: '웅진_블랙보드', cat: 'edu', tag: '웅진씽크빅', label: '블랙보드' },
-        { id: 'x4Cb5At6Z_M', title: 'CG 인터랙티브 강의', cat: 'production', tag: 'HOOMEDIA', label: 'CG/인터랙티브' },
-        { id: 'JwCrB4dKgDU', title: '테블릿 강의', cat: 'hucampus', tag: 'HOOMEDIA', label: '태블릿 강의' },
-        { id: '54m2LENAo68', title: '크로마키', cat: 'production', tag: 'HOOMEDIA', label: '크로마키' },
-        { id: 'WaxhtAZLLV8', title: '크로마키 촬영', cat: 'production', tag: 'HOOMEDIA', label: '크로마키 촬영' },
-        { id: 'paYW3d0MRqk', title: 'EBS 올쏘 인트로', cat: 'production', tag: 'EBS', label: '모션그래픽' },
-        { id: 'komXGh3TGSo', title: 'EBS 천일문 타이틀', cat: 'production', tag: 'EBS', label: '타이틀 연출' },
-        { id: 'cF7i6m9apsE', title: 'EBS 포텐시리즈 인트로', cat: 'production', tag: 'EBS', label: '모션그래픽' },
-        { id: '-Is7q7qD9Rc', title: '꽁강 유튜브 인트로', cat: 'press', tag: '유튜브PR', label: '유튜브 인트로' }
-    ],
-
-    get filteredPortfolio() {
-        if (this.refTab === 'all') return this.portfolioItems;
-        return this.portfolioItems.filter(item => item.cat === this.refTab);
-    },
-
-    openModal(videoId, videoTitle) {
-        this.activeVideoId = videoId;
-        this.activeVideoTitle = videoTitle;
-        this.videoModalOpen = true;
-    },
-    closeModal() {
-        this.videoModalOpen = false;
-        this.activeVideoId = '';
-        this.activeVideoTitle = '';
-    },
-    openImageModal(imgUrl, title) {
-        this.activeStudioImg = imgUrl;
-        this.activeStudioTitle = title;
-        this.imageModalOpen = true;
-    },
-    closeImageModal() {
-        this.imageModalOpen = false;
-        this.activeStudioImg = '';
-        this.activeStudioTitle = '';
-    },
-    showMobileOrgModal: false,
-    inquirySuccessModal: false,
-    inquirySuccessMessage: '',
-    inquirySubmitting: false,
-    inquiryForm: {
-        company: '',
-        name: '',
-        phone: '',
-        category: '',
-        message: '',
-        consent: false
-    },
-    async submitInquiry() {
-        if (!this.inquiryForm.company || !this.inquiryForm.name || !this.inquiryForm.phone || !this.inquiryForm.category || !this.inquiryForm.message) {
-            alert('필수 문의 항목을 모두 작성해 주세요.');
-            return;
-        }
-        if (!this.inquiryForm.consent) {
-            alert('개인정보 수집 및 이용 동의에 체크해 주세요.');
-            return;
-        }
-        this.inquirySubmitting = true;
-        try {
-            const res = await fetch('/api/inquiry', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(this.inquiryForm)
-            });
-            const data = await res.json();
-            if (data.success) {
-                this.inquirySuccessMessage = data.message;
-                this.inquirySuccessModal = true;
-                this.inquiryForm = { company: '', name: '', phone: '', category: '', message: '', consent: false };
-            } else {
-                alert(data.message || '문의 접수 중 오류가 발생했습니다.');
-            }
-        } catch (err) {
-            console.error('Inquiry submit error:', err);
-            alert('문의 접수 처리 중 통신 오류가 발생했습니다.');
-        } finally {
-            this.inquirySubmitting = false;
-        }
-    },
-    activeServiceIndex: 0,
-    serviceAutoTimer: null,
-    startServiceAutoPlay() {
-        if (this.serviceAutoTimer) clearInterval(this.serviceAutoTimer);
-        this.serviceAutoTimer = setInterval(() => {
-            this.nextServiceCard();
-        }, 3600);
-    },
-    stopServiceAutoPlay() {
-        if (this.serviceAutoTimer) {
-            clearInterval(this.serviceAutoTimer);
-            this.serviceAutoTimer = null;
-        }
-    },
-    nextServiceCard() {
-        this.activeServiceIndex = (this.activeServiceIndex + 1) % 4;
-        this.scrollToServiceCard();
-    },
-    prevServiceCard() {
-        this.activeServiceIndex = (this.activeServiceIndex + 3) % 4;
-        this.scrollToServiceCard();
-    },
-    selectServiceCard(index) {
-        this.activeServiceIndex = index;
-        this.scrollToServiceCard();
-    },
-    scrollToServiceCard() {
-        const container = document.getElementById('services-cards-container');
-        const targetCard = document.getElementById('service-card-' + this.activeServiceIndex);
-        if (container && targetCard) {
-            container.scrollTo({
-                left: targetCard.offsetLeft - container.offsetLeft - 16,
-                behavior: 'smooth'
-            });
-        }
-    },
-    loadMore() {
-        this.portfolioLimit += 8;
-    }
-}" 
-x-init="
-    setInterval(() => { currentKeywordIndex = (currentKeywordIndex + 1) % keywords.length }, 2800);
-    startServiceAutoPlay();
-"
-@scroll.window="scrolled = (window.pageYOffset > 20)"
-@keydown.escape.window="closeModal()">
+<body x-data="whomediaApp"
+      @scroll.window="scrolled = (window.pageYOffset > 20)"
+      @keydown.escape.window="closeModal()">
 
     <!-- ================================================================= -->
     <!-- 1. HEADER / NAVIGATION (GNB)                                      -->
@@ -566,14 +423,22 @@ x-init="
             </a>
 
             <!-- Desktop Menu Links -->
-            <nav class="hidden md:flex items-center gap-8">
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">홈</a>
                 <a href="#about" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">회사소개</a>
-                <a href="#expertise" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">핵심역량</a>
                 <a href="#services" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">사업영역</a>
-                <a href="#studio" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">스튜디오</a>
                 <a href="#reference" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">포트폴리오</a>
+                <a href="#contact" :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" class="font-medium text-[15px] transition-colors drop-shadow">문의/상담</a>
+                <a href="https://map.naver.com/p/search/%ED%9B%84%EB%AF%B8%EB%94%94%EC%96%B4/place/13314547?placePath=%2Fhome%3Fbk_query%3D%ED%9B%84%EB%AF%B8%EB%94%94%EC%96%B4%26entry%3Dpll%26from%3Dnx%26fromNxList%3Dtrue%26from%3Dmap%26fromPanelNum%3D2%26timestamp%3D202608051432%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%ED%9B%84%EB%AF%B8%EB%94%94%EC%96%B4&placeSearchOption=bk_query%3D%25ED%259B%2584%25EB%25AF%25B8%25EB%2594%25EC%2596%25B4%26entry%3Dpll%26fromNxList%3Dtrue%26originalQuery%3D%25ED%259B%2584%25EB%25AF%25B8%25EB%2594%25EC%2596%25B4%26x%3D126.891732%26y%3D37.476909&searchType=place" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   :class="scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-100 hover:text-blue-400'" 
+                   class="font-medium text-[15px] transition-colors drop-shadow flex items-center gap-0.5">
+                    <span>오시는 길</span>
+                    <svg class="w-3 h-3 opacity-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
                 <a href="#contact" :class="scrolled ? 'text-blue-600 font-bold hover:text-blue-700' : 'text-white font-bold hover:text-blue-300 bg-blue-600/80 hover:bg-blue-600 px-3.5 py-1.5 rounded-lg transition-all'" class="font-bold text-[15px] transition-colors drop-shadow flex items-center gap-1">
-                    <span>문의하기</span>
+                    <span>문의/상담하기</span>
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </a>
             </nav>
@@ -595,14 +460,22 @@ x-init="
              x-transition:leave="transition ease-in duration-150"
              x-transition:leave-start="opacity-100 translate-y-0"
              x-transition:leave-end="opacity-0 -translate-y-4"
-             class="md:hidden bg-brand-navy-dark border-b border-gray-800 px-6 py-6 space-y-4">
-            <a @click="mobileMenuOpen = false" href="#about" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">회사소개</a>
-            <a @click="mobileMenuOpen = false" href="#expertise" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">핵심역량</a>
-            <a @click="mobileMenuOpen = false" href="#services" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">사업영역</a>
-            <a @click="mobileMenuOpen = false" href="#studio" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">스튜디오</a>
-            <a @click="mobileMenuOpen = false" href="#reference" class="block text-gray-200 font-medium py-1.5 hover:text-brand-mint">포트폴리오</a>
+             class="md:hidden bg-brand-navy-dark border-b border-gray-800 px-6 py-6 space-y-3.5">
+            <a @click="mobileMenuOpen = false" href="#" class="block text-gray-200 font-medium py-1 hover:text-brand-mint">홈</a>
+            <a @click="mobileMenuOpen = false" href="#about" class="block text-gray-200 font-medium py-1 hover:text-brand-mint">회사소개</a>
+            <a @click="mobileMenuOpen = false" href="#services" class="block text-gray-200 font-medium py-1 hover:text-brand-mint">사업영역</a>
+            <a @click="mobileMenuOpen = false" href="#reference" class="block text-gray-200 font-medium py-1 hover:text-brand-mint">포트폴리오</a>
+            <a @click="mobileMenuOpen = false" href="#contact" class="block text-gray-200 font-medium py-1 hover:text-brand-mint">문의/상담</a>
+            <a @click="mobileMenuOpen = false" 
+               href="https://map.naver.com/p/search/%ED%9B%84%EB%AF%B8%EB%94%94%EC%96%B4/place/13314547?placePath=%2Fhome%3Fbk_query%3D%ED%9B%84%EB%AF%B8%EB%94%94%EC%96%B4%26entry%3Dpll%26from%3Dnx%26fromNxList%3Dtrue%26from%3Dmap%26fromPanelNum%3D2%26timestamp%3D202608051432%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%ED%9B%84%EB%AF%B8%EB%94%94%EC%96%B4&placeSearchOption=bk_query%3D%25ED%259B%2584%25EB%25AF%25B8%25EB%2594%25EC%2596%25B4%26entry%3Dpll%26fromNxList%3Dtrue%26originalQuery%3D%25ED%259B%2584%25EB%25AF%25B8%25EB%2594%25EC%2596%25B4%26x%3D126.891732%26y%3D37.476909&searchType=place" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="block text-gray-200 font-medium py-1 hover:text-brand-mint flex items-center gap-1.5">
+                <span>오시는 길</span>
+                <span class="text-[10px] text-brand-mint font-semibold bg-brand-mint/10 px-1.5 py-0.5 rounded border border-brand-mint/20">네이버 지도 ↗</span>
+            </a>
             <div class="border-t border-gray-800 pt-3 space-y-2">
-                <a href="tel:02-6443-4222" class="flex items-center gap-2 text-brand-mint font-bold py-1.5 hover:underline text-sm">
+                <a href="tel:02-6443-4222" class="flex items-center gap-2 text-brand-mint font-bold py-1 hover:underline text-sm">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                     <span>전화 바로 연결 (02-6443-4222)</span>
                 </a>
@@ -612,7 +485,7 @@ x-init="
                 </a>
             </div>
             <a @click="mobileMenuOpen = false" href="#contact" class="block bg-brand-mint text-brand-navy-dark font-extrabold text-center py-2.5 rounded-lg text-sm shadow-md">
-                <span>문의하기</span>
+                <span>문의/상담하기</span>
             </a>
         </div>
     </header>
@@ -630,35 +503,15 @@ x-init="
         <div class="w-full bg-[#0A0E1A] md:bg-transparent px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-10 sm:pb-12 md:py-0 relative z-30 max-w-[1200px] mx-auto my-0 md:my-auto">
             <div class="max-w-3xl text-left">
                 
-                <!-- Category Badge -->
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-400 text-xs sm:text-sm font-extrabold mb-3.5 sm:mb-4 shadow-sm">
-                    <span class="w-2 h-2 rounded-full bg-brand-mint animate-pulse"></span>
-                    <span>(주)후미디어 종합 미디어·교육 마스터플랜</span>
-                </div>
-
                 <!-- Main Slogan -->
                 <h1 id="hero-headline" class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-[1.25] tracking-tight mb-3 sm:mb-4 drop-shadow-lg break-keep whitespace-normal md:whitespace-nowrap md:[text-shadow:_0_2px_12px_rgba(0,0,0,0.95)]">
                     성공적인 비즈니스를 위한 단 하나의 미디어·교육 마스터플랜
                 </h1>
 
                 <!-- Sub-headline Body Text -->
-                <p class="text-slate-200 text-xs sm:text-base lg:text-lg font-medium leading-relaxed max-w-2xl mb-5 sm:mb-6 break-keep md:[text-shadow:_0_2px_8px_rgba(0,0,0,0.9)]">
+                <p class="text-slate-200 text-xs sm:text-base lg:text-lg font-medium leading-relaxed max-w-2xl mb-2 sm:mb-4 break-keep md:[text-shadow:_0_2px_8px_rgba(0,0,0,0.9)]">
                     160평 대형 스튜디오 프로덕션부터 맞춤형 이러닝 기획·개발, 데이터 기반 마케팅, 오프라인 아카데미까지 귀사의 비즈니스 성장에 필요한 모든 가치를 전달합니다.
                 </p>
-
-                <!-- Hero CTA Buttons -->
-                <div class="flex flex-wrap items-center gap-2.5 sm:gap-4 pt-1">
-                    <a href="#contact" 
-                       class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-brand-mint hover:bg-brand-mint-hover text-slate-950 font-black text-xs sm:text-sm transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 flex items-center gap-2 active:scale-95 cursor-pointer">
-                        <span>무료 견적 &amp; 프로젝트 문의</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                    </a>
-                    <a href="#services" 
-                       class="px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-white border border-slate-700 hover:border-slate-500 font-bold text-xs sm:text-sm transition-all duration-300 flex items-center gap-1.5 active:scale-95 cursor-pointer">
-                        <span>4대 핵심 사업영역</span>
-                        <svg class="w-4 h-4 text-brand-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
-                    </a>
-                </div>
 
             </div>
         </div>
@@ -675,6 +528,11 @@ x-init="
                         position: absolute;
                         inset: 0;
                     }
+                    .hero-video-bg {
+                        transform: scale(1.05);
+                        transform-origin: center center;
+                        object-fit: cover;
+                    }
                 }
                 @media (max-width: 768px) {
                     .hero-video-wrapper {
@@ -682,12 +540,17 @@ x-init="
                         width: 100%;
                         height: 100%;
                     }
+                    .hero-video-bg {
+                        transform: scale(1.25);
+                        transform-origin: center center;
+                        object-fit: cover;
+                    }
                 }
             </style>
 
             <!-- Autoplay Looping Video Frame -->
             <div class="hero-video-wrapper w-full h-full overflow-hidden bg-slate-950">
-                <video class="w-full h-full object-cover pointer-events-none border-0"
+                <video class="hero-video-bg w-full h-full object-cover pointer-events-none border-0"
                        autoplay loop muted playsinline aria-hidden="true">
                     <source src="https://raw.githubusercontent.com/whomedia01/whomedia4/main/whomedia_hero.mp4" type="video/mp4" />
                 </video>
@@ -969,7 +832,7 @@ x-init="
     </section>
 
     <!-- ================================================================= -->
-    <!-- 4. OVERVIEW: 미래교육의 새로운 패러다임을 이끄는 지능형 미디어 이노베이터 -->
+    <!-- 4. COMPANY INTRO & CORE COMPETENCIES: 회사소개 및 핵심역량       -->
     <!-- ================================================================= -->
     <section id="about" class="py-8 sm:py-16 lg:py-24 bg-[#f8fafc] border-b border-slate-200">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -977,18 +840,18 @@ x-init="
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-14">
                 <span class="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 border border-blue-200/80 text-xs font-bold tracking-wider uppercase mb-2 sm:mb-3 shadow-xs">
-                    대한민국 No.1 에듀테크 & 미디어 그룹
+                    COMPANY OVERVIEW &amp; CORE COMPETENCIES
                 </span>
                 <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-3 break-keep">
-                    미래교육의 새로운 패러다임을 이끄는 지능형 미디어 이노베이터
+                    스마트한 교육과 미디어를 완성하는 통합 비즈니스 파트너
                 </h2>
                 <p class="text-slate-600 text-xs sm:text-base font-medium break-keep max-w-2xl mx-auto">
-                    17년간 축적된 교육 기획 노하우와 독보적인 4K 스튜디오 인프라로 비즈니스 성공을 보장합니다.
+                    17년간 축적된 교육 기획 노하우, 160평 대형 4K 스튜디오 인프라, 언론 네트워크를 바탕으로 성공적인 프로젝트 성과를 보장합니다.
                 </p>
             </div>
 
-            <!-- Dark Navy Stats Card Bar -->
-            <div class="bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-xl mb-6 sm:mb-10 border border-slate-800">
+            <!-- Dark Navy Key Performance & Experience Stats Bar -->
+            <div class="bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-xl mb-8 sm:mb-12 border border-slate-800">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-800">
                     <div class="text-center sm:text-left pt-1 sm:pt-0 sm:px-4">
                         <div class="text-brand-mint font-black text-2xl sm:text-4xl tracking-tight mb-0.5 sm:mb-1">2010년~</div>
@@ -998,7 +861,7 @@ x-init="
                     <div class="text-center sm:text-left pt-3 sm:pt-0 sm:px-6">
                         <div class="text-brand-mint font-black text-2xl sm:text-4xl tracking-tight mb-0.5 sm:mb-1">1,500+</div>
                         <div class="text-xs sm:text-sm font-bold text-white">성공 프로젝트 수행</div>
-                        <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1">맞춤형 영상 제작 및 안정적 교육 연수 총괄</div>
+                        <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1">맞춤형 영상 제작 및 서비스 총괄</div>
                     </div>
                     <div class="text-center sm:text-left pt-3 sm:pt-0 sm:px-6">
                         <div class="text-brand-mint font-black text-2xl sm:text-4xl tracking-tight mb-0.5 sm:mb-1">ALL IN ONE</div>
@@ -1008,135 +871,74 @@ x-init="
                 </div>
             </div>
 
-            <!-- 3 White Feature Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
+            <!-- Unified Core Competencies Asset Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
                 
-                <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-black text-lg sm:text-xl mb-3 sm:mb-4">
-                        📸
-                    </div>
-                    <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1.5 sm:mb-2">160평 최첨단 스튜디오</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        86인치 UHD 전자칠판, 대형 크로마키 세트, 4K 전문 방송 카메라 및 특수 무반사 LED 조명 완비
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center font-black text-lg sm:text-xl mb-3 sm:mb-4">
-                        💡
-                    </div>
-                    <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1.5 sm:mb-2">독보적 에듀테크 노하우</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        전문 교수설계진과 AI 기술을 결합하여 몰입감 높고 학습 효과가 검증된 인터랙티브 차세대 콘텐츠 제작
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-black text-lg sm:text-xl mb-3 sm:mb-4">
-                        📰
-                    </div>
-                    <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1.5 sm:mb-2">디지털 언론 & 바이럴 PR</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        한국AI교육신문 산하 인프라를 통해 브랜드 기획 기사를 송출하고 대외 가산점 및 홍보 성과를 극대화
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <!-- 5. CORE COMPETENCIES: 기획·제작·마케팅 통합 시스템의 3대 핵심역량  -->
-    <!-- ================================================================= -->
-    <section id="expertise" class="py-8 sm:py-16 lg:py-24 bg-white border-b border-slate-200">
-        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-16">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 border border-blue-200/80 text-xs font-bold tracking-wider uppercase mb-2 sm:mb-3 shadow-xs">
-                    CORE COMPETENCIES
-                </span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-2 sm:mb-3 break-keep">
-                    기획·제작·마케팅 통합 시스템의 3대 핵심역량
-                </h2>
-                <p class="text-slate-600 text-xs sm:text-base font-medium break-keep">
-                    각 단계별 전문성이 결합하여 최고의 프로젝트 성과를 만들어냅니다.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
-                
-                <!-- Step 01 -->
-                <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-lg hover:shadow-xl hover:border-cyan-400 transition-all flex flex-col justify-between">
+                <!-- Competency 1: Studio Infrastructure -->
+                <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-md hover:shadow-xl hover:border-blue-400 transition-all flex flex-col justify-between">
                     <div>
-                        <div class="mb-4">
-                            <span class="px-3 py-1 bg-cyan-500 text-slate-950 text-xs font-black rounded-lg tracking-wider uppercase inline-block">
-                                STEP 01
-                            </span>
+                        <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-black text-xl mb-4">
+                            📸
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">체계적인 이러닝 설계</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                            교육 목적과 타겟에 최적화된 맞춤형 교수설계 및 에듀테크 기반의 인터랙티브 이러닝 커리큘럼을 구축합니다.
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">160평 대형 스튜디오 인프라</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
+                            86인치 UHD 전자칠판, 6.6m 대형 크로마키 세트, 4K 전문 방송 카메라 및 특수 무반사 LED 조명 장비 완비
                         </p>
                     </div>
-                    <ul class="space-y-2.5 border-t border-slate-100 pt-4 text-xs sm:text-sm font-medium text-slate-700">
+                    <ul class="space-y-2 border-t border-slate-100 pt-4 text-xs sm:text-sm font-medium text-slate-700">
                         <li class="flex items-start gap-2">
-                            <span class="text-cyan-600 font-bold">✔</span>
-                            <span>맞춤형 이러닝 콘텐츠 교수설계 및 개발</span>
+                            <span class="text-blue-600 font-bold">✔</span>
+                            <span>160평 4K 스튜디오 &amp; 방송 장비 완비</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-cyan-600 font-bold">✔</span>
-                            <span>기업·공공 맞춤형 에듀테크 교육 과정 구축</span>
+                            <span class="text-blue-600 font-bold">✔</span>
+                            <span>가상 크로마키, 멀티 모니터링 세트 연출</span>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Step 02 -->
-                <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-lg hover:shadow-xl hover:border-teal-400 transition-all flex flex-col justify-between">
+                <!-- Competency 2: Educational Design -->
+                <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-md hover:shadow-xl hover:border-teal-400 transition-all flex flex-col justify-between">
                     <div>
-                        <div class="mb-4">
-                            <span class="px-3 py-1 bg-teal-500 text-slate-950 text-xs font-black rounded-lg tracking-wider uppercase inline-block">
-                                STEP 02
-                            </span>
+                        <div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center font-black text-xl mb-4">
+                            💡
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">압도적인 콘텐츠 구현</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                            160평 4K 종합 스튜디오 인프라와 몰입감 높은 연출력으로 브랜드 가치를 극대화하는 비주얼 콘텐츠를 완성합니다.
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">교육공학 기반 교수설계</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
+                            전문 교수설계진(ID)과 AI 에듀테크 기술을 결합하여 학습 몰입도와 효과가 검증된 차세대 이러닝 커리큘럼 개발
                         </p>
                     </div>
-                    <ul class="space-y-2.5 border-t border-slate-100 pt-4 text-xs sm:text-sm font-medium text-slate-700">
+                    <ul class="space-y-2 border-t border-slate-100 pt-4 text-xs sm:text-sm font-medium text-slate-700">
                         <li class="flex items-start gap-2">
                             <span class="text-teal-600 font-bold">✔</span>
-                            <span>4K 스튜디오 비주얼 촬영 및 3D 미디어 연출</span>
+                            <span>교육공학 교수설계(ID) 및 에듀테크 연수 과정</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-teal-600 font-bold">✔</span>
-                            <span>브랜드 특화 맞춤 릴스 & 시네마틱 홍보 영상</span>
+                            <span>공공·기업·대학 맞춤형 이러닝 콘텐츠 개발</span>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Step 03 -->
-                <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-lg hover:shadow-xl hover:border-purple-400 transition-all flex flex-col justify-between">
+                <!-- Competency 3: Digital PR & Marketing -->
+                <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-md hover:shadow-xl hover:border-purple-400 transition-all flex flex-col justify-between">
                     <div>
-                        <div class="mb-4">
-                            <span class="px-3 py-1 bg-purple-500 text-white text-xs font-black rounded-lg tracking-wider uppercase inline-block">
-                                STEP 03
-                            </span>
+                        <div class="w-11 h-11 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-black text-xl mb-4">
+                            📰
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">전략적인 마케팅 확산</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                            디지털 언론 PR 및 멀티 타겟 마케팅 네트워크를 결합하여 대외 브랜드 신뢰도 향상과 강력한 확산 성과를 만듭니다.
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">디지털 언론 PR &amp; 마케팅</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
+                            한국AI교육신문 언론 네트워크를 통한 기사 송출과 정밀 타겟팅 마케팅으로 대외 브랜드 신뢰도 향상
                         </p>
                     </div>
-                    <ul class="space-y-2.5 border-t border-slate-100 pt-4 text-xs sm:text-sm font-medium text-slate-700">
+                    <ul class="space-y-2 border-t border-slate-100 pt-4 text-xs sm:text-sm font-medium text-slate-700">
                         <li class="flex items-start gap-2">
                             <span class="text-purple-600 font-bold">✔</span>
-                            <span>디지털 언론 기사 송출 & 대외 브랜드 PR</span>
+                            <span>디지털 언론 기사 송출 &amp; 브랜드 신뢰도 제고</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-purple-600 font-bold">✔</span>
-                            <span>SNS 및 타겟 바이럴 마케팅 원스톱 캠페인</span>
+                            <span>전환율 중심 퍼포먼스 &amp; 바이럴 마케팅</span>
                         </li>
                     </ul>
                 </div>
@@ -1789,10 +1591,11 @@ x-init="
                         </a>
 
                         <!-- Click to Open Naver Map -->
-                        <a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B8%88%EC%B2%99%EA%B5%AC%20%EA%B0%80%EC%82%B0%EB%94%94%EC%A7%80%ED%84%B82%EB%A1%9C%2053%20%ED%95%9C%EB%9D%BC%EC%8B%9C%EA%B7%B8%EB%A7%A4%EB%B0%B8%EB%A6%AC" 
+                        <a id="location" 
+                           href="https://map.naver.com/p/search/%ED%9B%84%EB%AF%B8%EB%94%94%EC%96%B4/place/13314547?placePath=%2Fhome%3Fbk_query%3D%ED%9B%84%EB%AF%B8%EB%94%94%EC%96%B4%26entry%3Dpll%26from%3Dnx%26fromNxList%3Dtrue%26from%3Dmap%26fromPanelNum%3D2%26timestamp%3D202608051432%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%ED%9B%84%EB%AF%B8%EB%94%94%EC%96%B4&placeSearchOption=bk_query%3D%25ED%259B%2584%25EB%25AF%25B8%25EB%2594%25EC%2596%25B4%26entry%3Dpll%26fromNxList%3Dtrue%26originalQuery%3D%25ED%259B%2584%25EB%25AF%25B8%25EB%2594%25EC%2596%25B4%26x%3D126.891732%26y%3D37.476909&searchType=place" 
                            target="_blank" 
                            rel="noopener noreferrer" 
-                           class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-white/5 border border-white/10 hover:border-brand-mint/80 hover:bg-white/10 transition-all duration-200 group cursor-pointer">
+                           class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-white/5 border border-white/10 hover:border-brand-mint/80 hover:bg-white/10 transition-all duration-200 group cursor-pointer scroll-mt-24">
                             <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-brand-mint text-brand-navy-dark flex items-center justify-center font-bold group-hover:scale-105 transition-transform shrink-0 text-sm sm:text-base">
                                 📍
                             </div>
@@ -1894,7 +1697,13 @@ x-init="
             <div class="space-y-1 text-gray-500 border-t border-gray-800/80 pt-6">
                 <p>법인명 : (주)후미디어 ｜ 대표이사 : 황광성 ｜ 사업자등록번호 : 119-86-25861</p>
                 <p>본사 및 스튜디오 : 서울특별시 금천구 가산디지털2로 53 (가산동) 한라시그마밸리 1102호 ~ 1104호</p>
-                <p class="pt-4 text-gray-600">© 2026 WHO MEDIA Corp. All rights reserved.</p>
+                <div class="pt-4 flex items-center justify-between flex-wrap gap-2 text-gray-600">
+                    <p>© 2026 WHO MEDIA Corp. All rights reserved.</p>
+                    <button @click="openAdminModal()" class="text-xs text-gray-400 hover:text-brand-mint font-semibold flex items-center gap-1.5 transition-colors cursor-pointer bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 shadow-sm">
+                        <svg class="w-3.5 h-3.5 text-brand-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        <span>어드민 접수 관리 (Admin)</span>
+                    </button>
+                </div>
             </div>
         </div>
     </footer>
@@ -2020,6 +1829,226 @@ x-init="
             <button @click="inquirySuccessModal = false" class="w-full bg-brand-mint hover:bg-brand-mint-hover text-slate-950 font-black py-3.5 rounded-xl transition-all shadow-lg text-sm cursor-pointer">
                 확인
             </button>
+        </div>
+    </div>
+
+
+    <!-- ================================================================= -->
+    <!-- ADMIN INQUIRY MANAGEMENT SYSTEM MODAL                             -->
+    <!-- ================================================================= -->
+    <div x-show="adminModalOpen" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 scale-95"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-95"
+         class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-hidden"
+         x-cloak>
+        
+        <div @click="adminModalOpen = false" class="absolute inset-0"></div>
+
+        <div class="relative w-full max-w-5xl bg-slate-900 rounded-2xl sm:rounded-3xl shadow-2xl border border-white/15 z-10 flex flex-col max-h-[92vh] overflow-hidden">
+            
+            <!-- Modal Header -->
+            <div class="p-4 sm:p-6 bg-slate-950 border-b border-slate-800 flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600/20 border border-blue-500/40 text-blue-400 flex items-center justify-center text-xl font-bold">
+                        ⚙️
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="text-base sm:text-xl font-black text-white">WHOMEDIA 어드민 관리자</h3>
+                            <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-brand-mint/20 text-brand-mint border border-brand-mint/30">문의 접수 현황</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-0.5">실시간 문의 접수, 이메일 통보 상태 및 처리 진행률 관리</p>
+                    </div>
+                </div>
+                <button @click="adminModalOpen = false" class="text-slate-400 hover:text-white p-2 rounded-xl hover:bg-slate-800 transition-colors cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- Login Screen if Not Authenticated -->
+            <div x-show="!adminAuthenticated" class="p-8 sm:p-12 flex flex-col items-center justify-center text-center my-auto">
+                <div class="w-16 h-16 rounded-2xl bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center text-3xl mb-4 shadow-inner">
+                    🔒
+                </div>
+                <h4 class="text-lg sm:text-xl font-bold text-white mb-2">관리자 인증이 필요합니다</h4>
+                <p class="text-xs sm:text-sm text-slate-400 max-w-sm mb-6">어드민 전용 비밀번호를 입력하여 문의 접수 내역 및 상태 관리 시스템에 접속하세요.</p>
+                <form @submit.prevent="loginAdmin()" class="w-full max-w-sm space-y-4">
+                    <div>
+                        <input type="password" x-model="adminPasswordInput" placeholder="관리자 비밀번호 입력" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-mint text-center tracking-wider">
+                        <p x-show="adminPasswordError" class="text-xs text-red-400 font-medium mt-1.5">비밀번호가 올바르지 않습니다. (기본: whomedia123)</p>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-mint hover:bg-brand-mint-hover text-slate-950 font-black py-3 rounded-xl transition-all shadow-lg text-sm cursor-pointer">
+                        관리자 로그인
+                    </button>
+                    <p class="text-[11px] text-slate-500">테스트/초기 암호: <code class="text-brand-mint font-mono">whomedia123</code></p>
+                </form>
+            </div>
+
+            <!-- Main Dashboard Body if Authenticated -->
+            <div x-show="adminAuthenticated" class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5 bg-slate-900/90">
+                
+                <!-- Stats Bar -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div class="bg-slate-800/90 p-3.5 sm:p-4 rounded-xl border border-slate-700/80">
+                        <div class="text-xs text-slate-400 font-medium">전체 접수 건수</div>
+                        <div class="text-xl sm:text-2xl font-black text-white mt-1" x-text="adminInquiries.length + '건'"></div>
+                    </div>
+                    <div class="bg-amber-500/10 p-3.5 sm:p-4 rounded-xl border border-amber-500/30">
+                        <div class="text-xs text-amber-400 font-medium flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                            <span>접수대기 (신규)</span>
+                        </div>
+                        <div class="text-xl sm:text-2xl font-black text-amber-300 mt-1" x-text="getPendingCount() + '건'"></div>
+                    </div>
+                    <div class="bg-blue-500/10 p-3.5 sm:p-4 rounded-xl border border-blue-500/30">
+                        <div class="text-xs text-blue-400 font-medium flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                            <span>확인중 (담당자)</span>
+                        </div>
+                        <div class="text-xl sm:text-2xl font-black text-blue-300 mt-1" x-text="getReviewingCount() + '건'"></div>
+                    </div>
+                    <div class="bg-emerald-500/10 p-3.5 sm:p-4 rounded-xl border border-emerald-500/30">
+                        <div class="text-xs text-emerald-400 font-medium flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            <span>처리완료</span>
+                        </div>
+                        <div class="text-xl sm:text-2xl font-black text-emerald-300 mt-1" x-text="getCompletedCount() + '건'"></div>
+                    </div>
+                </div>
+
+                <!-- Control Bar: Search, Status Filter, CSV Export, Settings -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-slate-800/80 p-3 rounded-2xl border border-slate-700/80">
+                    
+                    <!-- Status Filter Tabs -->
+                    <div class="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-700/60 text-xs font-bold overflow-x-auto">
+                        <template x-for="st in ['전체', '접수대기', '확인중', '처리완료']">
+                            <button @click="adminFilterStatus = st" 
+                                    :class="adminFilterStatus === st ? 'bg-brand-mint text-slate-950 shadow-sm' : 'text-slate-400 hover:text-white'"
+                                    class="px-3 py-1.5 rounded-lg transition-all shrink-0 cursor-pointer"
+                                    x-text="st"></button>
+                        </template>
+                    </div>
+
+                    <!-- Search & Action Buttons -->
+                    <div class="flex items-center gap-2 flex-1 sm:flex-initial">
+                        <input type="text" x-model="adminSearchQuery" placeholder="회사명/담당자/내용 검색..." class="w-full sm:w-48 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs placeholder-slate-500 focus:outline-none focus:border-brand-mint">
+                        
+                        <button @click="exportInquiriesCSV()" class="px-3 py-1.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 text-xs font-bold transition-all flex items-center gap-1 shrink-0 cursor-pointer" title="CSV 엑셀로 다운로드">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            <span>CSV 다운로드</span>
+                        </button>
+
+                        <button @click="showEmailSetupGuide = !showEmailSetupGuide" class="px-3 py-1.5 rounded-xl bg-slate-700 hover:bg-slate-600 border border-slate-600 text-slate-200 text-xs font-bold transition-all flex items-center gap-1 shrink-0 cursor-pointer" title="이메일 연동 설정">
+                            <svg class="w-3.5 h-3.5 text-brand-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <span>알림 설정</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Email / Formspree Setup Panel -->
+                <div x-show="showEmailSetupGuide" x-transition class="bg-slate-800/90 p-4 rounded-2xl border border-brand-mint/30 space-y-3 text-xs text-slate-300">
+                    <div class="flex items-center justify-between font-bold text-brand-mint text-sm">
+                        <span class="flex items-center gap-2">
+                            <span>📧 직원 이메일 및 웹훅 연동 안내</span>
+                        </span>
+                        <button @click="showEmailSetupGuide = false" class="text-slate-400 hover:text-white">✕</button>
+                    </div>
+                    <p class="leading-relaxed">
+                        고객 문의 제출 시 Vercel 서버리스 API(<code class="text-brand-mint">/api/inquiry</code>)를 통해 직원 이메일 및 서버 통보가 수행됩니다. 
+                        직접 Formspree 엔드포인트를 지정하여 이메일로 즉시 수신하려면 아래에 URL을 입력하세요.
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <input type="text" x-model="formspreeUrl" placeholder="예: https://formspree.io/f/xknk..." class="flex-1 px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-mint">
+                        <button @click="saveFormspreeUrl()" class="px-4 py-2 bg-brand-mint text-slate-950 font-bold rounded-xl hover:bg-brand-mint-hover transition-colors">
+                            저장
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Inquiries List -->
+                <div class="space-y-3">
+                    <template x-if="getFilteredInquiries().length === 0">
+                        <div class="bg-slate-800/50 rounded-2xl p-8 text-center text-slate-400 border border-slate-700/50">
+                            <p class="text-sm font-medium">조회할 조건에 해당하는 문의 내역이 없습니다.</p>
+                        </div>
+                    </template>
+
+                    <template x-for="item in getFilteredInquiries()" :key="item.id">
+                        <div class="bg-slate-800/90 rounded-2xl p-4 sm:p-5 border border-slate-700/80 hover:border-slate-600 transition-all space-y-3 shadow-md">
+                            
+                            <!-- Item Header -->
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-700/60">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="text-base sm:text-lg font-black text-white" x-text="item.company"></span>
+                                    <span class="text-xs text-slate-300 font-bold bg-slate-700 px-2.5 py-0.5 rounded-md" x-text="item.name"></span>
+                                    <a :href="'tel:' + item.phone" class="text-xs text-brand-mint font-semibold hover:underline flex items-center gap-1 bg-brand-mint/10 px-2.5 py-0.5 rounded-md border border-brand-mint/20">
+                                        📞 <span x-text="item.phone"></span>
+                                    </a>
+                                    <span class="text-[11px] font-semibold text-blue-300 bg-blue-900/60 px-2.5 py-0.5 rounded-md border border-blue-700/50" x-text="item.category"></span>
+                                </div>
+
+                                <!-- Status Badge Dropdown Selector -->
+                                <div class="flex items-center gap-2 self-start sm:self-auto">
+                                    <span class="text-[11px] text-slate-400 font-medium">처리상태:</span>
+                                    <select :value="item.status" 
+                                            @change="updateInquiryStatus(item.id, $event.target.value)"
+                                            :class="{
+                                                'bg-amber-500/20 text-amber-300 border-amber-500/50': item.status === '접수대기',
+                                                'bg-blue-500/20 text-blue-300 border-blue-500/50': item.status === '확인중',
+                                                'bg-emerald-500/20 text-emerald-300 border-emerald-500/50': item.status === '처리완료'
+                                            }"
+                                            class="text-xs font-bold px-3 py-1 rounded-xl border focus:outline-none cursor-pointer">
+                                        <option value="접수대기" class="bg-slate-900 text-amber-300">🟡 접수대기</option>
+                                        <option value="확인중" class="bg-slate-900 text-blue-300">🔵 확인중</option>
+                                        <option value="처리완료" class="bg-slate-900 text-emerald-300">🟢 처리완료</option>
+                                    </select>
+
+                                    <button @click="deleteInquiry(item.id)" class="text-slate-500 hover:text-red-400 p-1.5 rounded-lg hover:bg-slate-700/50 transition-colors cursor-pointer" title="삭제">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Item Message Content -->
+                            <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/50 text-xs text-slate-200 leading-relaxed font-normal whitespace-pre-wrap" x-text="item.message"></div>
+
+                            <!-- Footer Metadata & Admin Memo -->
+                            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 pt-1 text-[11px] text-slate-400">
+                                <div class="flex items-center gap-2 text-slate-400">
+                                    <span>🕒 접수시각: <strong class="text-slate-300" x-text="item.createdAt"></strong></span>
+                                </div>
+                                <div class="flex items-center gap-2 flex-1 sm:max-w-md">
+                                    <span class="shrink-0 text-brand-mint font-semibold">📝 관리자 메모:</span>
+                                    <input type="text" 
+                                           :value="item.adminMemo || ''" 
+                                           @blur="saveAdminMemo(item.id, $event.target.value)"
+                                           @keyup.enter="saveAdminMemo(item.id, $event.target.value)"
+                                           placeholder="메모 작성 후 엔터 또는 포커스 해제 시 저장..." 
+                                           class="w-full px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-brand-mint">
+                                </div>
+                            </div>
+
+                        </div>
+                    </template>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 bg-slate-950 border-t border-slate-800 flex items-center justify-between shrink-0 text-xs text-slate-400">
+                <span class="flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Vercel 서버리스 &amp; 데이터 동기화 완료</span>
+                </span>
+                <button @click="adminModalOpen = false" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-colors cursor-pointer">
+                    닫기
+                </button>
+            </div>
+
         </div>
     </div>
 
