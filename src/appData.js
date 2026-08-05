@@ -78,8 +78,10 @@ document.addEventListener('alpine:init', () => {
         adminInquiries: [],
         adminFilterStatus: '전체',
         adminSearchQuery: '',
+        receiverEmail: localStorage.getItem('whomedia_receiver_email') || 'whomedia03@gmail.com, james5183@naver.com, apark12321@gmail.com',
         formspreeUrl: localStorage.getItem('whomedia_formspree_url') || '',
         showEmailSetupGuide: false,
+        testEmailSending: false,
 
         init() {
             setInterval(() => { this.currentKeywordIndex = (this.currentKeywordIndex + 1) % this.keywords.length; }, 2800);
@@ -107,9 +109,55 @@ document.addEventListener('alpine:init', () => {
                 this.adminPasswordError = true;
             }
         },
+        saveReceiverEmail() {
+            if (!this.receiverEmail || !this.receiverEmail.includes('@')) {
+                alert('올바른 이메일 주소를 입력해 주세요.');
+                return;
+            }
+            localStorage.setItem('whomedia_receiver_email', this.receiverEmail);
+            alert('담당자 수신 이메일 목록이 성공적으로 저장되었습니다:\n' + this.receiverEmail);
+        },
         saveFormspreeUrl() {
             localStorage.setItem('whomedia_formspree_url', this.formspreeUrl);
             alert('이메일/Formspree 연동 URL 설정이 저장되었습니다.');
+        },
+        async sendTestEmail() {
+            this.testEmailSending = true;
+            try {
+                const targetList = (this.receiverEmail || 'whomedia03@gmail.com, james5183@naver.com, apark12321@gmail.com')
+                    .split(',').map(e => e.trim()).filter(Boolean);
+                
+                let successCount = 0;
+                for (const email of targetList) {
+                    try {
+                        const res = await fetch('https://formsubmit.co/ajax/' + email, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            body: JSON.stringify({
+                                _subject: '[WHOMEDIA 시스템] 문의 수신 이메일 테스트 발송',
+                                _template: 'table',
+                                '테스트안내': 'WHOMEDIA 어드민 이메일 수신 정상 작동 테스트입니다.',
+                                '수신이메일': email,
+                                '발송시각': new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
+                            })
+                        });
+                        if (res.ok) successCount++;
+                    } catch(e) {
+                        console.error('Test email error for ' + email + ':', e);
+                    }
+                }
+
+                if (successCount > 0) {
+                    alert('수신 테스트 메일이 성공적으로 발송되었습니다.\n수신처: ' + targetList.join(', ') + '\n\n* 첫 수신 시 각 메일함에 FormSubmit 확인(Activation) 메일이 도달한 경우 1회 링크를 클릭하여 활성화해 주세요.');
+                } else {
+                    alert('테스트 메일 전송 응답에 실패했습니다.');
+                }
+            } catch(e) {
+                console.error('Test email error:', e);
+                alert('테스트 메일 전송 실패: 네트워크 오류가 발생했습니다.');
+            } finally {
+                this.testEmailSending = false;
+            }
         },
         async fetchAdminInquiries() {
             let serverInquiries = [];
@@ -165,6 +213,7 @@ document.addEventListener('alpine:init', () => {
                 adminMemo: ''
             };
 
+            // 1. Dispatch to Express Backend (/api/inquiry)
             try {
                 const res = await fetch('/api/inquiry', {
                     method: 'POST',
@@ -179,6 +228,35 @@ document.addEventListener('alpine:init', () => {
                 console.warn('Inquiry API dispatch fallback:', err);
             }
 
+            // 2. Direct client-side dispatch to FormSubmit API for target email list
+            const targetEmails = (this.receiverEmail || 'whomedia03@gmail.com, james5183@naver.com, apark12321@gmail.com')
+                .split(',').map(e => e.trim()).filter(Boolean);
+            
+            for (const email of targetEmails) {
+                try {
+                    await fetch('https://formsubmit.co/ajax/' + email, {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json' 
+                        },
+                        body: JSON.stringify({
+                            _subject: '[WHOMEDIA 신규 프로젝트 문의] ' + this.inquiryForm.company + ' - ' + this.inquiryForm.name + '님',
+                            _template: 'table',
+                            '기관/회사명': this.inquiryForm.company,
+                            '담당자': this.inquiryForm.name,
+                            '연락처': this.inquiryForm.phone,
+                            '문의유형': this.inquiryForm.category,
+                            '상세내용': this.inquiryForm.message,
+                            '접수시각': createdAt
+                        })
+                    });
+                } catch(e) {
+                    console.warn('Client direct email dispatch exception for ' + email + ':', e);
+                }
+            }
+
+            // 3. Formspree custom webhook if configured
             if (this.formspreeUrl && this.formspreeUrl.startsWith('http')) {
                 try {
                     await fetch(this.formspreeUrl, {
@@ -203,7 +281,7 @@ document.addEventListener('alpine:init', () => {
                 localStorage.setItem('whomedia_inquiries_v1', JSON.stringify(this.adminInquiries));
             } catch(e) {}
 
-            this.inquirySuccessMessage = '작성해주신 프로젝트/임대 문의가 담당 직원 이메일 및 어드민 시스템에 정상 접수되었습니다.';
+            this.inquirySuccessMessage = '작성해주신 프로젝트/임대 문의가 담당 직원 이메일(' + targetEmail + ') 및 어드민 시스템에 즉시 정상 접수되었습니다.';
             this.inquirySuccessModal = true;
             this.inquiryForm = { company: '', name: '', phone: '', category: '', message: '', consent: false };
             this.inquirySubmitting = false;

@@ -1949,23 +1949,55 @@
                     </div>
                 </div>
 
-                <!-- Email / Formspree Setup Panel -->
-                <div x-show="showEmailSetupGuide" x-transition class="bg-slate-800/90 p-4 rounded-2xl border border-brand-mint/30 space-y-3 text-xs text-slate-300">
-                    <div class="flex items-center justify-between font-bold text-brand-mint text-sm">
+                <!-- Email & Notification Relay Settings Panel -->
+                <div x-show="showEmailSetupGuide" x-transition class="bg-slate-800/95 p-4 sm:p-5 rounded-2xl border border-brand-mint/40 space-y-4 text-xs text-slate-300 shadow-xl">
+                    <div class="flex items-center justify-between font-bold text-brand-mint text-sm border-b border-slate-700/80 pb-2">
                         <span class="flex items-center gap-2">
-                            <span>📧 직원 이메일 및 웹훅 연동 안내</span>
+                            <span>📧 담당자 문의 수신 이메일 및 연동 설정</span>
                         </span>
-                        <button @click="showEmailSetupGuide = false" class="text-slate-400 hover:text-white">✕</button>
+                        <button @click="showEmailSetupGuide = false" class="text-slate-400 hover:text-white p-1">✕</button>
                     </div>
-                    <p class="leading-relaxed">
-                        고객 문의 제출 시 Vercel 서버리스 API(<code class="text-brand-mint">/api/inquiry</code>)를 통해 직원 이메일 및 서버 통보가 수행됩니다. 
-                        직접 Formspree 엔드포인트를 지정하여 이메일로 즉시 수신하려면 아래에 URL을 입력하세요.
-                    </p>
-                    <div class="flex items-center gap-2">
-                        <input type="text" x-model="formspreeUrl" placeholder="예: https://formspree.io/f/xknk..." class="flex-1 px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-mint">
-                        <button @click="saveFormspreeUrl()" class="px-4 py-2 bg-brand-mint text-slate-950 font-bold rounded-xl hover:bg-brand-mint-hover transition-colors">
-                            저장
-                        </button>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- 1. Receiver Email Setting -->
+                        <div class="space-y-2 bg-slate-900/80 p-3.5 rounded-xl border border-slate-700/60">
+                            <label class="block font-bold text-white text-xs">1. 담당 직원 수신 이메일 주소 (다중 수신 지원)</label>
+                            <p class="text-[11px] text-slate-400 leading-snug">
+                                고객 문의 접수 시 아래 등록된 모든 이메일(쉼표로 구분)로 문의 내역이 동시 수신됩니다.
+                            </p>
+                            <div class="flex items-center gap-2 pt-1">
+                                <input type="text" x-model="receiverEmail" placeholder="whomedia03@gmail.com, james5183@naver.com, apark12321@gmail.com" class="flex-1 px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-mint text-xs">
+                                <button @click="saveReceiverEmail()" class="px-3.5 py-2 bg-brand-mint text-slate-950 font-black rounded-xl hover:bg-brand-mint-hover transition-colors shrink-0 cursor-pointer">
+                                    저장
+                                </button>
+                            </div>
+                            <div class="pt-1">
+                                <button @click="sendTestEmail()" :disabled="testEmailSending" class="w-full py-2 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/40 text-blue-300 font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                                    <span x-show="!testEmailSending">✉️ 수신 테스트 메일 발송하기</span>
+                                    <span x-show="testEmailSending" class="flex items-center gap-1">
+                                        <svg class="animate-spin h-3.5 w-3.5 text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                                        <span>테스트 메일 전송 중...</span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Formspree / Webhook Setting -->
+                        <div class="space-y-2 bg-slate-900/80 p-3.5 rounded-xl border border-slate-700/60">
+                            <label class="block font-bold text-white text-xs">2. 외부 웹훅 / Formspree URL (선택)</label>
+                            <p class="text-[11px] text-slate-400 leading-snug">
+                                Slack, Telegram, Formspree 등 추가 수신 채널이 필요한 경우 URL을 설정하세요.
+                            </p>
+                            <div class="flex items-center gap-2 pt-1">
+                                <input type="text" x-model="formspreeUrl" placeholder="예: https://formspree.io/f/xknk..." class="flex-1 px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-mint text-xs">
+                                <button @click="saveFormspreeUrl()" class="px-3.5 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold rounded-xl transition-colors shrink-0 cursor-pointer">
+                                    저장
+                                </button>
+                            </div>
+                            <p class="text-[10px] text-slate-500 pt-1">
+                                * 기본 설정(<code class="text-brand-mint">whomedia03@gmail.com</code>)이 완료되어 있어 추가 웹훅이 없어도 이메일이 자동 발송됩니다.
+                            </p>
+                        </div>
                     </div>
                 </div>
 

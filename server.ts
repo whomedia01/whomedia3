@@ -72,10 +72,43 @@ async function startServer() {
 
       console.log(`[INQUIRY RECEIVED - Multi-Admin Broadcast]`, newInquiry);
 
-      // Webhook & Email Notification Broadcast (Formspree / EmailJS / Slack / Telegram)
+      // Webhook & Email Notification Relay to Receiver Emails
+      const defaultEmails = "whomedia03@gmail.com, james5183@naver.com, apark12321@gmail.com";
+      const rawTargetEmails = process.env.RECEIVER_EMAIL || defaultEmails;
+      const emailList = rawTargetEmails.split(",").map(e => e.trim()).filter(Boolean);
       const webhookUrl = process.env.SLACK_WEBHOOK_URL || process.env.INQUIRY_WEBHOOK_URL || process.env.FORMSPREE_URL;
       let emailSent = false;
 
+      // 1. Send via FormSubmit AJAX API to all target emails
+      for (const email of emailList) {
+        try {
+          const emailRes = await fetch(`https://formsubmit.co/ajax/${email}`, {
+            method: "POST",
+            headers: { 
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({
+              _subject: `[WHOMEDIA 신규 프로젝트 문의] ${company} - ${name}님`,
+              _template: "table",
+              "기관/회사명": company,
+              "담당자": name,
+              "연락처": phone,
+              "문의유형": category,
+              "상세내용": message,
+              "접수시각": createdAt
+            })
+          });
+          if (emailRes.ok) {
+            emailSent = true;
+            console.log(`[EMAIL DISPATCH SUCCESS] Inquiry email sent to ${email}`);
+          }
+        } catch (emailErr) {
+          console.error(`FormSubmit email dispatch error to ${email}:`, emailErr);
+        }
+      }
+
+      // 2. Custom Webhook / Formspree relay if configured
       if (webhookUrl) {
         try {
           await fetch(webhookUrl, {
@@ -93,7 +126,7 @@ async function startServer() {
           });
           emailSent = true;
         } catch (err) {
-          console.error("Email / Webhook dispatch failed:", err);
+          console.error("Webhook dispatch failed:", err);
         }
       }
 
