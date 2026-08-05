@@ -530,9 +530,21 @@ x-init="
             <style>
                 .hero-video-iframe {
                     display: block;
+                    background-color: #000000;
                 }
                 .hero-reduced-motion-bg {
                     display: none;
+                }
+                @media (max-width: 768px) {
+                    .hero-video-iframe {
+                        background-color: #000000;
+                    }
+                    .hero-video-iframe video {
+                        object-fit: contain !important;
+                        top: 50% !important;
+                        left: 50% !important;
+                        transform: translate(-50%, -50%) scale(1) !important;
+                    }
                 }
                 @media (prefers-reduced-motion: reduce) {
                     .hero-video-iframe {
