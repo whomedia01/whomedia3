@@ -3,13 +3,13 @@ import { PortfolioItem, DivisionItem, BusinessPillar, StudioPackage, StudioGalle
 export const COMPANY_INFO = {
   name: '(주)후미디어',
   brandName: 'HOOMEDIA',
-  phone: '02-6643-4222',
+  phone: '02-6443-4222',
   email: 'whomedia6104@gmail.com',
-  address: '서울특별시 마포구 매봉산로 37 DMC첨단산업센터 1102~1104호 (상암동 1622)',
-  ceo: '유용한',
-  bizNum: '119-86-20361',
-  mailOrderNum: '2020-서울마포-1102호',
-  mapUrl: 'https://maps.google.com/?q=서울특별시+마포구+매봉산로+37+DMC첨단산업센터'
+  address: '서울특별시 금천구 가산디지털2로 53 (가산동) 한라시그마밸리 1102~1104호',
+  ceo: '황광성',
+  bizNum: '119-86-25861',
+  mailOrderNum: '2020-서울금천-1102호',
+  mapUrl: 'https://maps.google.com/?q=서울특별시+금천구+가산디지털2로+53'
 };
 
 export const DIVISIONS_DATA: DivisionItem[] = [
