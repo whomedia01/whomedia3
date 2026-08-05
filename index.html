@@ -455,7 +455,7 @@ x-init="
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             
             <!-- [3D 백라이트 조명 LED 입체 발광 브랜드 로고 ( Montserrat 900 Ultra-Bold Font )] -->
-            <a href="#" class="flex items-center group py-0.5 select-none" title="(주)후미디어">
+            <a href="#" class="flex flex-col group py-0.5 select-none" title="(주)후미디어">
                 <div class="flex items-center text-xl sm:text-2xl font-black brand-logo-font tracking-tight transition-all duration-300"
                      :class="!scrolled ? 'logo-glow-dark-bg' : ''">
                     <!-- WHO in Crimson Red with 3D LED glow on dark background, solid crisp red on white background -->
@@ -465,6 +465,11 @@ x-init="
                     <span class="font-black transition-colors ml-[1px]"
                           :class="scrolled ? 'text-slate-900' : 'text-white'">MEDIA</span>
                 </div>
+                <!-- Sub-branding Tagline -->
+                <span class="hidden sm:inline-block text-[10px] sm:text-[11px] font-medium tracking-tight leading-none mt-0.5 transition-colors"
+                      :class="scrolled ? 'text-slate-500' : 'text-slate-300/90'">
+                    스마트한 교육과 미디어를 완성하는 전문가 그룹
+                </span>
             </a>
 
             <!-- Desktop Menu Links -->
@@ -586,14 +591,6 @@ x-init="
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-30 w-full my-auto pb-16 sm:pb-20">
             <div class="max-w-3xl text-left pt-2 sm:pt-4">
                 
-                <!-- Hero Tagline Badge -->
-                <div class="mb-3.5 sm:mb-4">
-                    <span class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-brand-mint text-xs sm:text-sm font-extrabold tracking-wide backdrop-blur-md shadow-sm">
-                        <span class="w-2 h-2 rounded-full bg-brand-mint animate-pulse"></span>
-                        <span>스마트한 교육과 미디어를 완성하는 전문가 그룹</span>
-                    </span>
-                </div>
-
                 <!-- Main Slogan -->
                 <h1 id="hero-headline" class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.25] tracking-tight mb-4 drop-shadow-md break-keep">
                     <span class="block font-black">
