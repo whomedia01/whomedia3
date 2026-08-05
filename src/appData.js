@@ -86,6 +86,7 @@ document.addEventListener('alpine:init', () => {
         init() {
             setInterval(() => { this.currentKeywordIndex = (this.currentKeywordIndex + 1) % this.keywords.length; }, 2800);
             this.startServiceAutoPlay();
+            this.startAboutAutoPlay();
             this.fetchAdminInquiries();
             this.checkAdminHash();
             window.addEventListener('hashchange', () => this.checkAdminHash());
@@ -402,6 +403,42 @@ document.addEventListener('alpine:init', () => {
         scrollToServiceCard() {
             const container = document.getElementById('services-cards-container');
             const targetCard = document.getElementById('service-card-' + this.activeServiceIndex);
+            if (container && targetCard) {
+                container.scrollTo({
+                    left: targetCard.offsetLeft - container.offsetLeft - 16,
+                    behavior: 'smooth'
+                });
+            }
+        },
+        aboutActiveIndex: 0,
+        aboutAutoTimer: null,
+        startAboutAutoPlay() {
+            if (this.aboutAutoTimer) clearInterval(this.aboutAutoTimer);
+            this.aboutAutoTimer = setInterval(() => {
+                this.nextAboutCard();
+            }, 4500);
+        },
+        stopAboutAutoPlay() {
+            if (this.aboutAutoTimer) {
+                clearInterval(this.aboutAutoTimer);
+                this.aboutAutoTimer = null;
+            }
+        },
+        nextAboutCard() {
+            this.aboutActiveIndex = (this.aboutActiveIndex + 1) % 5;
+            this.scrollToAboutCard();
+        },
+        prevAboutCard() {
+            this.aboutActiveIndex = (this.aboutActiveIndex + 4) % 5;
+            this.scrollToAboutCard();
+        },
+        selectAboutCard(index) {
+            this.aboutActiveIndex = index;
+            this.scrollToAboutCard();
+        },
+        scrollToAboutCard() {
+            const container = document.getElementById('about-cards-container');
+            const targetCard = document.getElementById('about-card-' + this.aboutActiveIndex);
             if (container && targetCard) {
                 container.scrollTo({
                     left: targetCard.offsetLeft - container.offsetLeft - 16,

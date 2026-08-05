@@ -691,10 +691,10 @@
                             </span>
                         </div>
                         <div class="p-5 sm:p-6">
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4 break-keep">
+                            <p class="text-sm sm:text-base text-slate-700 font-normal leading-relaxed mb-4 break-keep">
                                 학습 효과를 극대화하는 체계적인 교수설계(ID)와 맞춤형 기획력을 바탕으로, 공공기관 및 기업 교육 프로젝트에 최적화된 고품질 이러닝 콘텐츠를 개발합니다.
                             </p>
-                            <ul class="space-y-2 border-t border-slate-100 pt-3.5 text-xs font-semibold text-slate-700">
+                            <ul class="space-y-2.5 border-t border-slate-100 pt-3.5 text-xs sm:text-sm md:text-base font-semibold text-slate-800">
                                 <li class="flex items-start gap-2">
                                     <span class="text-teal-600 font-bold shrink-0">✔</span>
                                     <span>교육공학 기반 체계적 교수설계(ID) 및 맞춤형 개발</span>
@@ -733,10 +733,10 @@
                             </span>
                         </div>
                         <div class="p-5 sm:p-6">
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4 break-keep">
+                            <p class="text-sm sm:text-base text-slate-700 font-normal leading-relaxed mb-4 break-keep">
                                 160평 규모의 대형 4K 스튜디오 인프라와 장르별 전문 연출팀, 디지털 프레스·바이럴 마케팅을 하나로 통합하여 브랜드 신뢰도와 가시적 비즈니스 성과를 창출합니다.
                             </p>
-                            <ul class="space-y-2 border-t border-slate-100 pt-3.5 text-xs font-semibold text-slate-700">
+                            <ul class="space-y-2.5 border-t border-slate-100 pt-3.5 text-xs sm:text-sm md:text-base font-semibold text-slate-800">
                                 <li class="flex items-start gap-2">
                                     <span class="text-cyan-600 font-bold shrink-0">✔</span>
                                     <span>160평 대형 스튜디오 기반 고품질 4K 전문 영상 프로덕션</span>
@@ -775,10 +775,10 @@
                             </span>
                         </div>
                         <div class="p-5 sm:p-6">
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4 break-keep">
+                            <p class="text-sm sm:text-base text-slate-700 font-normal leading-relaxed mb-4 break-keep">
                                 온라인에서 경험할 수 없는 현장 밀착형 인사이트와 업계 최상위 전문가 그룹의 직강을 바탕으로 실무 현장에 즉시 적용 가능한 최고 수준의 실전 교육을 제공합니다.
                             </p>
-                            <ul class="space-y-2 border-t border-slate-100 pt-3.5 text-xs font-semibold text-slate-700">
+                            <ul class="space-y-2.5 border-t border-slate-100 pt-3.5 text-xs sm:text-sm md:text-base font-semibold text-slate-800">
                                 <li class="flex items-start gap-2">
                                     <span class="text-amber-600 font-bold shrink-0">✔</span>
                                     <span>업계 최상위 전문가 직강 및 1:1 맞춤 실무 피드백</span>
@@ -809,15 +809,13 @@
                 </template>
             </div>
 
-
-
         </div>
     </section>
 
     <!-- ================================================================= -->
     <!-- 4. BRAND STORY & PHILOSOPHY: 회사소개 (About Us)                 -->
     <!-- ================================================================= -->
-    <section id="about" class="py-12 sm:py-20 lg:py-28 bg-slate-900 text-white relative overflow-hidden border-b border-slate-800">
+    <section id="about" class="py-10 sm:py-16 bg-slate-900 text-white relative overflow-hidden border-b border-slate-800" @mouseenter="stopAboutAutoPlay()" @mouseleave="startAboutAutoPlay()">
         <!-- Background Glow & Mesh Grid -->
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(30,136,229,0.18),transparent_50%),radial-gradient(circle_at_bottom_left,rgba(0,210,132,0.12),transparent_50%)] pointer-events-none"></div>
         <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
@@ -825,111 +823,178 @@
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
             <!-- Category Badge & Header -->
-            <div class="text-center max-w-4xl mx-auto mb-10 sm:mb-16">
-                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold tracking-wider uppercase mb-3 shadow-xs">
+            <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold tracking-wider uppercase mb-2.5 shadow-xs">
                     <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
                     Brand Story &amp; Philosophy
                 </span>
-                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-6 break-keep">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight mb-3 break-keep">
                     스마트한 교육과 미디어를 완성하는 전문가 그룹, 후미디어
                 </h2>
+                
+                <!-- Quote Banner -->
+                <p class="text-xs sm:text-base font-medium text-blue-200/90 break-keep max-w-2xl mx-auto bg-slate-800/80 rounded-xl py-2 px-4 border border-slate-700/60 shadow-inner">
+                    "우리는 단순한 콘텐츠를 만들지 않습니다. 교육과 미디어의 본질을 꿰뚫고, 세상에 울림을 주는 가치를 창조합니다."
+                </p>
+            </div>
 
-                <!-- Elegant Quote Banner -->
-                <div class="relative bg-gradient-to-r from-slate-800/90 via-slate-800/70 to-slate-800/90 rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-slate-700/80 shadow-2xl backdrop-blur-md">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-serif text-2xl font-bold shadow-lg">
-                        “
-                    </div>
-                    <blockquote class="text-base sm:text-xl md:text-2xl font-extrabold text-blue-100 leading-relaxed tracking-tight break-keep pt-2">
-                        "우리는 단순한 콘텐츠를 만들지 않습니다.<br class="hidden sm:block"> 교육과 미디어의 본질을 꿰뚫고, 세상에 울림을 주는 가치를 창조합니다."
-                    </blockquote>
+            <!-- Horizontal Tab Pill Navigation & Prev/Next Controls (Centered Layout) -->
+            <div class="flex items-center justify-center gap-2 mb-4 sm:mb-6 relative">
+                <!-- Tab Selector Pills (Horizontal Centered, Scrollable on Mobile) -->
+                <div class="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1 px-1 max-w-full">
+                    <button type="button" @click="selectAboutCard(0)" :class="aboutActiveIndex === 0 ? 'bg-blue-600 text-white font-black border-blue-400 shadow-md scale-102 ring-2 ring-blue-500/30' : 'bg-slate-800/80 text-slate-300 border-slate-700/80 hover:bg-slate-700 hover:text-white font-medium'" class="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm border transition-all shrink-0 cursor-pointer flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full" :class="aboutActiveIndex === 0 ? 'bg-brand-mint animate-pulse' : 'bg-slate-500'"></span>
+                        <span>01. 브랜드 철학</span>
+                    </button>
+                    <button type="button" @click="selectAboutCard(1)" :class="aboutActiveIndex === 1 ? 'bg-blue-600 text-white font-black border-blue-400 shadow-md scale-102 ring-2 ring-blue-500/30' : 'bg-slate-800/80 text-slate-300 border-slate-700/80 hover:bg-slate-700 hover:text-white font-medium'" class="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm border transition-all shrink-0 cursor-pointer flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full" :class="aboutActiveIndex === 1 ? 'bg-brand-mint animate-pulse' : 'bg-slate-500'"></span>
+                        <span>02. 타협 없는 전문성</span>
+                    </button>
+                    <button type="button" @click="selectAboutCard(2)" :class="aboutActiveIndex === 2 ? 'bg-blue-600 text-white font-black border-blue-400 shadow-md scale-102 ring-2 ring-blue-500/30' : 'bg-slate-800/80 text-slate-300 border-slate-700/80 hover:bg-slate-700 hover:text-white font-medium'" class="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm border transition-all shrink-0 cursor-pointer flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full" :class="aboutActiveIndex === 2 ? 'bg-brand-mint animate-pulse' : 'bg-slate-500'"></span>
+                        <span>03. 진정성 있는 미디어</span>
+                    </button>
+                    <button type="button" @click="selectAboutCard(3)" :class="aboutActiveIndex === 3 ? 'bg-blue-600 text-white font-black border-blue-400 shadow-md scale-102 ring-2 ring-blue-500/30' : 'bg-slate-800/80 text-slate-300 border-slate-700/80 hover:bg-slate-700 hover:text-white font-medium'" class="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm border transition-all shrink-0 cursor-pointer flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full" :class="aboutActiveIndex === 3 ? 'bg-brand-mint animate-pulse' : 'bg-slate-500'"></span>
+                        <span>04. 지속 가능한 혁신</span>
+                    </button>
+                    <button type="button" @click="selectAboutCard(4)" :class="aboutActiveIndex === 4 ? 'bg-blue-600 text-white font-black border-blue-400 shadow-md scale-102 ring-2 ring-blue-500/30' : 'bg-slate-800/80 text-slate-300 border-slate-700/80 hover:bg-slate-700 hover:text-white font-medium'" class="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm border transition-all shrink-0 cursor-pointer flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full" :class="aboutActiveIndex === 4 ? 'bg-brand-mint animate-pulse' : 'bg-slate-500'"></span>
+                        <span>05. 미래 비전</span>
+                    </button>
+                </div>
+
+                <!-- Slider Arrows (Desktop & Tablet) -->
+                <div class="hidden sm:flex items-center gap-1.5 shrink-0 ml-1">
+                    <button type="button" @click="prevAboutCard()" aria-label="이전 카드" class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-blue-600 hover:border-blue-500 transition-all flex items-center justify-center cursor-pointer shadow-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button type="button" @click="nextAboutCard()" aria-label="다음 카드" class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-blue-600 hover:border-blue-500 transition-all flex items-center justify-center cursor-pointer shadow-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                    </button>
                 </div>
             </div>
 
-            <!-- Main Content Container: Philosophy & Values & Vision -->
-            <div class="space-y-10 sm:space-y-14">
+            <!-- Horizontal Compact Cards Carousel Container -->
+            <div id="about-cards-container" class="flex items-stretch gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory pb-4 pt-1 no-scrollbar scroll-smooth">
                 
-                <!-- Section 1: Brand Identity & Philosophy -->
-                <div class="bg-slate-800/50 rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-slate-700/60 shadow-xl backdrop-blur-sm">
-                    <div class="flex items-center gap-3 mb-3">
-                        <span class="w-3 h-3 rounded-full bg-brand-mint"></span>
-                        <h3 class="text-xs sm:text-sm font-extrabold text-brand-mint uppercase tracking-widest">Brand Identity &amp; Philosophy</h3>
-                    </div>
-                    <h4 class="text-xl sm:text-2xl md:text-3xl font-black text-white mb-4 leading-snug break-keep">
-                        교육과 미디어가 나아가야 할 가장 지혜로운 방향
-                    </h4>
-                    <p class="text-slate-300 text-sm sm:text-base md:text-lg font-normal leading-relaxed break-keep">
-                        후미디어가 걸어가는 길은 언제나 명확합니다. 우리는 급변하는 디지털 환경 속에서 교육과 미디어가 나아가야 할 가장 지혜로운 방향을 제시합니다. 
-                        보여주기식 형식을 넘어, 수많은 이들에게 실질적인 영감을 주고 성장을 이끌어내는 콘텐츠와 교육 시스템을 구축하는 것— 그것이 후미디어가 존재하는 이유이자 지향점입니다.
-                    </p>
-                </div>
-
-                <!-- Section 2: Our Core Values (우리가 일하는 방식) -->
-                <div>
-                    <div class="text-center mb-8 sm:mb-10">
-                        <span class="text-xs sm:text-sm font-extrabold text-blue-400 uppercase tracking-widest block mb-1">Our Core Values</span>
-                        <h3 class="text-xl sm:text-3xl font-black text-white tracking-tight">우리가 일하는 방식</h3>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                        
-                        <!-- Value 1 -->
-                        <div class="bg-slate-800/80 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-700/80 shadow-lg hover:border-blue-500/50 transition-all duration-300 group hover:-translate-y-1">
-                            <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 border border-blue-500/20 flex items-center justify-center font-black text-xl mb-5 group-hover:scale-110 transition-transform">
-                                01
-                            </div>
-                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">타협 없는 전문성</h4>
-                            <span class="inline-block text-xs font-semibold text-blue-400 mb-3">Uncompromised Expertise</span>
-                            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed break-keep">
-                                각 분야의 최고 전문가들이 모여 타협 없는 기준과 디테일로 결과물을 완성합니다. 기획부터 실행까지 모든 과정에서 압도적인 전문성을 증명합니다.
-                            </p>
+                <!-- Card 0: Brand Philosophy -->
+                <div id="about-card-0" @click="selectAboutCard(0)" :class="aboutActiveIndex === 0 ? 'border-blue-500 bg-slate-800/95 ring-2 ring-blue-500/40 shadow-2xl scale-100' : 'border-slate-700/70 bg-slate-800/50 hover:bg-slate-800/80 opacity-80 hover:opacity-100'" class="min-w-[88%] sm:min-w-[440px] md:min-w-[500px] snap-center rounded-2xl p-5 sm:p-7 border transition-all duration-300 flex flex-col justify-between cursor-pointer relative group">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-md bg-blue-500/20 text-blue-300 text-[11px] font-extrabold uppercase tracking-wider border border-blue-500/30">
+                                01. BRAND PHILOSOPHY
+                            </span>
+                            <span class="text-xs text-slate-300 font-bold">브랜드 철학</span>
                         </div>
-
-                        <!-- Value 2 -->
-                        <div class="bg-slate-800/80 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-700/80 shadow-lg hover:border-teal-500/50 transition-all duration-300 group hover:-translate-y-1">
-                            <div class="w-12 h-12 rounded-2xl bg-teal-500/10 text-brand-mint border border-teal-500/20 flex items-center justify-center font-black text-xl mb-5 group-hover:scale-110 transition-transform">
-                                02
-                            </div>
-                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">진정성 있는 교육과 미디어</h4>
-                            <span class="inline-block text-xs font-semibold text-brand-mint mb-3">Authentic Media &amp; Education</span>
-                            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed break-keep">
-                                화려한 기술에만 치우치지 않고, 그 안에 담긴 메시지와 교육적 본질을 깊이 있게 다룹니다. 대중과 학습자의 마음을 움직이는 진정성 있는 콘텐츠를 만듭니다.
-                            </p>
-                        </div>
-
-                        <!-- Value 3 -->
-                        <div class="bg-slate-800/80 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-700/80 shadow-lg hover:border-purple-500/50 transition-all duration-300 group hover:-translate-y-1">
-                            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center font-black text-xl mb-5 group-hover:scale-110 transition-transform">
-                                03
-                            </div>
-                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">지속 가능한 혁신</h4>
-                            <span class="inline-block text-xs font-semibold text-purple-400 mb-3">Sustainable Innovation</span>
-                            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed break-keep">
-                                정체되지 않고 끊임없이 새로운 패러다임을 연구하며, 급변하는 미디어 및 교육 시장을 선도하는 혁신의 파트너가 됩니다.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Section 3: Vision for the Future -->
-                <div class="relative bg-gradient-to-br from-blue-950/80 via-slate-800/90 to-slate-900/90 rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-blue-500/30 shadow-2xl overflow-hidden">
-                    <div class="absolute right-0 bottom-0 opacity-10 translate-x-8 translate-y-8 pointer-events-none">
-                        <svg class="w-64 h-64 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <div class="relative z-10">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="px-3 py-1 rounded-md bg-blue-500/20 text-blue-300 text-xs font-extrabold uppercase tracking-widest border border-blue-500/30">Vision for the Future</span>
-                        </div>
-                        <h4 class="text-xl sm:text-2xl md:text-3xl font-black text-white mb-4 leading-snug break-keep">
-                            대한민국의 스마트한 미래를 완성하는 든든한 기준
-                        </h4>
-                        <p class="text-slate-200 text-sm sm:text-base md:text-lg font-normal leading-relaxed break-keep">
-                            후미디어는 교육과 미디어의 경계를 넘어, 사람과 비즈니스를 가장 가치 있게 연결하는 통합 전문가 그룹으로 도약하고 있습니다. 
-                            우리가 만들어가는 모든 콘텐츠와 교육 프로그램은 대한민국의 스마트한 미래를 완성하는 든든한 기준이 될 것입니다.
+                        <h3 class="text-lg sm:text-xl font-extrabold text-white mb-2.5 leading-snug break-keep group-hover:text-blue-300 transition-colors">
+                            교육과 미디어가 나아가야 할 가장 지혜로운 방향
+                        </h3>
+                        <p class="text-slate-200 text-sm sm:text-base leading-relaxed break-keep font-normal">
+                            후미디어가 걸어가는 길은 언제나 명확합니다. 우리는 급변하는 디지털 환경 속에서 교육과 미디어가 나아가야 할 가장 지혜로운 방향을 제시합니다. 보여주기식 형식을 넘어, 수많은 이들에게 실질적인 영감을 주고 성장을 이끌어내는 콘텐츠와 교육 시스템을 구축합니다.
                         </p>
                     </div>
+                    <div class="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs sm:text-sm text-blue-400 font-semibold">
+                        <span>상세 탐색하기</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </div>
                 </div>
 
+                <!-- Card 1: Core Value 01 - Uncompromised Expertise -->
+                <div id="about-card-1" @click="selectAboutCard(1)" :class="aboutActiveIndex === 1 ? 'border-blue-500 bg-slate-800/95 ring-2 ring-blue-500/40 shadow-2xl scale-100' : 'border-slate-700/70 bg-slate-800/50 hover:bg-slate-800/80 opacity-80 hover:opacity-100'" class="min-w-[88%] sm:min-w-[440px] md:min-w-[500px] snap-center rounded-2xl p-5 sm:p-7 border transition-all duration-300 flex flex-col justify-between cursor-pointer relative group">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-md bg-blue-500/20 text-blue-300 text-[11px] font-extrabold uppercase tracking-wider border border-blue-500/30">
+                                02. CORE VALUE 01
+                            </span>
+                            <span class="text-xs text-blue-400 font-bold">Uncompromised Expertise</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-white mb-2.5 leading-snug break-keep group-hover:text-blue-300 transition-colors">
+                            타협 없는 전문성
+                        </h3>
+                        <p class="text-slate-200 text-sm sm:text-base leading-relaxed break-keep font-normal">
+                            각 분야의 최고 전문가들이 모여 타협 없는 기준과 디테일로 결과물을 완성합니다. 기획부터 실행까지 모든 과정에서 압도적인 전문성을 증명하며, 신뢰할 수 있는 최상의 가치를 선사합니다.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs sm:text-sm text-blue-400 font-semibold">
+                        <span>상세 탐색하기</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </div>
+                </div>
+
+                <!-- Card 2: Core Value 02 - Authentic Media & Education -->
+                <div id="about-card-2" @click="selectAboutCard(2)" :class="aboutActiveIndex === 2 ? 'border-teal-500 bg-slate-800/95 ring-2 ring-teal-500/40 shadow-2xl scale-100' : 'border-slate-700/70 bg-slate-800/50 hover:bg-slate-800/80 opacity-80 hover:opacity-100'" class="min-w-[88%] sm:min-w-[440px] md:min-w-[500px] snap-center rounded-2xl p-5 sm:p-7 border transition-all duration-300 flex flex-col justify-between cursor-pointer relative group">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-md bg-teal-500/20 text-brand-mint text-[11px] font-extrabold uppercase tracking-wider border border-teal-500/30">
+                                03. CORE VALUE 02
+                            </span>
+                            <span class="text-xs text-brand-mint font-bold">Authentic Media &amp; Education</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-white mb-2.5 leading-snug break-keep group-hover:text-brand-mint transition-colors">
+                            진정성 있는 교육과 미디어
+                        </h3>
+                        <p class="text-slate-200 text-sm sm:text-base leading-relaxed break-keep font-normal">
+                            화려한 기술에만 치우치지 않고, 그 안에 담긴 메시지와 교육적 본질을 깊이 있게 다룹니다. 대중과 학습자의 마음을 움직이는 진정성 있는 콘텐츠를 만들어냅니다.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs sm:text-sm text-brand-mint font-semibold">
+                        <span>상세 탐색하기</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </div>
+                </div>
+
+                <!-- Card 3: Core Value 03 - Sustainable Innovation -->
+                <div id="about-card-3" @click="selectAboutCard(3)" :class="aboutActiveIndex === 3 ? 'border-purple-500 bg-slate-800/95 ring-2 ring-purple-500/40 shadow-2xl scale-100' : 'border-slate-700/70 bg-slate-800/50 hover:bg-slate-800/80 opacity-80 hover:opacity-100'" class="min-w-[88%] sm:min-w-[440px] md:min-w-[500px] snap-center rounded-2xl p-5 sm:p-7 border transition-all duration-300 flex flex-col justify-between cursor-pointer relative group">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-md bg-purple-500/20 text-purple-300 text-[11px] font-extrabold uppercase tracking-wider border border-purple-500/30">
+                                04. CORE VALUE 03
+                            </span>
+                            <span class="text-xs text-purple-300 font-bold">Sustainable Innovation</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-white mb-2.5 leading-snug break-keep group-hover:text-purple-300 transition-colors">
+                            지속 가능한 혁신
+                        </h3>
+                        <p class="text-slate-200 text-sm sm:text-base leading-relaxed break-keep font-normal">
+                            정체되지 않고 끊임없이 새로운 패러다임을 연구하며, 급변하는 미디어 및 교육 시장을 선도하는 혁신의 파트너가 됩니다. 지속 선도 가능한 독보적 가치를 축적합니다.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs sm:text-sm text-purple-300 font-semibold">
+                        <span>상세 탐색하기</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </div>
+                </div>
+
+                <!-- Card 4: Vision for the Future -->
+                <div id="about-card-4" @click="selectAboutCard(4)" :class="aboutActiveIndex === 4 ? 'border-amber-500 bg-slate-800/95 ring-2 ring-amber-500/40 shadow-2xl scale-100' : 'border-slate-700/70 bg-slate-800/50 hover:bg-slate-800/80 opacity-80 hover:opacity-100'" class="min-w-[88%] sm:min-w-[440px] md:min-w-[500px] snap-center rounded-2xl p-5 sm:p-7 border transition-all duration-300 flex flex-col justify-between cursor-pointer relative group">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-300 text-[11px] font-extrabold uppercase tracking-wider border border-amber-500/30">
+                                05. FUTURE VISION
+                            </span>
+                            <span class="text-xs text-amber-300 font-bold">미래 비전</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-white mb-2.5 leading-snug break-keep group-hover:text-amber-300 transition-colors">
+                            대한민국의 스마트한 미래를 완성하는 든든한 기준
+                        </h3>
+                        <p class="text-slate-200 text-sm sm:text-base leading-relaxed break-keep font-normal">
+                            후미디어는 교육과 미디어의 경계를 넘어, 사람과 비즈니스를 가장 가치 있게 연결하는 통합 전문가 그룹으로 도약하고 있습니다. 스마트한 미래를 완성하는 든든한 기준이 될 것입니다.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs sm:text-sm text-amber-300 font-semibold">
+                        <span>상세 탐색하기</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Indicator Dots -->
+            <div class="flex items-center justify-center gap-2 mt-4 sm:mt-6">
+                <template x-for="(dot, idx) in [0, 1, 2, 3, 4]" :key="idx">
+                    <button type="button" @click="selectAboutCard(idx)" :aria-label="(idx + 1) + '번 카드로 이동'" :class="aboutActiveIndex === idx ? 'w-7 bg-blue-500 scale-105' : 'w-2 bg-slate-700 hover:bg-slate-500'" class="h-2 rounded-full transition-all cursor-pointer"></button>
+                </template>
             </div>
 
         </div>
