@@ -87,6 +87,7 @@ document.addEventListener('alpine:init', () => {
             setInterval(() => { this.currentKeywordIndex = (this.currentKeywordIndex + 1) % this.keywords.length; }, 2800);
             this.startServiceAutoPlay();
             this.startAboutAutoPlay();
+            this.startStudioAutoPlay();
             this.fetchAdminInquiries();
             this.checkAdminHash();
             window.addEventListener('hashchange', () => this.checkAdminHash());
@@ -412,6 +413,108 @@ document.addEventListener('alpine:init', () => {
         },
         aboutActiveIndex: 0,
         aboutAutoTimer: null,
+
+        // [스튜디오 & 제작 환경 확장형 데이터 베이스 & 슬라이더 관리]
+        activeStudioIndex: 0,
+        studioAutoTimer: null,
+        studioTouchStartX: 0,
+        studioTouchEndX: 0,
+
+        studioInfrastructure: [
+            {
+                id: 'smart_board_studio',
+                tag: '전자칠판 스튜디오',
+                tagColor: 'text-brand-mint border-brand-mint/30 bg-brand-mint/15',
+                title: '86인치 UHD 스마트 전자칠판 스튜디오',
+                imageUrl: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=85',
+                thumbUrl: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                id: 'green_board_studio',
+                tag: '녹색 칠판 스튜디오',
+                tagColor: 'text-teal-300 border-teal-500/30 bg-teal-500/15',
+                title: '특수 무반사 조명 판서 칠판 스튜디오',
+                imageUrl: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=85',
+                thumbUrl: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                id: 'chromakey_studio',
+                tag: '크로마키 스튜디오',
+                tagColor: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/15',
+                title: '6.6m 대형 곡면 크로마키 세트',
+                imageUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=85',
+                thumbUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                id: 'camera_lighting',
+                tag: '4K 방송 카메라 & 조명',
+                tagColor: 'text-purple-400 border-purple-500/30 bg-purple-500/15',
+                title: '4K 멀티 방송용 카메라 & 전문 조명 세팅',
+                imageUrl: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=1200&q=85',
+                thumbUrl: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                id: 'lecture_practice_studio',
+                tag: '강의 및 실습 스튜디오',
+                tagColor: 'text-blue-400 border-blue-500/30 bg-blue-500/15',
+                title: '브랜딩 미디어 & 좌담회 촬영 세트',
+                imageUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85',
+                thumbUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                id: 'control_room',
+                tag: '방송용 부조정실',
+                tagColor: 'text-cyan-400 border-cyan-500/30 bg-cyan-500/15',
+                title: '실시간 다채널 스위쳐 부조정실',
+                imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85',
+                thumbUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=80'
+            },
+            {
+                id: 'dressing_room',
+                tag: '분장 & 대기실',
+                tagColor: 'text-amber-300 border-amber-500/30 bg-amber-500/15',
+                title: '출연진 프라이빗 분장실 & 파우더룸',
+                imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=85',
+                thumbUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80'
+            }
+        ],
+
+        startStudioAutoPlay() {
+            if (this.studioAutoTimer) clearInterval(this.studioAutoTimer);
+            this.studioAutoTimer = setInterval(() => {
+                this.nextStudioSlide();
+            }, 3800);
+        },
+        stopStudioAutoPlay() {
+            if (this.studioAutoTimer) {
+                clearInterval(this.studioAutoTimer);
+                this.studioAutoTimer = null;
+            }
+        },
+        nextStudioSlide() {
+            if (!this.studioInfrastructure || this.studioInfrastructure.length === 0) return;
+            this.activeStudioIndex = (this.activeStudioIndex + 1) % this.studioInfrastructure.length;
+            this.scrollStudioThumbnail();
+        },
+        prevStudioSlide() {
+            if (!this.studioInfrastructure || this.studioInfrastructure.length === 0) return;
+            this.activeStudioIndex = (this.activeStudioIndex + this.studioInfrastructure.length - 1) % this.studioInfrastructure.length;
+            this.scrollStudioThumbnail();
+        },
+        selectStudioSlide(index) {
+            this.activeStudioIndex = index;
+            this.scrollStudioThumbnail();
+        },
+        scrollStudioThumbnail() {
+            const container = document.getElementById('studio-thumbs-container');
+            const target = document.getElementById('studio-thumb-' + this.activeStudioIndex);
+            if (container && target) {
+                container.scrollTo({
+                    left: target.offsetLeft - container.offsetLeft - (container.clientWidth / 2) + (target.clientWidth / 2),
+                    behavior: 'smooth'
+                });
+            }
+        },
         startAboutAutoPlay() {
             if (this.aboutAutoTimer) clearInterval(this.aboutAutoTimer);
             this.aboutAutoTimer = setInterval(() => {

@@ -35,7 +35,7 @@ export const StudioGallery: React.FC = () => {
               STUDIO / RENT GALLERY
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-3">
-              160평 최첨단 스튜디오 & 미디어 인프라 갤러리
+              160평 최첨단 스튜디오 & 제작 환경 갤러리
             </h2>
           </div>
 
